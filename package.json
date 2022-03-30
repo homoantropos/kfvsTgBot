@@ -1,0 +1,19 @@
+{
+  "name": "kfvstgbot",
+  "version": "1.0.0",
+  "description": "the all newest about studdents physical culture and sport in Ukraine",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index",
+    "serve": "nodemon index"
+  },
+  "author": "Sergii Antropov, Andrii Volovod",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3",
+    "node-telegram-bot-api": "^0.56.0",
+    "nodemon": "^2.0.15"
+  }
+}
