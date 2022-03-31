@@ -68,6 +68,7 @@ bot.hears('Завершити роботу', ctx => {
             remove_keyboard: true
         }
     });
+    ctx.leaveChat();
 });
 
 bot.on('callback_query', ctx => {

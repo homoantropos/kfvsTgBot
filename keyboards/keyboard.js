@@ -33,7 +33,8 @@ exports.physical_culture = [
             text: 'Cool Games'
         },
         {
-            text: 'Cool Race'
+            text: 'Cool Race',
+            callback_data: 'Функція в розробці'
         },
         {
             text: 'Заняття на природі'
