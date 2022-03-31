@@ -8,7 +8,7 @@ exports.contacts = `
 
 <b>Відділ спорту:</b>
 <i>тел.:</i> 044 486 62 19
-<i>email: port_vnz@ukr.net</i>
+<i>email: sport_vnz@ukr.net</i>
 
 <b>Відділ фізичного виховання:</b>
 <i>тел.:</i> 044 486 49 61
