@@ -1,6 +1,7 @@
 const {Telegraf} = require('telegraf');
 const keys = require('./config/keys');
 const keyboards = require('./keyboards/keyboard');
+const views = require('./views/views');
 
 const bot = new Telegraf(keys.token);
 
@@ -11,10 +12,10 @@ bot.start(ctx => {
             keyboard: keyboards.start
         }
     });
-})
+});
 
 bot.hears('Фізична культура', ctx => {
-    ctx.reply( `Вітаємо на сторінці фізичної культури`, {
+    ctx.reply(`Вітаємо на сторінці фізичної культури`, {
         reply_markup: {
             keyboard: keyboards.physical_culture
         }
@@ -26,7 +27,7 @@ bot.hears('Спорт', ctx => {
 });
 
 bot.hears('Контакти', ctx => {
-    ctx.reply(`Функція в розробці`);
+    ctx.reply(views.contacts, {parse_mode: 'HTML'});
 });
 
 bot.hears('Заняття вдома', ctx => {
@@ -38,7 +39,7 @@ bot.hears('Уроки', ctx => {
 });
 
 bot.hears('Cool Games', ctx => {
-    ctx.reply('для повернення до меню натисніть "Назад"',{
+    ctx.reply('для повернення до меню натисніть "Назад"', {
         reply_markup: {
             remove_keyboard: true
         },
@@ -68,15 +69,22 @@ bot.hears('Завершити роботу', ctx => {
             remove_keyboard: true
         }
     });
-    ctx.leaveChat();
 });
 
 bot.on('callback_query', ctx => {
-    ctx.reply( `Вітаємо на сторінці фізичної культури`, {
-        reply_markup: {
-            keyboard: keyboards.physical_culture
-        }
-    });
+    const {callback_query: {data}} = ctx.update;
+    switch (data) {
+        case ('Фізична культура') :
+            ctx.reply(`Вітаємо на сторінці фізичної культури`, {
+                reply_markup: {
+                    keyboard: keyboards.physical_culture
+                }
+            });
+            break
+        case ('Функція в розробці') :
+            ctx.answerCbQuery(data);
+            break
+    }
 })
 
 module.exports = bot

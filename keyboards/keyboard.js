@@ -45,6 +45,9 @@ exports.physical_culture = [
     ],
     [
         {
+          text: '/start'
+        },
+        {
             text: 'Завершити роботу'
         }
     ]
