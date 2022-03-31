@@ -45,7 +45,7 @@ exports.physical_culture = [
     ],
     [
         {
-          text: '/start'
+            text: '/start'
         },
         {
             text: 'Завершити роботу'
@@ -79,3 +79,19 @@ exports.cool_games = [
         }
     ]
 ]
+
+exports.home = [
+    [
+        {
+            text: 'Відео підбірка',
+            url: 'http://sportmon.org/fizychne-vyhovannya-onlajn/'
+        }
+    ],
+    [
+        {
+            text: 'Назад',
+            callback_data: 'Фізична культура'
+        }
+    ]
+]
+

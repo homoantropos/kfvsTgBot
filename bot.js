@@ -31,7 +31,16 @@ bot.hears('Контакти', ctx => {
 });
 
 bot.hears('Заняття вдома', ctx => {
-    ctx.reply(`Функція в розробці`);
+    ctx.reply('для повернення до меню натисніть "Назад"', {
+        reply_markup: {
+            remove_keyboard: true
+        },
+    });
+    ctx.reply(`Фізична культура он-лайн`, {
+        reply_markup: {
+            inline_keyboard: keyboards.home
+        },
+    });
 });
 
 bot.hears('Уроки', ctx => {
