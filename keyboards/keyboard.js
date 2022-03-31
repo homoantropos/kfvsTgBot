@@ -30,6 +30,12 @@ exports.physical_culture = [
     ],
     [
         {
+            text: 'Cool Games'
+        },
+        {
+            text: 'Cool Race'
+        },
+        {
             text: 'Заняття на природі'
         },
         {
@@ -39,6 +45,33 @@ exports.physical_culture = [
     [
         {
             text: 'Завершити роботу'
+        }
+    ]
+]
+
+exports.cool_games = [
+    [
+        {
+            text: 'Правила Cool Games',
+            url: 'https://youtu.be/NOWW6OUmmmU'
+        }
+    ],
+    [
+        {
+            text: 'Естафети Cool Games',
+            url: 'https://youtu.be/NPfYAt-74tw'
+        }
+    ],
+    [
+        {
+            text: 'Використання Cool Games на уроках фізичної культури',
+            url: 'https://youtu.be/wzYyl6BjPAc'
+        }
+    ],
+    [
+        {
+            text: 'Назад',
+            callback_data: 'Фізична культура'
         }
     ]
 ]

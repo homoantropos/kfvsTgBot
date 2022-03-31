@@ -6,8 +6,7 @@ const bot = new Telegraf(keys.token);
 
 bot.start(ctx => {
     const {from: {first_name}} = ctx.update.message;
-    const {chat: {id}} = ctx.update.message;
-    ctx.telegram.sendMessage(id, `Привіт, ${first_name}! Для продовження обери, що тебе цікавить:`, {
+    ctx.reply(`Привіт, ${first_name}! Для продовження обери, що тебе цікавить:`, {
         reply_markup: {
             keyboard: keyboards.start
         }
@@ -15,21 +14,68 @@ bot.start(ctx => {
 })
 
 bot.hears('Фізична культура', ctx => {
-    const {chat: {id}} = ctx.update.message;
-    ctx.telegram.sendMessage(id, `Вітаємо на сторінці фізичної культури`, {
+    ctx.reply( `Вітаємо на сторінці фізичної культури`, {
         reply_markup: {
             keyboard: keyboards.physical_culture
         }
     });
 });
 
+bot.hears('Спорт', ctx => {
+    ctx.reply(`Функція в розробці`);
+});
+
+bot.hears('Контакти', ctx => {
+    ctx.reply(`Функція в розробці`);
+});
+
+bot.hears('Заняття вдома', ctx => {
+    ctx.reply(`Функція в розробці`);
+});
+
+bot.hears('Уроки', ctx => {
+    ctx.reply(`Функція в розробці`);
+});
+
+bot.hears('Cool Games', ctx => {
+    ctx.reply('для повернення до меню натисніть "Назад"',{
+        reply_markup: {
+            remove_keyboard: true
+        },
+    });
+    ctx.reply(`Все про Cool Games`, {
+        reply_markup: {
+            inline_keyboard: keyboards.cool_games
+        },
+    });
+});
+
+bot.hears('Cool Race', ctx => {
+    ctx.reply(`Функція в розробці`);
+});
+
+bot.hears('Заняття на природі', ctx => {
+    ctx.reply(`Функція в розробці`);
+});
+
+bot.hears('Турніки', ctx => {
+    ctx.reply(`Функція в розробці`);
+});
+
 bot.hears('Завершити роботу', ctx => {
-    const {chat: {id}} = ctx.update.message;
-    ctx.telegram.sendMessage(id, `Дякуємо, що завітали!`, {
+    ctx.reply(`Дякуємо, що завітали!`, {
         reply_markup: {
             remove_keyboard: true
         }
     });
 });
+
+bot.on('callback_query', ctx => {
+    ctx.reply( `Вітаємо на сторінці фізичної культури`, {
+        reply_markup: {
+            keyboard: keyboards.physical_culture
+        }
+    });
+})
 
 module.exports = bot
