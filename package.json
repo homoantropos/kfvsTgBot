@@ -3,10 +3,15 @@
   "version": "1.0.0",
   "description": "the all newest about studdents physical culture and sport in Ukraine",
   "main": "index.js",
+  "engines": {
+    "node":"16.13.2",
+    "npm": "8.1.2"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index",
-    "serve": "nodemon index"
+    "serve": "nodemon index",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false"
   },
   "author": "Sergii Antropov, Andrii Volovod",
   "license": "ISC",
