@@ -9,6 +9,9 @@ exports.start = [
     ],
     [
         {
+          text: 'Семінари'
+        },
+        {
             text: 'Контакти'
         }
     ],
@@ -96,17 +99,28 @@ exports.home = [
 ]
 
 exports.lessons = [
-    [
-        {
-            text: 'Модельна навчальна програма «Фізична культура. 5-6 класи»',
-            url: 'https://drive.google.com/drive/u/2/folders/1KB2WRyGBgNwcETclvsBVbuRCpl-g2OKs'
-        }
-    ],
-    [
-        {
-            text: 'Назад',
-            callback_data: 'Фізична культура'
-        }
-    ]
+    [{
+        text: 'Модельна навчальна програма «Фізична культура. 5-6 класи»',
+        url: 'https://drive.google.com/drive/u/2/folders/1KB2WRyGBgNwcETclvsBVbuRCpl-g2OKs'
+    }],
+    [{
+        text: 'Назад',
+        callback_data: 'Фізична культура'
+    }]
 ]
 
+exports.seminars = [
+    [{
+        text: 'Використання інструментів Google для організації' +
+            'та проведення спортивно-масових та спортивних заходів серед учнівської та студентської молоді',
+        url: 'https://www.youtube.com/watch?v=UCneUoF4lPc&list=PL5mJysZpAYRYqSPmRTOPDhC2xKS1vo2Ze'
+    }],
+    [{
+        text: 'Планування та організація проведення заходів',
+        url: 'https://youtube.com/playlist?list=PL5mJysZpAYRapEDqABQtSGqfhEsBZljrE'
+    }],
+    [{
+        text: 'Назад',
+        callback_data: '/start'
+    }]
+]
