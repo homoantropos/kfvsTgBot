@@ -44,7 +44,16 @@ bot.hears('Заняття вдома', ctx => {
 });
 
 bot.hears('Уроки', ctx => {
-    ctx.reply(`Функція в розробці`);
+    ctx.reply('для повернення до меню натисніть "Назад"', {
+        reply_markup: {
+            remove_keyboard: true
+        },
+    });
+    ctx.reply('Модельна навчальна програма «Фізична культура. 5-6 класи»', {
+        reply_markup: {
+            inline_keyboard: keyboards.lessons
+        },
+    });
 });
 
 bot.hears('Cool Games', ctx => {

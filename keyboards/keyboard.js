@@ -95,3 +95,18 @@ exports.home = [
     ]
 ]
 
+exports.lessons = [
+    [
+        {
+            text: 'Модельна навчальна програма «Фізична культура. 5-6 класи»',
+            url: 'https://drive.google.com/drive/u/2/folders/1KB2WRyGBgNwcETclvsBVbuRCpl-g2OKs'
+        }
+    ],
+    [
+        {
+            text: 'Назад',
+            callback_data: 'Фізична культура'
+        }
+    ]
+]
+
