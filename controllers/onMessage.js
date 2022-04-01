@@ -85,7 +85,6 @@ module.exports = ctx => {
                 `Дякуємо, що завітали!`,
                 {reply_markup: {remove_keyboard: true}}
             );
-            ctx.telegram.close();
             break;
 
         default :
