@@ -8,8 +8,10 @@ app.listen(port, () => {
     console.log(`Server is running on ${port} port`)
 });
 
-setTimeout(
-    () => http.get('https://kfvstgbot.herokuapp.com/'), 1000*60*10
+setInterval(
+    () => {
+        http.get('https://kfvstgbot.herokuapp.com/')
+    }, 1000*60*10
 );
 
 app.use(router.get('/'), (req, res) => {
