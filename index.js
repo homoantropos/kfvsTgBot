@@ -8,6 +8,10 @@ app.listen(port, () => {
 });
 
 setTimeout(
-    () => router.get('https://kfvstgbot.herokuapp.com/'), 1000*60*10
+    () => router.get('https://kfvstgbot.herokuapp.com/', (req, res) => {
+        res.status(200).json({
+            message: 'well come'
+        })
+    }), 1000*60*10
 );
 
