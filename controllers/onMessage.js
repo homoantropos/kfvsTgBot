@@ -1,4 +1,3 @@
-const bot = require('../bot');
 const inlineKBRDS = require('../keyboards/inlineKeyboards');
 const keyboards = require("../keyboards/keyboard");
 const views = require("../views/views");
