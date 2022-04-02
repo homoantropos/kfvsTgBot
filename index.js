@@ -12,7 +12,7 @@ setInterval(
     () => {
         reque = https.get('https://kfvstgbot.herokuapp.com/');
         console.log(reque);
-    }, 10000
+    }, 1000*60*10
 );
 
 app.use(router.get('/'), (req, res) => {
