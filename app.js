@@ -2,7 +2,10 @@ const express = require('express');
 const app = express();
 const bot = require('./bot');
 const bodyParser = require("body-parser");
+const passport = require('passport');
+
 const sequelize = require('./database/sequelize');
+
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json({limit: '50mb'}));

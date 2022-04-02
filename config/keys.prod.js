@@ -1,4 +1,5 @@
 module.exports = {
+    jwt: process.env.JWT,
     token: process.env.BOT_TOKEN,
     dbHost: process.env.DATABASE_HOST,
     dbName: process.env.DATABASE_NAME,
