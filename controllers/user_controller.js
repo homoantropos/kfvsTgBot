@@ -17,7 +17,7 @@ class User_controller {
             const user = await User.findOne({
                 where: {email: req.body.email}
             });
-            res.status(201).json(user);
+            res.status(201).json(user[0]);
         } catch (error) {
             res.status(500).json({
                 message: error.message ? error.message : error
