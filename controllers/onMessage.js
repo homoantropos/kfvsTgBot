@@ -43,7 +43,7 @@ module.exports = ctx => {
             );
             break;
 
-        case('Слава Україні') :
+        case('Слава Україні!') :
             ctx.reply(
                 `Героям слава!!!`
             );
