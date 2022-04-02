@@ -2,7 +2,7 @@ const Subscriber = require('../models/Subscriber');
 
 class Subscriber_controller {
 
-    async createSubscriber(ctx) {
+    async createSubscriber(ctx, res) {
         try {
             const {message: {from: {id}}} = ctx.update;
             const {message: {from: {first_name}}} = ctx.update;
