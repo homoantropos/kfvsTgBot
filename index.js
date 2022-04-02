@@ -9,11 +9,7 @@ app.listen(port, () => {
 });
 
 setInterval(
-    () => {
-        reque = https.get('https://kfvstgbot.herokuapp.com/');
-        console.log(reque);
-    }, 1000*60*10
-);
+    () => https.get('https://kfvstgbot.herokuapp.com/'), 1000*60*10);
 
 app.use(router.get('/'), (req, res) => {
     res.status(200).json({
