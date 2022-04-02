@@ -16,7 +16,7 @@ module.exports = ctx => {
 
         case('/subscribe') :
             const {message: {from: {is_bot}}} = ctx.update;
-            if(is_bot) {
+            if(!is_bot) {
                 subscriberController.createSubscriber(ctx);
             } else {
                 ctx.reply('Боти не можуть підписуватись на бота.')
