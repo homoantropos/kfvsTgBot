@@ -19,7 +19,19 @@ module.exports = ctx => {
                 {reply_markup: {keyboard: keyboards.physical_culture}});
             break;
 
-        case('Путин хуйло' || 'Русский корабль' || 'Россия') :
+        case('Путин хуйло') :
+            ctx.reply(
+                `Иди на хуй!!!`
+            );
+            break;
+
+        case('Русский корабль') :
+            ctx.reply(
+                `Иди на хуй!!!`
+            );
+            break;
+
+        case('Россия') :
             ctx.reply(
                 `Иди на хуй!!!`
             );
