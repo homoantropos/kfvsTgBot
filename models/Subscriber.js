@@ -13,5 +13,11 @@ const Subscriber = sequelize.define(
     }
 )
 
-
+Subscriber.addScope(
+    'subs', {
+        attributes: {
+            include: ['tgId', 'id']
+        }
+    }
+)
 module.exports = Subscriber

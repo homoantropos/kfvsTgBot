@@ -25,11 +25,11 @@ bot.launch();
 process.once('SIGINT', () => bot.stop('SIGINT'));
 process.once('SIGTERM', () => bot.stop('SIGTERM'));
 
-// sequelize.sync({alter: true})
-//     .then(
-//         () => console.log('DataBase connection established successfully.')
-//     ).catch(
-//     (err)=> console.log(err)
-// )
+sequelize.sync({alter: true})
+    .then(
+        () => console.log('DataBase connection established successfully.')
+    ).catch(
+    (err)=> console.log(err)
+)
 
 module.exports = app

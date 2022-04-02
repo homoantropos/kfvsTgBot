@@ -2,7 +2,7 @@ const Subscriber = require('../models/Subscriber');
 
 class Subscriber_controller {
 
-    async createSubscriber(ctx, res) {
+    async createSubscriber(ctx) {
         const {message: {from: {id}}} = ctx.update;
         await Subscriber.findOrCreate({
             where: {
