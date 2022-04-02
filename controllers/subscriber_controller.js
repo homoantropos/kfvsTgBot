@@ -6,11 +6,21 @@ class Subscriber_controller {
         const {message: {from: {first_name}}} = ctx.update;
         const {message: {from: {id}}} = ctx.update;
         try {
-            await Subscriber.findOne({
+            const subscriber = await Subscriber.findOne({
                 where: {
                     tgId: id
                 }
             });
+            if(subscriber) {
+                ctx.reply('Ви вже підписані на цей бот');
+            } else {
+                await Subscriber.findOrCreate({
+                    where: {
+                        tgId: id
+                    }
+                });
+                ctx.reply(`Вітаємо, ${first_name}, ви успішно підписались на розсилку оновлень нашого бота!`);
+            }
         } catch (error) {
             const errorMessage = error.message ? error.message : error;
             ctx.reply('під час підписки виникла помилка: ', errorMessage)
