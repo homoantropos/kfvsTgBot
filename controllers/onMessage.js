@@ -4,7 +4,7 @@ const views = require("../views/views");
 
 module.exports = ctx => {
     const {message: {text}} = ctx.update
-    switch (text) {
+    switch (text.toLowerCase()) {
 
         case('/start') :
             const {from: {first_name}} = ctx.update.message;
@@ -13,53 +13,53 @@ module.exports = ctx => {
                 {reply_markup: {keyboard: keyboards.start}});
             break;
 
-        case('Фізична культура') :
+        case('фізична культура') :
             ctx.reply(
                 `Вітаємо на сторінці фізичної культури`,
                 {reply_markup: {keyboard: keyboards.physical_culture}});
             break;
 
-        case('Путин хуйло') :
+        case('путин хуйло') :
             ctx.reply(
                 `Иди на хуй!!!`
             );
             break;
 
-        case('Русский корабль') :
+        case('русский корабль') :
             ctx.reply(
                 `Иди на хуй!!!`
             );
             break;
 
-        case('Россия') :
+        case('россия') :
             ctx.reply(
                 `Иди на хуй!!!`
             );
             break;
 
-        case('Путин') :
+        case('путин') :
             ctx.reply(
                 `хуйло!!!`
             );
             break;
 
-        case('Слава Україні!') :
+        case('слава україні!') :
             ctx.reply(
                 `Героям слава!!!`
             );
             break;
 
-        case('Україна!') :
+        case('україна!') :
             ctx.reply(
                 `Понад усе!!!`
             );
             break;
 
-        case('Спорт') :
+        case('спорт') :
             ctx.reply(`Функція в розробці`);
             break;
 
-        case('Семінари') :
+        case('семінари') :
             ctx.reply(
                 'для повернення до меню натисніть "Назад"',
                 {reply_markup: {remove_keyboard: true},});
@@ -68,11 +68,11 @@ module.exports = ctx => {
                 {reply_markup: {inline_keyboard: inlineKBRDS.seminars}});
             break;
 
-        case('Контакти') :
+        case('контакти') :
             ctx.reply(views.contacts, {parse_mode: 'HTML'});
             break;
 
-        case('Заняття вдома') :
+        case('заняття вдома') :
             ctx.reply(
                 'для повернення до меню натисніть "Назад"',
                 {reply_markup: {remove_keyboard: true}}
@@ -82,7 +82,7 @@ module.exports = ctx => {
             );
             break;
 
-        case('Уроки') :
+        case('уроки') :
             ctx.reply(
                 'для повернення до меню натисніть "Назад"',
                 {reply_markup: {remove_keyboard: true}}
@@ -93,7 +93,7 @@ module.exports = ctx => {
             );
             break;
 
-        case('Cool Games') :
+        case('cool games') :
             ctx.reply(
                 'для повернення до меню натисніть "Назад"',
                 {reply_markup: {remove_keyboard: true}}
@@ -104,19 +104,19 @@ module.exports = ctx => {
             );
             break;
 
-        case('Cool Race') :
+        case('cool race') :
             ctx.reply(`Функція в розробці`);
             break;
 
-        case('Заняття на природі') :
+        case('заняття на природі') :
             ctx.reply(`Функція в розробці`);
             break;
 
-        case('Турніки') :
+        case('турніки') :
             ctx.reply(`Функція в розробці`);
             break;
 
-        case('Завершити роботу') :
+        case('завершити роботу') :
             ctx.reply(
                 `Дякуємо, що завітали!`,
                 {reply_markup: {remove_keyboard: true}}
