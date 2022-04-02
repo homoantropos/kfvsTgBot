@@ -12,7 +12,7 @@ class Subscriber_controller {
                 }
             });
             if(subscriber) {
-                ctx.reply('Ви вже підписані на цей бот');
+                ctx.reply(`${first_name}, Ви вже підписані на цей бот`);
             } else {
                 await Subscriber.findOrCreate({
                     where: {
@@ -25,12 +25,6 @@ class Subscriber_controller {
             const errorMessage = error.message ? error.message : error;
             ctx.reply('під час підписки виникла помилка: ', errorMessage)
         }
-        await Subscriber.findOrCreate({
-            where: {
-                tgId: id
-            }
-        });
-        ctx.reply(`Вітаємо, ${first_name}! Ви успішно підписалися на оновлення нашого боту!`);
     }
 
     async updateSubscriber(req, res) {
