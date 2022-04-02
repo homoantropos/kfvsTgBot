@@ -15,7 +15,12 @@ module.exports = ctx => {
             break;
 
         case('/subscribe') :
-            subscriberController.createSubscriber(ctx);
+            const {message: {from: {is_bot}}} = ctx.update;
+            if(is_bot) {
+                subscriberController.createSubscriber(ctx);
+            } else {
+                ctx.reply('Боти не можуть підписуватись на бота.')
+            }
             break;
 
         case('фізична культура') :

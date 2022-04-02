@@ -5,6 +5,16 @@ class Subscriber_controller {
     async createSubscriber(ctx) {
         const {message: {from: {first_name}}} = ctx.update;
         const {message: {from: {id}}} = ctx.update;
+        try {
+            await Subscriber.findOne({
+                where: {
+                    tgId: id
+                }
+            });
+        } catch (error) {
+            const errorMessage = error.message ? error.message : error;
+            ctx.reply('під час підписки виникла помилка: ', errorMessage)
+        }
         await Subscriber.findOrCreate({
             where: {
                 tgId: id
