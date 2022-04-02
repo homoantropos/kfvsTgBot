@@ -5,12 +5,13 @@ class Subscriber_controller {
     async createSubscriber(ctx) {
         try {
             const {message: {from: {id}}} = ctx.update;
-            const subscriber = await Subscriber.findOrCreate({
+            const {message: {from: {first_name}}} = ctx.update;
+            await Subscriber.findOrCreate({
                 where: {
                     tgId: id
                 }
             });
-            ctx.reply('Вітаємо! Ви успішно підписалися на оновлення нашого боту!')
+            ctx.reply(`Вітаємо, ${first_name}! Ви успішно підписалися на оновлення нашого боту!`)
         } catch (error) {
             res.status(500).json({
                 message: error.message ? error.message : error
