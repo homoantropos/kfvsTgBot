@@ -42,6 +42,19 @@ module.exports = ctx => {
                 `хуйло!!!`
             );
             break;
+
+        case('Слава Україні') :
+            ctx.reply(
+                `Героям слава!!!`
+            );
+            break;
+
+        case('Україна!') :
+            ctx.reply(
+                `Понад усе!!!`
+            );
+            break;
+
         case('Спорт') :
             ctx.reply(`Функція в розробці`);
             break;
