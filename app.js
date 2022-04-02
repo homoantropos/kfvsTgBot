@@ -7,6 +7,7 @@ const passport = require('passport');
 const sequelize = require('./database/sequelize');
 
 const userRoutes = require('./routes/user_routes');
+const subscriberRoutes = require('./routes/subscriber_routes');
 
 app.use(passport.initialize());
 require('./middleware/passport')(passport);
@@ -18,6 +19,7 @@ app.use(express.urlencoded({limit: '50mb', extended: true}));
 app.use(require('cors')());
 
 app.use('/api/user', userRoutes);
+app.use('/api/subscribers', subscriberRoutes);
 
 bot.launch();
 process.once('SIGINT', () => bot.stop('SIGINT'));

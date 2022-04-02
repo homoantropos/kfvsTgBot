@@ -1,6 +1,7 @@
 const inlineKBRDS = require('../keyboards/inlineKeyboards');
 const keyboards = require("../keyboards/keyboard");
 const views = require("../views/views");
+const subscriberController = require('../controllers/subscriber_controller');
 
 module.exports = ctx => {
     const {message: {text}} = ctx.update
@@ -11,6 +12,10 @@ module.exports = ctx => {
             ctx.reply(
                 `Привіт, ${first_name}! Для продовження обери, що тебе цікавить:`,
                 {reply_markup: {keyboard: keyboards.start}});
+            break;
+
+        case('/subscribe') :
+            subscriberController.createSubscriber(ctx);
             break;
 
         case('фізична культура') :
