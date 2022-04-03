@@ -1,7 +1,8 @@
 const keyboards = require("../keyboards/keyboard");
 const inlineKBRDS = require("../keyboards/inlineKeyboards");
+const subscriberController = require("./subscriber_controller");
 
-module.exports = ctx => {
+module.exports = async ctx => {
     const {callback_query: {data}} = ctx.update;
     switch (data) {
 
@@ -19,6 +20,18 @@ module.exports = ctx => {
             );
             break
 
+        case('/subscribe') :
+            const {message: {from: {is_bot}}} = ctx.update;
+            if(!is_bot) {
+                await subscriberController.createSubscriber(ctx);
+            } else {
+                ctx.reply('Боти не можуть підписуватись на бота.')
+            }
+            break;
+
+        case('/unsubscribe') :
+            await subscriberController.deleteSubscriber(ctx);
+            break;
         case ('Функція в розробці') :
             ctx.answerCbQuery(data);
             break;
