@@ -27,6 +27,10 @@ module.exports = async ctx => {
              }
             break;
 
+        case('/help') :
+            ctx.reply(views.help, {parse_mode: 'HTML'});
+            break;
+
         case('/subscribe') :
             const {message: {from: {is_bot}}} = ctx.update;
             if(!is_bot) {
