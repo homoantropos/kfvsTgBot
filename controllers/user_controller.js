@@ -11,6 +11,7 @@ class User_controller {
                 where:
                     {
                         email: req.body.email,
+                        role: req.body.role,
                         password
                     }
             });
