@@ -20,4 +20,11 @@ const User = sequelize.define('user', {
     }
 })
 
+User.addScope(
+    'user', {
+        attributes: {
+            exclude: ['password']
+        }
+    }
+)
 module.exports = User
