@@ -32,6 +32,7 @@ module.exports = async ctx => {
         case('/unsubscribe') :
             await subscriberController.deleteSubscriber(ctx);
             break;
+
         case ('Функція в розробці') :
             ctx.answerCbQuery(data);
             break;
