@@ -77,19 +77,28 @@ class User_controller {
 
     async updateUser(req, res) {
         try {
-            const salt = await bcrypt.genSalt(10);
-            let password = await bcrypt.hash(req.body.password, salt);
-            await User.update({
-                    email: req.body.email,
-                    role: req.body.role,
-                    password
-                },
-                {
-                    where: {id: req.params.id}
-                });
-            res.status(200).json({
-                message: `Дані користувача успішно змінено`
+            const candidate = await User.scope('user').findOne({
+                where: {email: req.body.email}
             });
+            if(!candidate){
+                const salt = await bcrypt.genSalt(10);
+                let password = await bcrypt.hash(req.body.password, salt);
+                await User.update({
+                        email: req.body.email,
+                        role: req.body.role,
+                        password
+                    },
+                    {
+                        where: {id: req.params.id}
+                    });
+                res.status(200).json({
+                    message: `Дані користувача успішно змінено`
+                });
+            } else {
+             res.status(500).json({
+                 message: 'Ця адреса електронної пошти вже занята. Спробуйте іншу'
+             })
+            }
         } catch (error) {
             res.status(500).json({
                 message: error.message ? error.message : error
@@ -123,6 +132,18 @@ class User_controller {
         }
     }
 
+    async getUserById(req, res) {
+        try {
+            const user = await User.scope('user').findOne({
+                where: {id: req.params.id}
+            });
+            res.status(200).json(user);
+        } catch (error) {
+            res.status(500).json({
+                message: error.message ? error.message : error
+            })
+        }
+    }
 }
 
 module.exports = new User_controller()

@@ -8,7 +8,7 @@ router.post('/login', controller.login);
 router.patch('/:id', passport.authenticate('jwt', {session: false}), controller.updateUser);
 router.delete('/:id', passport.authenticate('jwt', {session: false}), controller.deleteUser);
 router.get('/', passport.authenticate('jwt', {session: false}), controller.getAllUsers);
-router.get('/:id', passport.authenticate('jwt', {session: false}),);
+router.get('/:id', passport.authenticate('jwt', {session: false}), controller.getUserById);
 
 
 module.exports = router
