@@ -21,9 +21,9 @@ module.exports = async ctx => {
             break
 
         case('/subscribe') :
-            const {message: {from: {is_bot}}} = ctx.update;
+            const {from: {is_bot}} = ctx.update.callback_query;
             if(!is_bot) {
-                await subscriberController.createSubscriber(ctx);
+                await subscriberController.createSubscriber(ctx, 'callback_query');
             } else {
                 ctx.reply('Боти не можуть підписуватись на бота.')
             }

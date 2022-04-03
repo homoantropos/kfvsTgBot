@@ -30,7 +30,7 @@ module.exports = async ctx => {
         case('/subscribe') :
             const {message: {from: {is_bot}}} = ctx.update;
             if(!is_bot) {
-                await subscriberController.createSubscriber(ctx);
+                await subscriberController.createSubscriber(ctx, 'message');
             } else {
                 ctx.reply('Боти не можуть підписуватись на бота.')
             }
