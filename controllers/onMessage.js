@@ -17,7 +17,9 @@ module.exports = async ctx => {
              if(!subscriber) {
                  ctx.reply(
                      `Привіт, ${first_name}! Для продовження обери, що тебе цікавить:`,
-                     {reply_markup: {inline_keyboard: inlineKBRDS.subscribe, keyboard: keyboards.start}});
+                     {reply_markup: {keyboard: keyboards.start}});
+                 ctx.reply(
+                     {reply_markup: {inline_keyboard: inlineKBRDS.subscribe}});
              } else {
                  ctx.reply(
                      `Привіт, ${first_name}! Для продовження обери, що тебе цікавить:`,
