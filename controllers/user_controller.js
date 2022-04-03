@@ -13,7 +13,7 @@ class User_controller {
             try {
                 const salt = await bcrypt.genSalt(10);
                 let password = await bcrypt.hash(req.body.password, salt);
-                const user = await User.scope('user').findOrCreate({
+                await User.scope('user').findOrCreate({
                     where:
                         {
                             email: req.body.email,
@@ -21,7 +21,13 @@ class User_controller {
                             password
                         }
                 });
-                res.status(201).json(user[0]);
+                const user = await User.scope('user').findOne({
+                    where:
+                        {
+                            email: req.body.email
+                        }
+                });
+                res.status(201).json(user);
             } catch (error) {
                 res.status(500).json({
                     message: error.message ? error.message : error
