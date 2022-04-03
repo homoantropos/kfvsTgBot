@@ -1,5 +1,6 @@
 const {Telegraf} = require('telegraf');
 const keys = require('./config/keys');
+const Subscriber = require('./models/Subscriber');
 const onMessage = require('./controllers/onMessage');
 const onCallback = require('./controllers/onCallbackQuery');
 
@@ -17,6 +18,15 @@ class Bot {
 
     onCallback(ctx) {
         this.bot.on('callback_query', ctx => onCallback(ctx));
+    }
+
+    async sendMessageToAllSubscribers(text) {
+        const subscribers = await Subscriber.scope('subs').findAll();
+        subscribers.map(
+            subscriber => {
+                this.bot.telegram.sendMessage(subscriber.tgId, text);
+            }
+        )
     }
 
     listen() {
