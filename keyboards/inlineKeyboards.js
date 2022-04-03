@@ -7,6 +7,15 @@ exports.toStart = [
     ]
 ]
 
+exports.subscribe = [
+    [
+        {
+            text: 'підписатися на розсилку',
+            callback_data: '/subscribe'
+        }
+    ]
+]
+
 exports.seminars = [
     [{
         text: 'Здорова Україна. ч.1. Семінар "Фізична культура - здорове покоління."',

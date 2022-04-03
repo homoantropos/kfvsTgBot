@@ -2,25 +2,41 @@ const inlineKBRDS = require('../keyboards/inlineKeyboards');
 const keyboards = require("../keyboards/keyboard");
 const views = require("../views/views");
 const subscriberController = require('../controllers/subscriber_controller');
+const Subscriber = require('../models/Subscriber');
 
-module.exports = ctx => {
+module.exports = async ctx => {
     const {message: {text}} = ctx.update
     switch (text.toLowerCase()) {
 
-        case('/start') :
-            const {from: {first_name}} = ctx.update.message;
-            ctx.reply(
-                `Привіт, ${first_name}! Для продовження обери, що тебе цікавить:`,
-                {reply_markup: {keyboard: keyboards.start}});
+         case('/start') :
+             const {from: {first_name}} = ctx.update.message;
+             const {from: {id}} = ctx.update.message;
+            const subscriber = await Subscriber.scope('subs').findOne({
+                where: {tgId: id}
+            })
+             if(!subscriber) {
+                 ctx.reply(
+                     `Привіт, ${first_name}! Для продовження обери, що тебе цікавить:`,
+                     {reply_markup: {keyboard: keyboards.start}});
+             } else {
+                 ctx.reply(
+                     `Привіт, ${first_name}! Для продовження обери, що тебе цікавить:`,
+                     {reply_markup: {keyboard: keyboards.start, inline_keyboard: inlineKBRDS.subscribe}});
+             }
+
             break;
 
         case('/subscribe') :
             const {message: {from: {is_bot}}} = ctx.update;
             if(!is_bot) {
-                subscriberController.createSubscriber(ctx);
+                await subscriberController.createSubscriber(ctx);
             } else {
                 ctx.reply('Боти не можуть підписуватись на бота.')
             }
+            break;
+
+        case('/unsubscribe') :
+                await subscriberController.deleteSubscriber(ctx);
             break;
 
         case('фізична культура') :

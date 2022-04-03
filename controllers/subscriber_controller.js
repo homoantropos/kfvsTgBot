@@ -37,13 +37,28 @@ class Subscriber_controller {
         }
     }
 
-    async deleteSubscriber(req, res) {
+    async deleteSubscriber(ctx) {
+        const {message: {from: {first_name}}} = ctx.update;
+        const {message: {from: {id}}} = ctx.update;
         try {
-
+            const subscriber = await Subscriber.findOne({
+                where: {
+                    tgId: id
+                }
+            });
+            if(!subscriber) {
+                ctx.reply(`Ви не підписані на цей бот, скасувати підписку неможливо)`);
+            } else {
+                await Subscriber.destroy({
+                    where: {
+                        tgId: id
+                    }
+                });
+                ctx.reply(`${first_name}, шкода. що ви нас покидаєте( Ви завжди можете повернутися! Будьте здорові в русі!`);
+            }
         } catch (error) {
-            res.status(500).json({
-                message: error.message ? error.message : error
-            })
+            const errorMessage = error.message ? error.message : error;
+            ctx.reply('під час підписки виникла помилка: ', errorMessage)
         }
     }
 
