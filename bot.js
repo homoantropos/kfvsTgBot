@@ -21,8 +21,8 @@ class Bot {
 
     listen() {
         this.bot.launch();
-        this.bot.onMessage();
-        this.bot.onCallback();
+        this.onMessage();
+        this.onCallback();
     }
 }
 
