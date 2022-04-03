@@ -88,7 +88,7 @@ class User_controller {
                     where: {id: req.params.id}
                 });
             res.status(200).json({
-                message: `Користувача уцспішно видалено`
+                message: `Дані користувача успішно змінено`
             });
         } catch (error) {
             res.status(500).json({
@@ -103,7 +103,7 @@ class User_controller {
                 where: {id: req.params.id}
             });
             res.status(200).json({
-                message: `Користувача уцспішно видалено`
+                message: `Користувача успішно видалено`
             });
         } catch (error) {
             res.status(500).json({
