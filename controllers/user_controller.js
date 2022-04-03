@@ -75,9 +75,46 @@ class User_controller {
         }
     }
 
+    async updateUser(req, res) {
+        try {
+            const salt = await bcrypt.genSalt(10);
+            let password = await bcrypt.hash(req.body.password, salt);
+            await User.update({
+                    email: req.body.email,
+                    role: req.body.role,
+                    password
+                },
+                {
+                    where: {id: req.params.id}
+                });
+            res.status(200).json({
+                message: `Користувача уцспішно видалено`
+            });
+        } catch (error) {
+            res.status(500).json({
+                message: error.message ? error.message : error
+            })
+        }
+    }
+
+    async deleteUser(req, res) {
+        try {
+            await User.destroy({
+                where: {id: req.params.id}
+            });
+            res.status(200).json({
+                message: `Користувача уцспішно видалено`
+            });
+        } catch (error) {
+            res.status(500).json({
+                message: error.message ? error.message : error
+            })
+        }
+    }
+
     async getAllUsers(req, res) {
         try {
-            const users = await User.findAll();
+            const users = await User.scope('user').findAll();
             res.status(200).json(users);
         } catch (error) {
             res.status(500).json({
