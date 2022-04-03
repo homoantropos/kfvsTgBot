@@ -137,7 +137,13 @@ class User_controller {
             const user = await User.scope('user').findOne({
                 where: {id: req.params.id}
             });
-            res.status(200).json(user);
+            if(user) {
+                res.status(200).json(user);
+            } else {
+                res.status(404).json({
+                    message: 'Такого користувача в базі даних не існує'
+                });
+            }
         } catch (error) {
             res.status(500).json({
                 message: error.message ? error.message : error
