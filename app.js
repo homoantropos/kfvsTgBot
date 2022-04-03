@@ -1,13 +1,16 @@
 const express = require('express');
 const app = express();
-const bot = require('./bot');
 const bodyParser = require("body-parser");
 const passport = require('passport');
 
 const sequelize = require('./database/sequelize');
 
+const bot = require('./bot');
+
 const userRoutes = require('./routes/user_routes');
 const subscriberRoutes = require('./routes/subscriber_routes');
+
+bot.listen();
 
 app.use(passport.initialize());
 require('./middleware/passport')(passport);
@@ -21,7 +24,6 @@ app.use(require('cors')());
 app.use('/api/user', userRoutes);
 app.use('/api/subscribers', subscriberRoutes);
 
-bot.launch();
 process.once('SIGINT', () => bot.stop('SIGINT'));
 process.once('SIGTERM', () => bot.stop('SIGTERM'));
 
