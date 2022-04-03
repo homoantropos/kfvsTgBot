@@ -11,8 +11,6 @@ const userRoutes = require('./routes/user_routes');
 const subscriberRoutes = require('./routes/subscriber_routes');
 
 bot.listen();
-bot.sendMessageToAllSubscribers('вітаємо! це повідомлення - перевірка працездатності масової розсилки.' +
-    'Просимо не звертати на нього увагу і не відповідати')
 
 app.use(passport.initialize());
 require('./middleware/passport')(passport);
