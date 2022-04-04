@@ -40,6 +40,7 @@ module.exports = async ctx => {
 
         case ('ДО ПЕРЕМОГИ') :
             ctx.reply(challenge, {parse_mode: 'HTML'});
+            ctx.reply('повернутись до сторінки "Фізична культура"', {reply_markup: inlineKBRDS.toFKpage});
             break;
 
         default :

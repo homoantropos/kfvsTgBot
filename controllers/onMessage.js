@@ -93,7 +93,7 @@ module.exports = async ctx => {
         case('рухайся з нами!') :
             ctx.reply(
                 'для повернення до меню натисніть "Назад"',
-                {reply_markup: {remove_keyboard: true},});
+                {reply_markup: {remove_keyboard: true}});
             ctx.reply(
                 'Актуальні заходи для здобувачів освіти',
                 {reply_markup: {inline_keyboard: inlineKBRDS.events}});
@@ -102,7 +102,7 @@ module.exports = async ctx => {
         case('семінари') :
             ctx.reply(
                 'для повернення до меню натисніть "Назад"',
-                {reply_markup: {remove_keyboard: true},});
+                {reply_markup: {remove_keyboard: true}});
             ctx.reply(
                 'Семінари з різних аспектів рухової активності:',
                 {reply_markup: {inline_keyboard: inlineKBRDS.seminars}});

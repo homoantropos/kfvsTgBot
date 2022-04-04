@@ -7,6 +7,15 @@ exports.toStart = [
     ]
 ]
 
+exports.toFKpage = [
+    [
+        {
+        text: 'Назад',
+        callback_data: 'Фізична культура'
+        }
+    ]
+]
+
 exports.subscribe = [
     [
         {
