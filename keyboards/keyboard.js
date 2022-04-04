@@ -28,6 +28,9 @@ exports.physical_culture = [
             text: 'Заняття вдома'
         },
         {
+            text: 'Вперед - до зірок!'
+        },
+        {
             text: 'Уроки'
         }
     ],

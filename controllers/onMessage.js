@@ -113,6 +113,16 @@ module.exports = async ctx => {
             );
             break;
 
+        case('вперед - до зірок!') :
+            ctx.reply(
+                'для повернення до меню натисніть "Назад"',
+                {reply_markup: {remove_keyboard: true}}
+            );
+            ctx.reply(`Рухаємось, як зірки!`,
+                {reply_markup: {inline_keyboard: inlineKBRDS.stars}}
+            );
+            break;
+
         case('уроки') :
             ctx.reply(
                 'для повернення до меню натисніть "Назад"',

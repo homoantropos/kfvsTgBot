@@ -116,3 +116,70 @@ exports.cool_games = [
         }
     ]
 ]
+
+exports.stars = [
+    [{
+        text: 'Фізкультура/руханка з Лесею Нікітюк',
+        url: 'https://www.youtube.com/watch?v=eI9WYN1ufno'
+    }],
+    [{
+        text: 'Фізкультура/руханка - запалюємо з МОНАТІКОМ',
+        url: 'https://www.youtube.com/watch?v=fitJie07Ybk'
+    }],
+    [{
+        text: 'Фізкультура/руханка з Юрієм Ткачем',
+        url: 'https://www.youtube.com/watch?v=mXV-WS8vsWw'
+    }],
+    [{
+        text: 'Фізкультура/руханка з Олею Поляковою',
+        url: 'https://www.youtube.com/watch?v=V6KIaA2YMYo'
+    }],
+    [{
+        text: 'Фізкультура/руханка з неймовірною Світланою Тарабаровою',
+        url: 'https://www.youtube.com/watch?v=h3TDubZen3E'
+    }],
+    [{
+        text: 'Фізкультура/руханка - запалюємо з Jerry Heil',
+        url: 'https://www.youtube.com/watch?v=0Jpn6UvraBo'
+    }],
+    [{
+        text: 'Фізкультура/руханка з Дашею Астаф\'євою',
+        url: 'https://www.youtube.com/watch?v=Mnd-z00IoZI'
+    }],
+    [{
+        text: 'Фізкультура/руханка - запалюємо з DJ Nana (Анастасією Кумейко)',
+        url: 'https://www.youtube.com/watch?v=BAkS6WCnwkU'
+    }],
+    [{
+        text: 'Фізкультура/руханка - запалюємо з Данею Вегасом',
+        url: 'https://www.youtube.com/watch?v=k4Q2wrJLHQ0'
+    }],
+    [{
+        text: 'Фізкультура/руханка з Миколою Матвієнко, Олею Жуковцевою, Денисом Бойко',
+        url: 'https://www.youtube.com/watch?v=MSGw5qn4-6I'
+    }],
+    [{
+        text: 'Фізкультура/руханка - запалюємо з Анною Різатдіновою та Артемом Пивоваровим',
+        url: 'https://www.youtube.com/watch?v=0mtOEyVZync'
+    }],
+    [{
+        text: 'Фізкультура/руханка з Ніною Радзієвською та Олександром Барабошко',
+        url: 'https://www.youtube.com/watch?v=VxnXMaZE4B8'
+    }],
+    [{
+        text: 'Фізкультура/руханка - розважаємось з Андрієм Пятовим та Валерією Тостовлес',
+        url: 'https://www.youtube.com/watch?v=O6JcOU_wV5c'
+    }],
+    [{
+        text: 'Фізкультура/руханка з Еліною Мбані, Сергієм Сидорчуком, Сергієм Кривцовим',
+        url: 'https://www.youtube.com/watch?v=tk5n78LAKew'
+    }],
+    [{
+        text: 'Фізкультура/руханка з Віталієм Миколенком, Катериною Нікітіною та Сргієм Болбатом',
+        url: 'https://www.youtube.com/watch?v=1KOaFfFtPdc'
+    }],
+    [{
+        text: 'Назад',
+        callback_data: '/start'
+    }]
+]
