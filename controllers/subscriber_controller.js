@@ -1,5 +1,4 @@
 const Subscriber = require('../models/Subscriber');
-const Sequelize = require("sequelize/types");
 
 class Subscriber_controller {
 
