@@ -50,6 +50,12 @@ module.exports = async ctx => {
                 {reply_markup: {keyboard: keyboards.physical_culture}});
             break;
 
+        case('спорт') :
+            ctx.reply(
+                `Вітаємо на сторінці спорту`,
+                {reply_markup: {keyboard: keyboards.sport}});
+            break;
+
         case('путин хуйло') :
             ctx.reply(
                 `Иди на хуй!!!`
@@ -84,10 +90,6 @@ module.exports = async ctx => {
             ctx.reply(
                 `Понад усе!!!`
             );
-            break;
-
-        case('спорт') :
-            ctx.reply(`Функція в розробці`);
             break;
 
         case('здорова україна') :
@@ -155,6 +157,10 @@ module.exports = async ctx => {
             break;
 
         case('cool race') :
+            ctx.reply(`Функція в розробці`);
+            break;
+
+        case('olympic junior games') :
             ctx.reply(`Функція в розробці`);
             break;
 

@@ -63,3 +63,29 @@ exports.physical_culture = [
         }
     ]
 ]
+
+exports.sport = [
+    [
+        {
+            text: 'Olympic Junior Games'
+        }
+    ],
+    [
+        {
+            text: 'Міжнародні заходи',
+            callback_data: 'Функція в розробці'
+        },
+        {
+            text: 'Всеукраїнські заходи',
+            callback_data: 'Функція в розробці'
+        }
+    ],
+    [
+        {
+            text: '/start'
+        },
+        {
+            text: 'Завершити роботу'
+        }
+    ]
+]
