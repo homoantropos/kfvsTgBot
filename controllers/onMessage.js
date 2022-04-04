@@ -90,7 +90,7 @@ module.exports = async ctx => {
             ctx.reply(`Функція в розробці`);
             break;
 
-        case('рухайся з нами!') :
+        case('здорова україна') :
             ctx.reply(
                 'для повернення до меню натисніть "Назад"',
                 {reply_markup: {remove_keyboard: true}});
