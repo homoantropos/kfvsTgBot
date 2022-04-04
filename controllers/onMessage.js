@@ -164,6 +164,14 @@ module.exports = async ctx => {
             ctx.reply(`Функція в розробці`);
             break;
 
+        case('міжнародні заходи') :
+            ctx.reply(`Функція в розробці`);
+            break;
+
+        case('всеукраїнські заходи') :
+            ctx.reply(`Функція в розробці`);
+            break;
+
         case('заняття на природі') :
             ctx.reply(`Функція в розробці`);
             break;
