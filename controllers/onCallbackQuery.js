@@ -1,6 +1,7 @@
 const keyboards = require("../keyboards/keyboard");
 const inlineKBRDS = require("../keyboards/inlineKeyboards");
 const subscriberController = require("./subscriber_controller");
+const challenge = require('../views/challenge');
 
 module.exports = async ctx => {
     const {callback_query: {data}} = ctx.update;
@@ -35,6 +36,10 @@ module.exports = async ctx => {
 
         case ('Функція в розробці') :
             ctx.answerCbQuery(data);
+            break;
+
+        case ('ДО ПЕРЕМОГИ') :
+            ctx.reply(challenge, {parse_mode: 'HTML'});
             break;
 
         default :

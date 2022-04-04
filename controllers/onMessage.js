@@ -90,6 +90,15 @@ module.exports = async ctx => {
             ctx.reply(`Функція в розробці`);
             break;
 
+        case('Рухайся з нами!') :
+            ctx.reply(
+                'для повернення до меню натисніть "Назад"',
+                {reply_markup: {remove_keyboard: true},});
+            ctx.reply(
+                'Актуальні заходи для здобувачів освіти',
+                {reply_markup: {inline_keyboard: inlineKBRDS.events}});
+            break;
+
         case('семінари') :
             ctx.reply(
                 'для повернення до меню натисніть "Назад"',
