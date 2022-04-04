@@ -66,6 +66,10 @@ exports.seminars = [
 
 exports.lessons = [
     [{
+        text: 'Дистанційне навчання на уроці фізичної культури #1 . Розминка / СК "Пума-Юніор"',
+        url: 'https://www.youtube.com/watch?v=DeKliLsY1kc'
+    }],
+    [{
         text: 'Модельна навчальна програма «Фізична культура. 5-6 класи»',
         url: 'https://drive.google.com/drive/u/2/folders/1KB2WRyGBgNwcETclvsBVbuRCpl-g2OKs'
     }],
@@ -78,7 +82,103 @@ exports.lessons = [
 exports.home = [
     [
         {
-            text: 'Відео підбірка',
+            text: 'Розминка. Виконуйте щоранку',
+            url: 'https://www.youtube.com/watch?v=NE7uYxGyKmU'
+        }
+    ],
+    [
+        {
+            text: 'Тренування на всі групи м\'язів в домашніх умовах',
+            url: 'https://www.youtube.com/watch?v=LF1hsGsYYH4'
+        }
+    ],
+    [
+        {
+            text: 'Тренування на все тіло',
+            url: 'https://www.youtube.com/watch?v=ZC_ycQutagg'
+        }
+    ],
+    [
+        {
+            text: '4 ефективних вправи на все тіло для красивих форм',
+            url: 'https://www.youtube.com/watch?v=WjDTKAP24Zg'
+        }
+    ],
+    [
+        {
+            text: '4 простих вправи для красивих рук, плечей, грудей',
+            url: 'https://www.youtube.com/watch?v=04uLsqRPt70'
+        }
+    ],
+    [
+        {
+            text: 'Вправи для рук! Вправи на тріцепс руки.',
+            url: 'https://www.youtube.com/watch?v=YwAPJudbAN8'
+        }
+    ],
+    [
+        {
+            text: 'Вправи для сідниць',
+            url: 'https://www.youtube.com/watch?v=-lbukPan7pY'
+        }
+    ],
+    [
+        {
+            text: 'Інтервальне тренування для пресу',
+            url: 'https://www.youtube.com/watch?v=3fry4wgQ9S8'
+        }
+    ],
+    [
+        {
+            text: 'Інтервальне тренування для ніг',
+            url: 'https://www.youtube.com/watch?v=afi5wLD2Uy8'
+        }
+    ],
+    [
+        {
+            text: 'Вправи для сильних рук, плечей, грудних м\'язів і м\'язів пресу',
+            url: 'https://www.youtube.com/watch?v=8Cjl6aYrovg'
+        }
+    ],
+    [
+        {
+            text: '14 вправ для верхньої частини тіла з пляшками води з Романом Трачуком',
+            url: 'https://www.youtube.com/watch?v=9n3RZanDCmM'
+        }
+    ],
+    [
+        {
+            text: '20 вправ для верхньої частини тіла в домашніх умовах',
+            url: 'https://www.youtube.com/watch?v=-lbukPan7pY'
+        }
+    ],
+    [
+        {
+            text: 'Комплекс вправ на все тіло. Full Body Workout',
+            url: 'https://www.youtube.com/watch?v=RZdKjnVxYz0'
+        }
+    ],
+    [
+        {
+            text: 'Стретчінг після тренувань',
+            url: 'https://www.youtube.com/watch?v=zRwmGnaPjig'
+        }
+    ],
+    [
+        {
+            text: 'Вправи для хребта. Як позбутися сутулості?',
+            url: 'https://www.youtube.com/watch?v=yGH6UbtUoC0'
+        }
+    ],
+    [
+        {
+            text: 'Комплекс вправ для хорошої постави',
+            url: 'https://www.youtube.com/watch?v=gZ7ZeayP17k'
+        }
+    ],
+    [
+        {
+            text: 'Відео підбірка 1',
             url: 'http://sportmon.org/fizychne-vyhovannya-onlajn/'
         }
     ],
