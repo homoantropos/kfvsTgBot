@@ -10,13 +10,28 @@ const Subscriber = sequelize.define(
             allowNull: false,
             unique: true
         },
+        first_name: {
+            type: Sequelize.STRING,
+            allowNull: true,
+            unique: false
+        },
+        last_name: {
+            type: Sequelize.STRING,
+            allowNull: true,
+            unique: false
+        },
+        username: {
+            type: Sequelize.STRING,
+            allowNull: true,
+            unique: false
+        }
     }
 )
 
 Subscriber.addScope(
     'subs', {
         attributes: {
-            include: ['tgId', 'id']
+            include: ['first_name', 'last_name', 'username', 'tgId', 'id']
         }
     }
 )

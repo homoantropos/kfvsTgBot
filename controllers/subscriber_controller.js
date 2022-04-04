@@ -1,9 +1,12 @@
 const Subscriber = require('../models/Subscriber');
+const Sequelize = require("sequelize/types");
 
 class Subscriber_controller {
 
     async createSubscriber(ctx, option) {
         const {[option]: {from: {first_name}}} = ctx.update;
+        const {[option]: {from: {last_name}}} = ctx.update;
+        const {[option]: {from: {username}}} = ctx.update;
         const {[option]: {from: {id}}} = ctx.update;
         try {
             const subscriber = await Subscriber.findOne({
@@ -16,6 +19,9 @@ class Subscriber_controller {
             } else {
                 await Subscriber.findOrCreate({
                     where: {
+                        first_name,
+                        last_name,
+                        username,
                         tgId: id
                     }
                 });
