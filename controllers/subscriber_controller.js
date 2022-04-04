@@ -79,7 +79,8 @@ class Subscriber_controller {
 
     async getSubscribers(req, res) {
         try {
-
+            const subscribers = await Subscriber.findAll();
+            res.status(200).json(subscribers);
         } catch (error) {
             res.status(500).json({
                 message: error.message ? error.message : error
