@@ -22,7 +22,7 @@ module.exports.sendConfirmationEmail = (name, email, confirmationCode) => {
         html: `<h1>Активація акаунту</h1>
                 <h2>Вітаємо!</h2>
                 <p>Дякуємо за реєстрацію на сайті! Для активації вашого акаунту просимо перейти за наступним посиланням:</p>
-                <a href=`${keys.URI}`/api/user/confirm/${confirmationCode}>натисніть тут</a>`
+                <a href= ${keys.URI}/api/user/confirm/${confirmationCode}>натисніть тут</a>`
     })
 }
 
