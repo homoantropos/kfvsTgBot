@@ -291,6 +291,6 @@ exports.stars = [
     }],
     [{
         text: 'Назад',
-        callback_data: '/start'
+        callback_data: 'Фізична культура'
     }]
 ]
