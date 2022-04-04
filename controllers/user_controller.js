@@ -1,7 +1,11 @@
+const path = require('path');
 const bcrypt = require('bcryptjs');
+const nodemailer = require('../utils/nodemailer');
+const keys = require('../config/keys');
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
-const keys = require('../config/keys');
+const userConfirmationCodeGenerator = require('../utils/userConfirmationCodeGenerator')
+const UserConfirmationCodeProvider = require('../utils/confirmationCodeProvider')
 
 class User_controller {
 
@@ -13,12 +17,15 @@ class User_controller {
             try {
                 const salt = await bcrypt.genSalt(10);
                 let password = await bcrypt.hash(req.body.password, salt);
+                const confirmationCode = userConfirmationCodeGenerator.confirmationCode();
                 await User.scope('user').findOrCreate({
                     where:
                         {
                             email: req.body.email,
                             role: req.body.role,
-                            password
+                            password,
+                            status: 'pending',
+                            confirmationCode
                         }
                 });
                 const user = await User.scope('user').findOne({
@@ -27,6 +34,7 @@ class User_controller {
                             email: req.body.email
                         }
                 });
+                nodemailer.sendConfirmationEmail(user.name, user.email, confirmationCode);
                 res.status(201).json(user);
             } catch (error) {
                 res.status(500).json({
@@ -39,6 +47,41 @@ class User_controller {
             })
         }
 
+    }
+
+    async confirmUser(req, res) {
+        try {
+            const user = await User.findOne({
+                where: {confirmationCode: req.params.confirmationCode}
+            });
+            if (user) {
+                await User.update({
+                    status: 'active'
+                }, {
+                    where: {confirmationCode: req.params.confirmationCode}
+                })
+                res.status(201).send(
+                    `<h1
+                        style="
+                               position: absolute;
+                               left: 50%;
+                               transform: translate(-50%);
+                               margin-top: 10px;
+                               font-family: oswald, 'Roboto Thin',sans-serif;
+                               color: green;
+                               "
+                    ><b>Вітаємо! Ваш аккаунт активовано!</b></h1>`
+                );
+            } else {
+                res.status(401).json({
+                    message: 'Код підтвердження не співпадає'
+                });
+            }
+        } catch (error) {
+            res.status(500).json({
+                message: error.message ? error.message : error
+            })
+        }
     }
 
     async login(req, res) {
