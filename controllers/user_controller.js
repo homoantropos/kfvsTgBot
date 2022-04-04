@@ -84,6 +84,80 @@ class User_controller {
         }
     }
 
+    async sentLinkToResetPassword(req, res) {
+        try {
+            const candidate = await User.findOne({
+                where: {email: req.body.email}
+            })
+            if (!candidate) {
+                res.status(401).json({
+                    message: 'Такого користувача не існує. Перевірте адресу електронної пошти'
+                })
+            } else {
+                nodemailer.sendLinkForPasswordReset(candidate.name, candidate.email, candidate.confirmationCode);
+                res.status(201).json({
+                    message: 'Лист з інструкціями по відновленню пароля надіслано на вашу електронну пошту.'
+                })
+            }
+        } catch (error) {
+            res.status(500).json({
+                message: error.message ? error.message : error
+            })
+        }
+    }
+
+    sentFormForPasswordReset(req, res) {
+        try {
+            let code = req.url.toString();
+            code = code.replace('/reset/', '');
+            UserConfirmationCodeProvider._userConfirmationCode = code.slice();
+            const filePath = path.resolve('views', 'password_reset_form.html');
+            res.status(200).sendFile(filePath);
+        } catch (error) {
+            res.status(500).json({
+                message: error.message ? error.message : error
+            })
+        }
+    }
+
+    async resetPassword(req, res) {
+        try {
+            const candidate = await User.findOne({
+                where: {confirmationCode: UserConfirmationCodeProvider._userConfirmationCode}
+            })
+            if (!candidate) {
+                const warningPath = path.resolve('views', 'invalid_confirmationCode_warning.html');
+                res.status(401).sendFile(warningPath);
+            } else {
+                const salt = await bcrypt.genSalt(10);
+                const password = await bcrypt.hash(req.query.password.trim(), salt);
+                const confirmationCode = userConfirmationCodeGenerator.confirmationCode();
+                await User.update({
+                    password,
+                    confirmationCode
+                }, {
+                    where: {email: candidate.email}
+                });
+                res.status(201).send(
+                    `<h1
+                        style="
+                               position: absolute;
+                               left: 50%;
+                               transform: translate(-50%);
+                               margin-top: 10px;
+                               font-family: oswald, 'Roboto Thin',sans-serif;
+                               color: green;
+                               "
+                    ><b>Вітаємо! Ваш пароль змінено! Ви можете повернутися на сайт і повторити спробу увійти!</b></h1>`
+                );
+            }
+        } catch (error) {
+            res.status(500).json({
+                message: error.message ? error.message : error
+            })
+        }
+    }
+
     async login(req, res) {
         try {
             const candidate = await User.findOne({
