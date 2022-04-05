@@ -20,7 +20,7 @@ class Subscriber_controller {
                     where: {
                         first_name: first_name ? first_name : '',
                         last_name: last_name ? last_name : '',
-                        username,
+                        username: username ? username : '',
                         tgId: id
                     }
                 });
