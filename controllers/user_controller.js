@@ -86,6 +86,7 @@ class User_controller {
 
     async sentLinkToResetPassword(req, res) {
         try {
+            console.log(process.env);
             const candidate = await User.findOne({
                 where: {email: req.body.email}
             })
