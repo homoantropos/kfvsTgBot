@@ -18,8 +18,8 @@ class Subscriber_controller {
             } else {
                 await Subscriber.findOrCreate({
                     where: {
-                        first_name,
-                        last_name,
+                        first_name: first_name ? first_name : '',
+                        last_name: last_name ? last_name : '',
                         username,
                         tgId: id
                     }
