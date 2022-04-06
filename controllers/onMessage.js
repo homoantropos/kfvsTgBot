@@ -6,7 +6,7 @@ const Subscriber = require('../models/Subscriber');
 
 module.exports = async ctx => {
     const {message: {text}} = ctx.update;
-    const fil = new RegExp('ban');
+    const fil = new RegExp('/ban (.*)');
 
     if(fil.test(text)) {
         ctx.reply(fil.test(text));
