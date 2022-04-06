@@ -7,7 +7,10 @@ const Subscriber = require('../models/Subscriber');
 module.exports = async ctx => {
     const {message: {text}} = ctx.update;
     const fil = new RegExp('ban');
-    ctx.reply(fil.test(text));
+
+    if(fil.test(text)) {
+        ctx.reply(fil.test(text));
+    }
 
     switch (text.trim().toLowerCase()) {
 
