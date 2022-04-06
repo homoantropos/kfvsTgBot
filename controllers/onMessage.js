@@ -180,7 +180,7 @@ module.exports = async ctx => {
             ctx.reply(`Функція в розробці`);
             break;
 
-        case(new RegExp('/ban')) :
+        case(new RegExp('ban')) :
             ctx.reply(`забанити?`);
             break;
 
