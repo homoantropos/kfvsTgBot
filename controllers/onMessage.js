@@ -5,7 +5,10 @@ const subscriberController = require('../controllers/subscriber_controller');
 const Subscriber = require('../models/Subscriber');
 
 module.exports = async ctx => {
-    const {message: {text}} = ctx.update
+    const {message: {text}} = ctx.update;
+    const fil = new RegExp('ban');
+    ctx.reply(fil.test(text));
+
     switch (text.trim().toLowerCase()) {
 
          case('/start') :
@@ -178,10 +181,6 @@ module.exports = async ctx => {
 
         case('турніки') :
             ctx.reply(`Функція в розробці`);
-            break;
-
-        case(new RegExp('ban')) :
-            ctx.reply(`забанити?`);
             break;
 
         case('завершити роботу') :
