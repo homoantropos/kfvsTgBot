@@ -10,7 +10,7 @@ module.exports = async ctx => {
 
     if(fil.test(text)) {
         const repl = fil.source;
-        ctx.reply(fil.test(repl));
+        ctx.reply(repl);
     }
 
     switch (text.trim().toLowerCase()) {
