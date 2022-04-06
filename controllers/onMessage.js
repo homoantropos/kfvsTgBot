@@ -180,6 +180,10 @@ module.exports = async ctx => {
             ctx.reply(`Функція в розробці`);
             break;
 
+        case(text.include('/ban')) :
+            ctx.reply(`забанити?`);
+            break;
+
         case('завершити роботу') :
             ctx.reply(
                 `Дякуємо, що завітали!`,
