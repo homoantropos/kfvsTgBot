@@ -54,7 +54,7 @@ class Subscriber_controller {
             if(!subscriber) {
                 ctx.reply(`Ви не підписані на цей бот, скасувати підписку неможливо)`);
             } else {
-                if(subscriber.status && subscriber.status !== 'banned') {
+                if(subscriber.status !== 'banned') {
                     await Subscriber.destroy({
                         where: {
                             tgId: id
