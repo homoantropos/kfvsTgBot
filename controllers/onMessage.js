@@ -6,7 +6,7 @@ const Subscriber = require('../models/Subscriber');
 
 module.exports = async ctx => {
     const {message: {text}} = ctx.update
-    switch (text.toLowerCase()) {
+    switch (text.trim().toLowerCase()) {
 
          case('/start') :
              const {from: {first_name}} = ctx.update.message;
@@ -180,7 +180,7 @@ module.exports = async ctx => {
             ctx.reply(`Функція в розробці`);
             break;
 
-        case(/\/ban/) :
+        case(new RegExp('/ban')) :
             ctx.reply(`забанити?`);
             break;
 
