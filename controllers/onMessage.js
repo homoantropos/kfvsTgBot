@@ -9,7 +9,8 @@ module.exports = async ctx => {
     const fil = new RegExp('/ban (.*)');
 
     if(fil.test(text)) {
-        ctx.reply(fil.test(text));
+        const repl = fil.source;
+        ctx.reply(fil.test(repl));
     }
 
     switch (text.trim().toLowerCase()) {
