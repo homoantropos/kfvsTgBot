@@ -6,14 +6,7 @@ const Subscriber = require('../models/Subscriber');
 
 module.exports = async ctx => {
     const {message: {text}} = ctx.update;
-    const fil = new RegExp('/ban (.*)');
-
-    if(fil.test(text)) {
-        const repl = fil.source;
-        ctx.reply(repl);
-    }
-
-    switch (text.trim().toLowerCase()) {
+    switch (text.toLowerCase()) {
 
          case('/start') :
              const {from: {first_name}} = ctx.update.message;
