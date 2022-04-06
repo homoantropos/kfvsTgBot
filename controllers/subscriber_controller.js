@@ -54,14 +54,16 @@ class Subscriber_controller {
             if(!subscriber) {
                 ctx.reply(`Ви не підписані на цей бот, скасувати підписку неможливо)`);
             } else {
-                if(subscriber.status !== 'banned') {
+                if (subscriber.status !== 'banned') {
                     await Subscriber.destroy({
                         where: {
                             tgId: id
                         }
                     });
+                    ctx.reply(`${first_name}, шкода, що ти нас покидаєш( Ти завжди можеш повернутися! Будьте здорові в русі!`);
+                } else {
+                    ctx.reply(`${first_name}, нам шкода, але ви заблоковані в цьому боті. Щоб змінити це, зверністься до адміністратора.`);
                 }
-                ctx.reply(`${first_name}, шкода. що ви нас покидаєте( Ви завжди можете повернутися! Будьте здорові в русі!`);
             }
         } catch (error) {
             const errorMessage = error.message ? error.message : error;
