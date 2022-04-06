@@ -54,11 +54,13 @@ class Subscriber_controller {
             if(!subscriber) {
                 ctx.reply(`Ви не підписані на цей бот, скасувати підписку неможливо)`);
             } else {
-                await Subscriber.destroy({
-                    where: {
-                        tgId: id
-                    }
-                });
+                if(subscriber.status && subscriber.status !== 'banned') {
+                    await Subscriber.destroy({
+                        where: {
+                            tgId: id
+                        }
+                    });
+                }
                 ctx.reply(`${first_name}, шкода. що ви нас покидаєте( Ви завжди можете повернутися! Будьте здорові в русі!`);
             }
         } catch (error) {
