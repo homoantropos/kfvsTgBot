@@ -22,7 +22,17 @@ class Occasion_controller {
 
     async updateOccasion (req, res) {
         try {
-
+            await Occasion.update(
+                {
+                name: req.body.name,
+                date: req.body.date ? req.body.date : null,
+                description: req.body.description ? req.body.description : '',
+                posterSrc: req.body.posterSrc ? req.body.posterSrc : ''
+            }, {
+                where: {
+                    id: req.params.id
+                }
+            })
         } catch(error) {
             res.status(500).json({
                 message: error.error.message ? error.error.message : error
