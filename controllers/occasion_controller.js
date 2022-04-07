@@ -32,7 +32,13 @@ class Occasion_controller {
                 where: {
                     id: req.params.id
                 }
+            });
+            const occasion = await Occasion.findOne({
+                where: {
+                    id: req.params.id
+                }
             })
+            res.status(200).json(occasion);
         } catch(error) {
             res.status(500).json({
                 message: error.error.message ? error.error.message : error
