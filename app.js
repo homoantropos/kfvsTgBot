@@ -9,6 +9,7 @@ const bot = require('./bot');
 
 const userRoutes = require('./routes/user_routes');
 const subscriberRoutes = require('./routes/subscriber_routes');
+const occasionRoutes = require('./routes/occasion_routes');
 
 bot.listen();
 
@@ -23,6 +24,7 @@ app.use(require('cors')());
 
 app.use('/api/user', userRoutes);
 app.use('/api/subscribers', subscriberRoutes);
+app.use('/api/occasions', occasionRoutes);
 
 process.once('SIGINT', () => bot.stop('SIGINT'));
 process.once('SIGTERM', () => bot.stop('SIGTERM'));
