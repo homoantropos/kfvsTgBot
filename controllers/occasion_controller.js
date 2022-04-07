@@ -1,5 +1,4 @@
 const Occasion = require('../models/Occasion');
-const Sequelize = require("sequelize/types");
 
 class Occasion_controller {
 
