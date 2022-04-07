@@ -48,7 +48,15 @@ class Occasion_controller {
 
     async deleteOccasion (req, res) {
         try {
-
+            await Occasion.destroy(
+                {
+                    where: {
+                        id: req.params.id
+                    }
+                });
+            res.status(200).json({
+                message: 'Подію успішно видалено!'
+            });
         } catch(error) {
             res.status(500).json({
                 message: error.error.message ? error.error.message : error
