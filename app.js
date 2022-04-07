@@ -16,6 +16,7 @@ bot.listen();
 app.use(passport.initialize());
 require('./middleware/passport')(passport);
 app.use(require('morgan')('dev'));
+app.use('/uploads', express.static('uploads'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json({limit: '50mb'}));
 app.use(bodyParser.json());
