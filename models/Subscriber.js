@@ -29,7 +29,11 @@ const Subscriber = sequelize.define(
             type: Sequelize.STRING,
             allowNull: true,
             unique: false
-        },
+        }
+    },
+    {
+        freezeTableName: true,
+        timestamps: false
     }
 )
 
