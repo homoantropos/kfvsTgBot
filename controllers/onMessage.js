@@ -1,7 +1,8 @@
 const inlineKBRDS = require('../keyboards/inlineKeyboards');
 const keyboards = require("../keyboards/keyboard");
 const views = require("../views/views");
-const subscriberController = require('../controllers/subscriber_controller');
+const subscriberController = require('./subscriber_controller');
+const occasionsController = require('./occasion_controller');
 const Subscriber = require('../models/Subscriber');
 
 module.exports = async ctx => {
@@ -42,6 +43,18 @@ module.exports = async ctx => {
 
         case('/unsubscribe') :
                 await subscriberController.deleteSubscriber(ctx);
+            break;
+
+        case('заходи') :
+            const occasions = await occasionsController.getAllOccasions();
+            occasions.map(
+                occasion => {
+                    ctx.reply(
+                        occasion.name,
+                        {reply_markup: {keyboard: inlineKBRDS.subscriprion}});
+                }
+            )
+
             break;
 
         case('фізична культура') :

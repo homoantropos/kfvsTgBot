@@ -73,6 +73,13 @@ exports.seminars = [
     }]
 ]
 
+exports.subscriprion = [
+    [{
+        text: 'Приєднатись до події',
+        callback_data: 'subscribe'
+    }]
+]
+
 exports.events = [
     [{
         text: '“ДО ПЕРЕМОГИ” Фізкультурний відео (он-лайн) челендж',
