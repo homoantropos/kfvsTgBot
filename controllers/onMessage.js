@@ -187,16 +187,72 @@ module.exports = async ctx => {
             ctx.reply(`Функція в розробці`);
             break;
 
-        case('березень') :
-            const occasions = await occasionsController.getOccasions(3);
-            occasions.map(
-                occasion => {
-                    ctx.reply(
-                        occasion.name
-                    );
-                }
-            )
+        case('січень') :
+            let occasions = await occasionsController.getOccasions(0);
+            if(occasions.length > 0) {
+                occasions.map(
+                    occasion => {
+                        ctx.reply(
+                            occasion.name
+                        );
+                    }
+                )
+            } else {
+                ctx.reply(
+                    'Заходів в цьому місяці не передбачено'
+                );
+            }
+            break;
 
+        case('лютий') :
+            occasions = await occasionsController.getOccasions(1);
+            if(occasions.length > 0) {
+                occasions.map(
+                    occasion => {
+                        ctx.reply(
+                            occasion.name
+                        );
+                    }
+                )
+            } else {
+                ctx.reply(
+                    'Заходів в цьому місяці не передбачено'
+                );
+            }
+            break;
+
+        case('березень') :
+            occasions = await occasionsController.getOccasions(2);
+            if(occasions.length > 0) {
+                occasions.map(
+                    occasion => {
+                        ctx.reply(
+                            occasion.name
+                        );
+                    }
+                )
+            } else {
+                ctx.reply(
+                    'Заходів в цьому місяці не передбачено'
+                );
+            }
+            break;
+
+        case('квітень') :
+            occasions = await occasionsController.getOccasions(2);
+            if(occasions.length > 0) {
+                occasions.map(
+                    occasion => {
+                        ctx.reply(
+                            occasion.name
+                        );
+                    }
+                )
+            } else {
+                ctx.reply(
+                    'Заходів в цьому місяці не передбачено'
+                );
+            }
             break;
 
         case('завершити роботу') :
