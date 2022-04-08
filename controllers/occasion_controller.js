@@ -75,14 +75,18 @@ class Occasion_controller {
         }
     }
 
-    async getOccasions() {
-        return await Occasion.scope('occasion').findAll(
+    async getOccasions(month) {
+        let occasions = await Occasion.scope('occasion').findAll(
             {
                 order: [
                     ['date', 'ASC']
                 ]
             }
         );
+        if(month) {
+            occasions = occasions.filter(occasion => (new Date(occasion.date)).getMonth() === month);
+        }
+        return occasions
     }
 
     async getOccasionById(req, res) {

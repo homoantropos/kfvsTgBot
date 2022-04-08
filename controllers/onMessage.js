@@ -46,7 +46,6 @@ module.exports = async ctx => {
             break;
 
         case('заходи') :
-
             ctx.reply(
                 'Заходи 2022 року, оберіть місяць',
                 {reply_markup: {keyboard: keyboards.shedule}});
@@ -186,6 +185,18 @@ module.exports = async ctx => {
 
         case('турніки') :
             ctx.reply(`Функція в розробці`);
+            break;
+
+        case('березень') :
+            const occasions = await occasionsController.getOccasions(3);
+            occasions.map(
+                occasion => {
+                    ctx.reply(
+                        occasion.name
+                    );
+                }
+            )
+
             break;
 
         case('завершити роботу') :
