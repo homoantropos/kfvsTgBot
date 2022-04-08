@@ -241,7 +241,7 @@ module.exports = async ctx => {
                 occasions.map(
                     occasion => {
                         const occasionName = occasion.name;
-                        ctx.reply(occasion.date.toISOString(),
+                        ctx.reply(occasion.date.toLocaleDateString(),
                             {reply_markup: {inline_keyboard: keyboardsFactory.provide(occasionName)}}
                         );
                     }
