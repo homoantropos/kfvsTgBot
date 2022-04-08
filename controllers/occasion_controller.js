@@ -83,7 +83,9 @@ class Occasion_controller {
                 ]
             }
         );
-        occasions = occasions.filter(occasion => (new Date(occasion.date)).getMonth() === month);
+        if(typeof month !== 'undefined') {
+            occasions = occasions.filter(occasion => (new Date(occasion.date)).getMonth() === month);
+        }
         return occasions
     }
 
