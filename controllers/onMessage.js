@@ -8,6 +8,7 @@ const keyboardsFactory = require('../utils/keyboardsFactory');
 
 module.exports = async ctx => {
     const {message: {text}} = ctx.update;
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     let occasions;
     switch (text.toLowerCase()) {
 
@@ -241,7 +242,7 @@ module.exports = async ctx => {
                 occasions.map(
                     occasion => {
                         const occasionName = occasion.name;
-                        ctx.reply(occasion.date.toLocaleDateString('uk-UK'),
+                        ctx.reply(occasion.date.toLocaleDateString('uk-UK', options),
                             {reply_markup: {inline_keyboard: keyboardsFactory.provide(occasionName)}}
                         );
                     }
