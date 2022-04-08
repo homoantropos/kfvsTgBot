@@ -7,6 +7,7 @@ const Subscriber = require('../models/Subscriber');
 
 module.exports = async ctx => {
     const {message: {text}} = ctx.update;
+    let occasions;
     switch (text.toLowerCase()) {
 
         case('/start') :
@@ -188,7 +189,7 @@ module.exports = async ctx => {
             break;
 
         case('січень') :
-            let occasions = await occasionsController.getOccasions(0);
+            occasions = await occasionsController.getOccasions(0);
             if(occasions.length > 0) {
                 occasions.map(
                     occasion => {
