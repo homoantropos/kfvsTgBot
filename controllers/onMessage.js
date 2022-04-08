@@ -50,7 +50,7 @@ module.exports = async ctx => {
             occasions.map(
                 occasion => {
                     ctx.reply(
-                        occasion,
+                        occasion.name,
                         {reply_markup: {inline_keyboard: inlineKBRDS.subscriprion}});
                 }
             )
