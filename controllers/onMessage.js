@@ -9,23 +9,23 @@ module.exports = async ctx => {
     const {message: {text}} = ctx.update;
     switch (text.toLowerCase()) {
 
-         case('/start') :
-             const {from: {first_name}} = ctx.update.message;
-             const {from: {id}} = ctx.update.message;
+        case('/start') :
+            const {from: {first_name}} = ctx.update.message;
+            const {from: {id}} = ctx.update.message;
             const subscriber = await Subscriber.scope('subs').findOne({
                 where: {tgId: id}
             })
-             if(!subscriber) {
-                 ctx.reply(
-                     `Привіт, ${first_name}! Для продовження обери, що тебе цікавить:`,
-                     {reply_markup: {keyboard: keyboards.start}});
-                 ctx.reply(`також ти можеш підписатися, щоб не пропустити найцікавіше!`,
-                     {reply_markup: {inline_keyboard: inlineKBRDS.subscribe}});
-             } else {
-                 ctx.reply(
-                     `Привіт, ${first_name}! Для продовження обери, що тебе цікавить:`,
-                     {reply_markup: {keyboard: keyboards.start}});
-             }
+            if (!subscriber) {
+                ctx.reply(
+                    `Привіт, ${first_name}! Для продовження обери, що тебе цікавить:`,
+                    {reply_markup: {keyboard: keyboards.start}});
+                ctx.reply(`також ти можеш підписатися, щоб не пропустити найцікавіше!`,
+                    {reply_markup: {inline_keyboard: inlineKBRDS.subscribe}});
+            } else {
+                ctx.reply(
+                    `Привіт, ${first_name}! Для продовження обери, що тебе цікавить:`,
+                    {reply_markup: {keyboard: keyboards.start}});
+            }
             break;
 
         case('/help') :
@@ -34,7 +34,7 @@ module.exports = async ctx => {
 
         case('/subscribe') :
             const {message: {from: {is_bot}}} = ctx.update;
-            if(!is_bot) {
+            if (!is_bot) {
                 await subscriberController.createSubscriber(ctx, 'message');
             } else {
                 ctx.reply('Боти не можуть підписуватись на бота.')
@@ -42,19 +42,14 @@ module.exports = async ctx => {
             break;
 
         case('/unsubscribe') :
-                await subscriberController.deleteSubscriber(ctx);
+            await subscriberController.deleteSubscriber(ctx);
             break;
 
         case('заходи') :
-            const occasions = await occasionsController.getOccasions();
-            occasions.map(
-                occasion => {
-                    ctx.reply(
-                        occasion.name,
-                        {reply_markup: {inline_keyboard: inlineKBRDS.subscriprion}});
-                }
-            )
 
+            ctx.reply(
+                'Заходи 2022 року, оберіть місяць',
+                {reply_markup: {keyboard: keyboards.shedule}});
             break;
 
         case('фізична культура') :
