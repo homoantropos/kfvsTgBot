@@ -193,7 +193,7 @@ module.exports = async ctx => {
             if(occasions) {
                 occasions = occasions.splice(0);
             }
-            occasions = await occasionsController.getOccasions(1);
+            occasions = await occasionsController.getOccasions(0);
             if(occasions.length > 0) {
                 occasions.map(
                     occasion => {
@@ -215,7 +215,7 @@ module.exports = async ctx => {
             if(occasions) {
                 occasions = occasions.splice(0);
             }
-            occasions = await occasionsController.getOccasions(2);
+            occasions = await occasionsController.getOccasions(1);
             if(occasions.length > 0) {
                 occasions.map(
                     occasion => {
@@ -255,7 +255,167 @@ module.exports = async ctx => {
             if(occasions) {
                 occasions = occasions.splice(0);
             }
+            occasions = await occasionsController.getOccasions(3);
+            if(occasions.length > 0) {
+                occasions.map(
+                    occasion => {
+                        ctx.reply(
+                            occasion.name
+                        );
+                    }
+                )
+            } else {
+                ctx.reply(
+                    'Заходів в цьому місяці не передбачено'
+                );
+            }
+            break;
+
+        case('травень') :
+            if(occasions) {
+                occasions = occasions.splice(0);
+            }
             occasions = await occasionsController.getOccasions(4);
+            if(occasions.length > 0) {
+                occasions.map(
+                    occasion => {
+                        ctx.reply(
+                            occasion.name
+                        );
+                    }
+                )
+            } else {
+                ctx.reply(
+                    'Заходів в цьому місяці не передбачено'
+                );
+            }
+            break;
+
+        case('червень') :
+            if(occasions) {
+                occasions = occasions.splice(0);
+            }
+            occasions = await occasionsController.getOccasions(5);
+            if(occasions.length > 0) {
+                occasions.map(
+                    occasion => {
+                        ctx.reply(
+                            occasion.name
+                        );
+                    }
+                )
+            } else {
+                ctx.reply(
+                    'Заходів в цьому місяці не передбачено'
+                );
+            }
+            break;
+
+        case('липень') :
+            if(occasions) {
+                occasions = occasions.splice(0);
+            }
+            occasions = await occasionsController.getOccasions(6);
+            if(occasions.length > 0) {
+                occasions.map(
+                    occasion => {
+                        ctx.reply(
+                            occasion.name
+                        );
+                    }
+                )
+            } else {
+                ctx.reply(
+                    'Заходів в цьому місяці не передбачено'
+                );
+            }
+            break;
+
+        case('серпень') :
+            if(occasions) {
+                occasions = occasions.splice(0);
+            }
+            occasions = await occasionsController.getOccasions(7);
+            if(occasions.length > 0) {
+                occasions.map(
+                    occasion => {
+                        ctx.reply(
+                            occasion.name
+                        );
+                    }
+                )
+            } else {
+                ctx.reply(
+                    'Заходів в цьому місяці не передбачено'
+                );
+            }
+            break;
+
+        case('вересень') :
+            if(occasions) {
+                occasions = occasions.splice(0);
+            }
+            occasions = await occasionsController.getOccasions(8);
+            if(occasions.length > 0) {
+                occasions.map(
+                    occasion => {
+                        ctx.reply(
+                            occasion.name
+                        );
+                    }
+                )
+            } else {
+                ctx.reply(
+                    'Заходів в цьому місяці не передбачено'
+                );
+            }
+            break;
+
+        case('жовтень') :
+            if(occasions) {
+                occasions = occasions.splice(0);
+            }
+            occasions = await occasionsController.getOccasions(9);
+            if(occasions.length > 0) {
+                occasions.map(
+                    occasion => {
+                        ctx.reply(
+                            occasion.name
+                        );
+                    }
+                )
+            } else {
+                ctx.reply(
+                    'Заходів в цьому місяці не передбачено'
+                );
+            }
+            break;
+
+        case('листопад') :
+            if(occasions) {
+                occasions = occasions.splice(0);
+            }
+            occasions = await occasionsController.getOccasions(10);
+            if(occasions.length > 0) {
+                occasions.map(
+                    occasion => {
+                        ctx.reply(
+                            occasion.name
+                        );
+                    }
+                )
+            } else {
+                ctx.reply(
+                    'Заходів в цьому місяці не передбачено'
+                );
+            }
+            break;
+
+        case('грудень') :
+            if(occasions) {
+                occasions = occasions.splice(0);
+            }
+            occasions = await occasionsController.getOccasions(11);
             if(occasions.length > 0) {
                 occasions.map(
                     occasion => {
