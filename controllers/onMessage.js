@@ -4,6 +4,7 @@ const views = require("../views/views");
 const subscriberController = require('./subscriber_controller');
 const occasionsController = require('./occasion_controller');
 const Subscriber = require('../models/Subscriber');
+const keyboardsFactory = require('../utils/keyboardsFactory');
 
 module.exports = async ctx => {
     const {message: {text}} = ctx.update;
@@ -197,7 +198,8 @@ module.exports = async ctx => {
                 occasions.map(
                     occasion => {
                         ctx.reply(
-                            occasion.name
+                            occasion.name,
+                            {reply_markup: {inline_keyboard: keyboardsFactory.provide(`${occasion.name}`)}}
                         );
                     }
                 )
