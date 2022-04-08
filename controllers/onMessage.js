@@ -51,7 +51,7 @@ module.exports = async ctx => {
                 occasion => {
                     ctx.reply(
                         occasion.name,
-                        {reply_markup: {keyboard: inlineKBRDS.subscriprion}});
+                        {reply_markup: {inline_keyboard: inlineKBRDS.subscriprion}});
                 }
             )
 
