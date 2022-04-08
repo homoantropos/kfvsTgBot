@@ -200,7 +200,7 @@ module.exports = async ctx => {
                     occasion => {
                         const occasionName = occasion.name;
                         ctx.reply(
-                            occasion.date,
+                            occasion.date.toLocaleDateString('uk-UK', options),
                             {reply_markup: {inline_keyboard: keyboardsFactory.provide(occasionName)}}
                         );
                     }
@@ -221,7 +221,8 @@ module.exports = async ctx => {
                 occasions.map(
                     occasion => {
                         const occasionName = occasion.name;
-                        ctx.reply(occasion.date,
+                        ctx.reply(
+                            occasion.date.toLocaleDateString('uk-UK', options),
                             {reply_markup: {inline_keyboard: keyboardsFactory.provide(occasionName)}}
                         );
                     }
@@ -242,7 +243,8 @@ module.exports = async ctx => {
                 occasions.map(
                     occasion => {
                         const occasionName = occasion.name;
-                        ctx.reply(occasion.date.toLocaleDateString('uk-UK', options),
+                        ctx.reply(
+                            occasion.date.toLocaleDateString('uk-UK', options),
                             {reply_markup: {inline_keyboard: keyboardsFactory.provide(occasionName)}}
                         );
                     }
@@ -263,7 +265,8 @@ module.exports = async ctx => {
                 occasions.map(
                     occasion => {
                         const occasionName = occasion.name;
-                        ctx.reply(occasion.date,
+                        ctx.reply(
+                            occasion.date.toLocaleDateString('uk-UK', options),
                             {reply_markup: {inline_keyboard: keyboardsFactory.provide(occasionName)}}
                         );
                     }
@@ -284,7 +287,8 @@ module.exports = async ctx => {
                 occasions.map(
                     occasion => {
                         const occasionName = occasion.name;
-                        ctx.reply(occasion.date,
+                        ctx.reply(
+                            occasion.date.toLocaleDateString('uk-UK', options),
                             {reply_markup: {inline_keyboard: keyboardsFactory.provide(occasionName)}}
                         );
                     }
@@ -305,7 +309,8 @@ module.exports = async ctx => {
                 occasions.map(
                     occasion => {
                         const occasionName = occasion.name;
-                        ctx.reply(occasion.date,
+                        ctx.reply(
+                            occasion.date.toLocaleDateString('uk-UK', options),
                             {reply_markup: {inline_keyboard: keyboardsFactory.provide(occasionName)}}
                         );
                     }
@@ -326,7 +331,8 @@ module.exports = async ctx => {
                 occasions.map(
                     occasion => {
                         const occasionName = occasion.name;
-                        ctx.reply(occasion.date,
+                        ctx.reply(
+                            occasion.date.toLocaleDateString('uk-UK', options),
                             {reply_markup: {inline_keyboard: keyboardsFactory.provide(occasionName)}}
                         );
                     }
@@ -347,7 +353,8 @@ module.exports = async ctx => {
                 occasions.map(
                     occasion => {
                         const occasionName = occasion.name;
-                        ctx.reply(occasion.date,
+                        ctx.reply(
+                            occasion.date.toLocaleDateString('uk-UK', options),
                             {reply_markup: {inline_keyboard: keyboardsFactory.provide(occasionName)}}
                         );
                     }
@@ -368,7 +375,8 @@ module.exports = async ctx => {
                 occasions.map(
                     occasion => {
                         const occasionName = occasion.name;
-                        ctx.reply(occasion.date,
+                        ctx.reply(
+                            occasion.date.toLocaleDateString('uk-UK', options),
                             {reply_markup: {inline_keyboard: keyboardsFactory.provide(occasionName)}}
                         );
                     }
@@ -389,7 +397,8 @@ module.exports = async ctx => {
                 occasions.map(
                     occasion => {
                         const occasionName = occasion.name;
-                        ctx.reply(occasion.date,
+                        ctx.reply(
+                            occasion.date.toLocaleDateString('uk-UK', options),
                             {reply_markup: {inline_keyboard: keyboardsFactory.provide(occasionName)}}
                         );
                     }
@@ -410,7 +419,8 @@ module.exports = async ctx => {
                 occasions.map(
                     occasion => {
                         const occasionName = occasion.name;
-                        ctx.reply(occasion.date,
+                        ctx.reply(
+                            occasion.date.toLocaleDateString('uk-UK', options),
                             {reply_markup: {inline_keyboard: keyboardsFactory.provide(occasionName)}}
                         );
                     }
@@ -431,7 +441,8 @@ module.exports = async ctx => {
                 occasions.map(
                     occasion => {
                         const occasionName = occasion.name;
-                        ctx.reply(occasion.date,
+                        ctx.reply(
+                            occasion.date.toLocaleDateString('uk-UK', options),
                             {reply_markup: {inline_keyboard: keyboardsFactory.provide(occasionName)}}
                         );
                     }
