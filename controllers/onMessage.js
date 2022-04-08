@@ -8,7 +8,7 @@ const keyboardsFactory = require('../utils/keyboardsFactory');
 
 module.exports = async ctx => {
     const {message: {text}} = ctx.update;
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
     let occasions;
     switch (text.toLowerCase()) {
 
