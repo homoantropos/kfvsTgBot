@@ -189,6 +189,9 @@ module.exports = async ctx => {
             break;
 
         case('січень') :
+            if(occasions) {
+                occasions = occasions.splice(0);
+            }
             occasions = await occasionsController.getOccasions(1);
             if(occasions.length > 0) {
                 occasions.map(
@@ -206,6 +209,9 @@ module.exports = async ctx => {
             break;
 
         case('лютий') :
+            if(occasions) {
+                occasions = occasions.splice(0);
+            }
             occasions = await occasionsController.getOccasions(2);
             if(occasions.length > 0) {
                 occasions.map(
@@ -223,6 +229,9 @@ module.exports = async ctx => {
             break;
 
         case('березень') :
+            if(occasions) {
+                occasions = occasions.splice(0);
+            }
             occasions = await occasionsController.getOccasions(3);
             if(occasions.length > 0) {
                 occasions.map(
@@ -240,6 +249,9 @@ module.exports = async ctx => {
             break;
 
         case('квітень') :
+            if(occasions) {
+                occasions = occasions.splice(0);
+            }
             occasions = await occasionsController.getOccasions(4);
             if(occasions.length > 0) {
                 occasions.map(
