@@ -2,7 +2,7 @@ const Occasion = require('../models/Occasion');
 
 class Occasion_controller {
 
-    async createOccasion (req, res) {
+    async createOccasion(req, res) {
         try {
             const occasion = await Occasion.findOrCreate({
                 where: {
@@ -13,40 +13,40 @@ class Occasion_controller {
                 }
             });
             res.status(200).json(occasion[0]);
-        } catch(error) {
-            res.status(500).json({
-                message: error.error.message ? error.error.message : error
-            })
-        }
-}
-
-    async updateOccasion (req, res) {
-        try {
-            await Occasion.update(
-                {
-                name: req.body.name,
-                date: req.body.date ? req.body.date : null,
-                description: req.body.description ? req.body.description : '',
-                posterSrc: req.body.posterSrc ? req.body.posterSrc : ''
-            }, {
-                where: {
-                    id: req.params.id
-                }
-            });
-            const occasion = await Occasion.findOne({
-                where: {
-                    id: req.params.id
-                }
-            })
-            res.status(200).json(occasion);
-        } catch(error) {
+        } catch (error) {
             res.status(500).json({
                 message: error.error.message ? error.error.message : error
             })
         }
     }
 
-    async deleteOccasion (req, res) {
+    async updateOccasion(req, res) {
+        try {
+            await Occasion.update(
+                {
+                    name: req.body.name,
+                    date: req.body.date ? req.body.date : null,
+                    description: req.body.description ? req.body.description : '',
+                    posterSrc: req.body.posterSrc ? req.body.posterSrc : ''
+                }, {
+                    where: {
+                        id: req.params.id
+                    }
+                });
+            const occasion = await Occasion.findOne({
+                where: {
+                    id: req.params.id
+                }
+            })
+            res.status(200).json(occasion);
+        } catch (error) {
+            res.status(500).json({
+                message: error.error.message ? error.error.message : error
+            })
+        }
+    }
+
+    async deleteOccasion(req, res) {
         try {
             await Occasion.destroy(
                 {
@@ -57,25 +57,30 @@ class Occasion_controller {
             res.status(200).json({
                 message: 'Подію успішно видалено!'
             });
-        } catch(error) {
+        } catch (error) {
             res.status(500).json({
                 message: error.error.message ? error.error.message : error
             })
         }
     }
 
-    async getAllOccasions (req, res) {
+    async getAllOccasions(req, res) {
         try {
             const occasions = await Occasion.findAll();
             res.status(200).json(occasions);
-        } catch(error) {
+        } catch (error) {
             res.status(500).json({
                 message: error.error.message ? error.error.message : error
             })
         }
     }
 
-    async getOccasionById (req, res) {
+    async getOccasions() {
+        const occasions = await Occasion.findAll();
+        return occasions
+    }
+
+    async getOccasionById(req, res) {
         try {
             const occasion = await Occasion.findOne(
                 {
@@ -84,17 +89,17 @@ class Occasion_controller {
                     }
                 });
             res.status(200).json(occasion);
-        } catch(error) {
+        } catch (error) {
             res.status(500).json({
                 message: error.error.message ? error.error.message : error
             })
         }
     }
 
-    async addSubscriber (req, res) {
+    async addSubscriber(req, res) {
         try {
 
-        } catch(error) {
+        } catch (error) {
             res.status(500).json({
                 message: error.error.message ? error.error.message : error
             })

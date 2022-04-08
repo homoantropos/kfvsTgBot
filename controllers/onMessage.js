@@ -46,7 +46,7 @@ module.exports = async ctx => {
             break;
 
         case('заходи') :
-            const occasions = await occasionsController.getAllOccasions();
+            const occasions = await occasionsController.getOccasions();
             occasions.map(
                 occasion => {
                     ctx.reply(
