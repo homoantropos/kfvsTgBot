@@ -76,7 +76,11 @@ class Occasion_controller {
     }
 
     async getOccasions() {
-        const occasions = await Occasion.findAll();
+        const occasions = await Occasion.findAll({
+            order: [
+                'date', 'ASC'
+            ]
+        });
         return occasions
     }
 
