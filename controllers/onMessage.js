@@ -199,7 +199,7 @@ module.exports = async ctx => {
                     occasion => {
                         const occasionName = occasion.name;
                         ctx.reply(
-                            occasionName,
+                            occasion.date,
                             {reply_markup: {inline_keyboard: keyboardsFactory.provide(occasionName)}}
                         );
                     }
@@ -219,8 +219,9 @@ module.exports = async ctx => {
             if(occasions.length > 0) {
                 occasions.map(
                     occasion => {
-                        ctx.reply(
-                            occasion.name
+                        const occasionName = occasion.name;
+                        ctx.reply(occasion.date,
+                            {reply_markup: {inline_keyboard: keyboardsFactory.provide(occasionName)}}
                         );
                     }
                 )
@@ -239,8 +240,9 @@ module.exports = async ctx => {
             if(occasions.length > 0) {
                 occasions.map(
                     occasion => {
-                        ctx.reply(
-                            occasion.name
+                        const occasionName = occasion.name;
+                        ctx.reply(occasion.date,
+                            {reply_markup: {inline_keyboard: keyboardsFactory.provide(occasionName)}}
                         );
                     }
                 )
@@ -259,8 +261,9 @@ module.exports = async ctx => {
             if(occasions.length > 0) {
                 occasions.map(
                     occasion => {
-                        ctx.reply(
-                            occasion.name
+                        const occasionName = occasion.name;
+                        ctx.reply(occasion.date,
+                            {reply_markup: {inline_keyboard: keyboardsFactory.provide(occasionName)}}
                         );
                     }
                 )
@@ -279,8 +282,9 @@ module.exports = async ctx => {
             if(occasions.length > 0) {
                 occasions.map(
                     occasion => {
-                        ctx.reply(
-                            occasion.name
+                        const occasionName = occasion.name;
+                        ctx.reply(occasion.date,
+                            {reply_markup: {inline_keyboard: keyboardsFactory.provide(occasionName)}}
                         );
                     }
                 )
@@ -299,8 +303,9 @@ module.exports = async ctx => {
             if(occasions.length > 0) {
                 occasions.map(
                     occasion => {
-                        ctx.reply(
-                            occasion.name
+                        const occasionName = occasion.name;
+                        ctx.reply(occasion.date,
+                            {reply_markup: {inline_keyboard: keyboardsFactory.provide(occasionName)}}
                         );
                     }
                 )
@@ -319,8 +324,9 @@ module.exports = async ctx => {
             if(occasions.length > 0) {
                 occasions.map(
                     occasion => {
-                        ctx.reply(
-                            occasion.name
+                        const occasionName = occasion.name;
+                        ctx.reply(occasion.date,
+                            {reply_markup: {inline_keyboard: keyboardsFactory.provide(occasionName)}}
                         );
                     }
                 )
@@ -339,8 +345,9 @@ module.exports = async ctx => {
             if(occasions.length > 0) {
                 occasions.map(
                     occasion => {
-                        ctx.reply(
-                            occasion.name
+                        const occasionName = occasion.name;
+                        ctx.reply(occasion.date,
+                            {reply_markup: {inline_keyboard: keyboardsFactory.provide(occasionName)}}
                         );
                     }
                 )
@@ -359,8 +366,9 @@ module.exports = async ctx => {
             if(occasions.length > 0) {
                 occasions.map(
                     occasion => {
-                        ctx.reply(
-                            occasion.name
+                        const occasionName = occasion.name;
+                        ctx.reply(occasion.date,
+                            {reply_markup: {inline_keyboard: keyboardsFactory.provide(occasionName)}}
                         );
                     }
                 )
@@ -379,8 +387,9 @@ module.exports = async ctx => {
             if(occasions.length > 0) {
                 occasions.map(
                     occasion => {
-                        ctx.reply(
-                            occasion.name
+                        const occasionName = occasion.name;
+                        ctx.reply(occasion.date,
+                            {reply_markup: {inline_keyboard: keyboardsFactory.provide(occasionName)}}
                         );
                     }
                 )
@@ -399,8 +408,9 @@ module.exports = async ctx => {
             if(occasions.length > 0) {
                 occasions.map(
                     occasion => {
-                        ctx.reply(
-                            occasion.name
+                        const occasionName = occasion.name;
+                        ctx.reply(occasion.date,
+                            {reply_markup: {inline_keyboard: keyboardsFactory.provide(occasionName)}}
                         );
                     }
                 )
@@ -419,8 +429,9 @@ module.exports = async ctx => {
             if(occasions.length > 0) {
                 occasions.map(
                     occasion => {
-                        ctx.reply(
-                            occasion.name
+                        const occasionName = occasion.name;
+                        ctx.reply(occasion.date,
+                            {reply_markup: {inline_keyboard: keyboardsFactory.provide(occasionName)}}
                         );
                     }
                 )
