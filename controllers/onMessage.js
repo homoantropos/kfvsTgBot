@@ -232,7 +232,7 @@ module.exports = async ctx => {
             if(occasions) {
                 occasions = occasions.splice(0);
             }
-            occasions = await occasionsController.getOccasions(3);
+            occasions = await occasionsController.getOccasions(2);
             if(occasions.length > 0) {
                 occasions.map(
                     occasion => {
