@@ -197,9 +197,10 @@ module.exports = async ctx => {
             if(occasions.length > 0) {
                 occasions.map(
                     occasion => {
+                        const occasionName = occasion.name;
                         ctx.reply(
-                            occasion.name,
-                            {reply_markup: {inline_keyboard: keyboardsFactory.provide(`${occasion.name}`)}}
+                            occasionName,
+                            {reply_markup: {inline_keyboard: keyboardsFactory.provide(occasionName)}}
                         );
                     }
                 )
