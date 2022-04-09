@@ -24,7 +24,7 @@ exports.schedule = () => {
             }
         }
     );
-    monthKeyboard.push([{text: '/start'}]);
+    monthKeyboard.push([{text: '/start'}, {text: `${(new Date()).getFullYear()}`}]);
     return monthKeyboard;
 }
 
