@@ -26,6 +26,7 @@ exports.schedule = () => {
     );
     if(row.length > 0) {
         monthKeyboard.push(row.slice());
+        row.splice(0);
     }
     monthKeyboard.push([{text: '/start'}, {text: `${(new Date()).getFullYear()}`}]);
     return monthKeyboard;
