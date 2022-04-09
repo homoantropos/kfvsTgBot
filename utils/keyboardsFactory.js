@@ -20,8 +20,7 @@ exports.schedule = () => {
         month => {
             row.push(
                 {
-                    text: `${month}`,
-                    callback_data: `${month}`
+                    text: `${month}`
                 }
             );
             if(row.length === 3) {
