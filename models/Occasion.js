@@ -63,7 +63,7 @@ Occasion.addScope(
     'occasion',
     {
         attributes: {
-            include: ['id', 'name', 'date', 'description', 'maxSubsNumber', 'posterSrc']
+            include: ['id', 'name', 'start', 'description', 'maxSubsNumber', 'posterSrc']
         },
         include: [
             {
