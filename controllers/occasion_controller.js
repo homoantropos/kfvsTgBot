@@ -7,8 +7,9 @@ class Occasion_controller {
             const occasion = await Occasion.findOrCreate({
                 where: {
                     name: req.body.name,
-                    date: req.body.date ? req.body.date : null,
-                    description: req.body.description ? req.body.description : '',
+                    date: req.body.date,
+                    description: req.body.description,
+                    maxSubsNumber: req.body.maxSubsNumber,
                     posterSrc: req.body.posterSrc ? req.body.posterSrc : ''
                 }
             });
@@ -25,8 +26,9 @@ class Occasion_controller {
             await Occasion.update(
                 {
                     name: req.body.name,
-                    date: req.body.date ? req.body.date : null,
-                    description: req.body.description ? req.body.description : '',
+                    date: req.body.date,
+                    description: req.body.description,
+                    maxSubsNumber: req.body.maxSubsNumber,
                     posterSrc: req.body.posterSrc ? req.body.posterSrc : ''
                 }, {
                     where: {

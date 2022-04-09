@@ -7,15 +7,21 @@ const Occasion = sequelize.define(
     'occasion', {
         name: {
             type: Sequelize.STRING,
-            allowNull: false
+            allowNull: false,
+            unique: 'occasion'
         },
-        date: {
+        start: {
             type: Sequelize.DATE,
-            allowNull: true
+            allowNull: false,
+            unique: 'occasion'
         },
         description: {
             type: Sequelize.STRING,
-            allowNull: true
+            allowNull: false
+        },
+        maxSubsNumber: {
+          type: Sequelize.NUMBER,
+          allowNull: false
         },
         posterSrc: {
             type: Sequelize.STRING,
@@ -57,7 +63,7 @@ Occasion.addScope(
     'occasion',
     {
         attributes: {
-            include: ['id', 'name', 'date', 'description', 'posterSrc']
+            include: ['id', 'name', 'date', 'description', 'maxSubsNumber', 'posterSrc']
         },
         include: [
             {
