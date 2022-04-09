@@ -43,7 +43,7 @@ class Occasion_controller {
             res.status(200).json(occasion);
         } catch (error) {
             res.status(500).json({
-                message: error.error.message ? error.error.message : error
+                message: error.message ? error.message : error
             })
         }
     }
@@ -61,7 +61,7 @@ class Occasion_controller {
             });
         } catch (error) {
             res.status(500).json({
-                message: error.error.message ? error.error.message : error
+                message: error.message ? error.message : error
             })
         }
     }
@@ -72,7 +72,7 @@ class Occasion_controller {
             res.status(200).json(occasions);
         } catch (error) {
             res.status(500).json({
-                message: error.error.message ? error.error.message : error
+                message: error.message ? error.message : error
             })
         }
     }
@@ -102,7 +102,7 @@ class Occasion_controller {
             res.status(200).json(occasion);
         } catch (error) {
             res.status(500).json({
-                message: error.error.message ? error.error.message : error
+                message: error.message ? error.message : error
             })
         }
     }
@@ -112,7 +112,7 @@ class Occasion_controller {
 
         } catch (error) {
             res.status(500).json({
-                message: error.error.message ? error.error.message : error
+                message: error.message ? error.message : error
             })
         }
     }
