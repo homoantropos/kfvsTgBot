@@ -13,7 +13,10 @@ class Occasion_controller {
                     posterSrc: req.body.posterSrc ? req.body.posterSrc : ''
                 }
             });
-            res.status(200).json(occasion[0]);
+            res.status(200).json({
+                message: 'вітаємо! подію успішно додано до бази даних!',
+                occasion: occasion[0]
+            });
         } catch (error) {
             res.status(500).json({
                 message: error.message ? error.message : error
@@ -40,7 +43,10 @@ class Occasion_controller {
                     id: req.params.id
                 }
             })
-            res.status(200).json(occasion);
+            res.status(200).json({
+                message: 'зміни успішно збережено!',
+                occasion: occasion
+            });
         } catch (error) {
             res.status(500).json({
                 message: error.message ? error.message : error
@@ -85,7 +91,7 @@ class Occasion_controller {
                 ]
             }
         );
-        if(typeof month !== 'undefined') {
+        if (typeof month !== 'undefined') {
             occasions = occasions.filter(occasion => (new Date(occasion.start)).getMonth() === month);
         }
         return occasions
