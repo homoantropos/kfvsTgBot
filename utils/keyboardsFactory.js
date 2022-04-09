@@ -15,6 +15,7 @@ exports.schedule = () => {
     const today = new Date();
     let monthKeyboard = [];
     const currentMonths = months.filter(month => month >= today.getMonth());
+    console.log(monthKeyboard);
     let row = [];
     currentMonths.map(
         month => {
@@ -29,7 +30,6 @@ exports.schedule = () => {
             }
         }
     );
-    console.log(monthKeyboard);
     return monthKeyboard;
 }
 
