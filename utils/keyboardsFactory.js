@@ -28,7 +28,8 @@ exports.schedule = () => {
                 row = row.splice(0);
             }
         }
-    )
+    );
+    console.log(monthKeyboard);
     return monthKeyboard;
 }
 
