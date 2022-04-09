@@ -20,7 +20,7 @@ const Occasion = sequelize.define(
             allowNull: false
         },
         maxSubsNumber: {
-          type: Sequelize.NUMBER,
+          type: Sequelize.INTEGER,
           allowNull: false
         },
         posterSrc: {
