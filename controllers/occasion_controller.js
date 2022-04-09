@@ -87,14 +87,13 @@ class Occasion_controller {
         let occasions = await Occasion.scope('occasion').findAll(
             {
                 order: [
-                    ['start', 'ASC']
+                    ['start', 'DESC']
                 ]
             }
         );
         if (typeof month !== 'undefined') {
             occasions = occasions.filter(occasion => (new Date(occasion.start)).getMonth() === month);
         }
-        console.log(occasions);
         return occasions
     }
 
