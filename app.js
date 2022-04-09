@@ -27,9 +27,6 @@ app.use('/api/user', userRoutes);
 app.use('/api/subscribers', subscriberRoutes);
 app.use('/api/occasions', occasionRoutes);
 
-process.once('SIGINT', () => bot.stop('SIGINT'));
-process.once('SIGTERM', () => bot.stop('SIGTERM'));
-
 sequelize.sync({alter: true})
     .then(
         () => console.log('DataBase connection established successfully.')
