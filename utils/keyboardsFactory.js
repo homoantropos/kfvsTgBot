@@ -14,20 +14,14 @@ exports.provide = (option) => {
 exports.schedule = () => {
     const today = new Date();
     let monthKeyboard = [];
-    console.log(months);
-    const currentMonths = months.filter(month => months.indexOf(month) >= today.getDate());
-    console.log(monthKeyboard);
+    const currentMonths = this.months.filter(month => this.months.indexOf(month) >= today.getMonth());
     let row = [];
     currentMonths.map(
         month => {
-            row.push(
-                {
-                    text: `${month}`
-                }
-            );
-            if(row.length === 3) {
-                monthKeyboard.push(row);
-                row = row.splice(0);
+            row.push({text: `${month}`});
+            if(row.length%3 === 0) {
+                monthKeyboard.push(row.slice());
+                row.splice(0);
             }
         }
     );
