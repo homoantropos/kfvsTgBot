@@ -51,7 +51,7 @@ module.exports = async ctx => {
         case('заходи') :
             ctx.reply(
                 'Заходи 2022 року, оберіть місяць',
-                {reply_markup: {keyboard: keyboards.shedule}});
+                {reply_markup: {keyboard: keyboardsFactory.schedule()}});
             break;
 
         case('фізична культура') :
