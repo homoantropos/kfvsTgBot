@@ -15,7 +15,7 @@ exports.schedule = () => {
     const today = new Date();
     let monthKeyboard = [];
     console.log(months);
-    const currentMonths = months.filter(month => month.index >= today.getDate());
+    const currentMonths = months.filter(month => months.indexOf(month) >= today.getDate());
     console.log(monthKeyboard);
     let row = [];
     currentMonths.map(
