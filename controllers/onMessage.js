@@ -454,6 +454,28 @@ module.exports = async ctx => {
             }
             break;
 
+        case('2022') :
+            if(occasions) {
+                occasions = occasions.splice(0);
+            }
+            occasions = await occasionsController.getOccasions();
+            if(occasions.length > 0) {
+                occasions.map(
+                    occasion => {
+                        const occasionName = occasion.name;
+                        ctx.reply(
+                            occasion.start.toLocaleDateString('uk-UK', options),
+                            {reply_markup: {inline_keyboard: keyboardsFactory.provide(occasionName)}}
+                        );
+                    }
+                )
+            } else {
+                ctx.reply(
+                    'Заходів в цьому місяці не передбачено'
+                );
+            }
+            break;
+
         case('завершити роботу') :
             ctx.reply(
                 `Дякуємо, що завітали!`,
