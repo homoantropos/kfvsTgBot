@@ -18,12 +18,15 @@ exports.schedule = () => {
     currentMonths.map(
         month => {
             row.push({text: `${month}`});
-            if(row.length%3 === 0) {
+            if(row.length%5 === 0) {
                 monthKeyboard.push(row.slice());
                 row.splice(0);
             }
         }
     );
+    if(row.length > 0) {
+        monthKeyboard.push(row.slice());
+    }
     monthKeyboard.push([{text: '/start'}, {text: `${(new Date()).getFullYear()}`}]);
     return monthKeyboard;
 }
