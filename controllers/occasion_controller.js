@@ -94,6 +94,7 @@ class Occasion_controller {
         if (typeof month !== 'undefined') {
             occasions = occasions.filter(occasion => (new Date(occasion.start)).getMonth() === month);
         }
+        console.log(occasions);
         return occasions
     }
 
