@@ -266,7 +266,7 @@ module.exports = async ctx => {
                     occasion => {
                         const occasionName = occasion.name;
                         ctx.reply(
-                            occasion.date.toLocaleDateString('uk-UK', options),
+                            occasion.start.toLocaleDateString('uk-UK', options),
                             {reply_markup: {inline_keyboard: keyboardsFactory.provide(occasionName)}}
                         );
                     }
