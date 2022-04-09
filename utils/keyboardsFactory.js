@@ -14,7 +14,7 @@ exports.provide = (option) => {
 exports.schedule = () => {
     const today = new Date();
     let monthKeyboard = [];
-    const currentMonths = months.filter(month => month >= today.getMonth());
+    const currentMonths = months.filter(month => month.id >= today.getMonth());
     console.log(monthKeyboard);
     let row = [];
     currentMonths.map(
