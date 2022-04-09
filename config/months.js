@@ -1,4 +1,4 @@
-export.months = [
+exports.months = [
     'січень',
     'лютий',
     'березень',
