@@ -7,7 +7,7 @@ class Occasion_controller {
             const occasion = await Occasion.findOrCreate({
                 where: {
                     name: req.body.name,
-                    date: req.body.date,
+                    start: req.body.start,
                     description: req.body.description,
                     maxSubsNumber: req.body.maxSubsNumber,
                     posterSrc: req.body.posterSrc ? req.body.posterSrc : ''
@@ -26,7 +26,7 @@ class Occasion_controller {
             await Occasion.update(
                 {
                     name: req.body.name,
-                    date: req.body.date,
+                    start: req.body.start,
                     description: req.body.description,
                     maxSubsNumber: req.body.maxSubsNumber,
                     posterSrc: req.body.posterSrc ? req.body.posterSrc : ''
@@ -81,12 +81,12 @@ class Occasion_controller {
         let occasions = await Occasion.scope('occasion').findAll(
             {
                 order: [
-                    ['date', 'ASC']
+                    ['start', 'ASC']
                 ]
             }
         );
         if(typeof month !== 'undefined') {
-            occasions = occasions.filter(occasion => (new Date(occasion.date)).getMonth() === month);
+            occasions = occasions.filter(occasion => (new Date(occasion.start)).getMonth() === month);
         }
         return occasions
     }
