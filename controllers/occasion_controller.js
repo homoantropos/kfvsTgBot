@@ -14,7 +14,7 @@ class Occasion_controller {
                 }
             });
             res.status(200).json({
-                message: 'вітаємо! подію успішно додано до бази даних!',
+                message: 'вітаємо! подію успішно додано до бази даних! перевірте внесені дані і продовжіть роботу:',
                 occasion: occasion[0]
             });
         } catch (error) {
@@ -44,7 +44,7 @@ class Occasion_controller {
                 }
             })
             res.status(200).json({
-                message: 'зміни успішно збережено!',
+                message: 'зміни успішно збережено! перевірте внесені дані і продовжіть роботу:',
                 occasion: occasion
             });
         } catch (error) {
