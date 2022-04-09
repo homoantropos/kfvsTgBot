@@ -35,7 +35,7 @@ class Occasion_controller {
                         id: req.params.id
                     }
                 });
-            const occasion = await Occasion.findOne({
+            const occasion = await Occasion.scope('occasion').findOne({
                 where: {
                     id: req.params.id
                 }
