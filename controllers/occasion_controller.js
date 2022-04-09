@@ -16,7 +16,7 @@ class Occasion_controller {
             res.status(200).json(occasion[0]);
         } catch (error) {
             res.status(500).json({
-                message: error.error.message ? error.error.message : error
+                message: error.message ? error.message : error
             })
         }
     }
