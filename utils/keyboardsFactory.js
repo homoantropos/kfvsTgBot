@@ -24,6 +24,7 @@ exports.schedule = () => {
             }
         }
     );
+    monthKeyboard.push([{text: '/start'}]);
     return monthKeyboard;
 }
 
