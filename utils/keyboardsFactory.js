@@ -18,7 +18,7 @@ exports.schedule = () => {
     currentMonths.map(
         month => {
             row.push({text: `${month}`});
-            if(row.length%5 === 0) {
+            if(row.length%3 === 0) {
                 monthKeyboard.push(row.slice());
                 row.splice(0);
             }
