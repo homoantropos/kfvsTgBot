@@ -16,7 +16,7 @@ const Occasion = sequelize.define(
             unique: 'occasion'
         },
         description: {
-            type: Sequelize.STRING,
+            type: Sequelize.TEXT,
             allowNull: false
         },
         maxSubsNumber: {
