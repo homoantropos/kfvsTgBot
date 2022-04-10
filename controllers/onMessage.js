@@ -485,9 +485,9 @@ module.exports = async ctx => {
             );
             break;
 
-        case('сам собі') :
-            await telegram.sendMessage(1229007657, 'hey');
-            break;
+        // case('сам собі') :
+        //     await telegram.sendMessage(1229007657, 'hey');
+        //     break;
 
         default :
             try{
