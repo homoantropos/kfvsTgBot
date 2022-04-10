@@ -30,7 +30,7 @@ class Occasion_controller {
             await Occasion.update(
                 {
                     name: req.body.name,
-                    start: req.body.start,
+                    start: new Date(req.body.start),
                     description: req.body.description,
                     maxSubsNumber: req.body.maxSubsNumber,
                     posterSrc: req.body.posterSrc ? req.body.posterSrc : ''
@@ -39,6 +39,7 @@ class Occasion_controller {
                         id: req.params.id
                     }
                 });
+            console.log('req.body.start: ', req.body.start);
             const occasion = await Occasion.scope('occasion').findOne({
                 where: {
                     id: req.params.id
