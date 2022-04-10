@@ -1,10 +1,11 @@
 const Occasion = require('../models/Occasion');
+const moment = require("moment");
 
 class Occasion_controller {
 
     async createOccasion(req, res) {
         try {
-            console.log('dbStart: ', req.body.start);
+            console.log('dbStart: ', moment(req.body.start));
             const occasion = await Occasion.findOrCreate({
                 where: {
                     name: req.body.name,
