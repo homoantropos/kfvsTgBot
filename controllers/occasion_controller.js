@@ -5,7 +5,7 @@ class Occasion_controller {
 
     async createOccasion(req, res) {
         try {
-            console.log('dbStart: ', moment.locale('uk', req.body.start));
+            console.log('dbStart: ', moment.locale('uk-UK', req.body.start));
             const occasion = await Occasion.findOrCreate({
                 where: {
                     name: req.body.name,
