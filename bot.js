@@ -31,8 +31,7 @@ class Bot {
 
     sendMessageToSubscriber(text, tgId) {
         const promise = this.bot.telegram.sendMessage(tgId, text);
-        const res = Promise.resolve();
-        console.log(res);
+        console.log(promise);
     }
 
     listen() {
