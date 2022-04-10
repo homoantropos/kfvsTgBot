@@ -52,7 +52,6 @@ module.exports = async ctx => {
                 });
                 if(occasion) {
                     ctx.reply(occasion.description, {parse_mode: 'HTML'});
-                    ctx.reply(' ', {reply_markup: {inline_keyboard: inlineKBRDS.toStart}});
                 } else {
                     ctx.reply(
                         `Вибачте, такої команди не виявлено, спробуйте повернутися до початку роботи і перевірити вірність введених даних або скористатися кнопокю "Контакти" для звязку з нами`,
