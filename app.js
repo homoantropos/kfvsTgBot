@@ -10,6 +10,7 @@ const bot = require('./bot');
 const userRoutes = require('./routes/user_routes');
 const subscriberRoutes = require('./routes/subscriber_routes');
 const occasionRoutes = require('./routes/occasion_routes');
+const moment = require("moment");
 
 bot.listen();
 
@@ -22,6 +23,7 @@ app.use(express.json({limit: '50mb'}));
 app.use(bodyParser.json());
 app.use(express.urlencoded({limit: '50mb', extended: true}));
 app.use(require('cors')());
+app.use(moment.locale('uk-UK'));
 
 app.use('/api/user', userRoutes);
 app.use('/api/subscribers', subscriberRoutes);
