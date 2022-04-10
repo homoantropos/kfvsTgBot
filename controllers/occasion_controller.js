@@ -4,7 +4,6 @@ class Occasion_controller {
 
     async createOccasion(req, res) {
         try {
-            console.log('req.body.start: ', req.body.start.format());
             const occasion = await Occasion.findOrCreate({
                 where: {
                     name: req.body.name,
@@ -14,7 +13,6 @@ class Occasion_controller {
                     posterSrc: req.body.posterSrc ? req.body.posterSrc : ''
                 }
             });
-            console.log('req.body.startSAVED: ', occasion[0].start);
             res.status(200).json({
                 message: 'вітаємо! подію успішно додано до бази даних! перевірте внесені дані і продовжіть роботу:',
                 occasion: occasion[0]
@@ -31,7 +29,7 @@ class Occasion_controller {
             await Occasion.update(
                 {
                     name: req.body.name,
-                    start: new Date(req.body.start),
+                    start: req.body.start,
                     description: req.body.description,
                     maxSubsNumber: req.body.maxSubsNumber,
                     posterSrc: req.body.posterSrc ? req.body.posterSrc : ''
@@ -45,7 +43,6 @@ class Occasion_controller {
                     id: req.params.id
                 }
             });
-            console.log('req.body.startSAVED: ', occasion.start);
             res.status(200).json({
                 message: 'зміни успішно збережено! перевірте внесені дані і продовжіть роботу:',
                 occasion: occasion
