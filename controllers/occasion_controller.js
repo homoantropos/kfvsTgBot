@@ -8,7 +8,7 @@ class Occasion_controller {
             const occasion = await Occasion.findOrCreate({
                 where: {
                     name: req.body.name,
-                    start: req.body.start,
+                    start: new Date(req.body.start),
                     description: req.body.description,
                     maxSubsNumber: req.body.maxSubsNumber,
                     posterSrc: req.body.posterSrc ? req.body.posterSrc : ''
