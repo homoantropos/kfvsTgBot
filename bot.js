@@ -29,6 +29,10 @@ class Bot {
         )
     }
 
+    sendMessageToSubscriber(text, tgId) {
+        this.bot.telegram.sendMessage(tgId, text);
+    }
+
     listen() {
         this.bot.launch();
         this.onMessage();

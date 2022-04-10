@@ -10,9 +10,10 @@ const bot = require('./bot');
 const userRoutes = require('./routes/user_routes');
 const subscriberRoutes = require('./routes/subscriber_routes');
 const occasionRoutes = require('./routes/occasion_routes');
-const moment = require("moment");
 
 bot.listen();
+
+bot.sendMessageToSubscriber('hey there', 1229007657);
 
 app.use(passport.initialize());
 require('./middleware/passport')(passport);
