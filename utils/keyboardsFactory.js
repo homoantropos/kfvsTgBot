@@ -13,7 +13,7 @@ exports.provide = (option) => {
 
 exports.schedule = () => {
     let monthKeyboard = [];
-    const currentMonths = months.filter(month => months.indexOf(month) >= 1);
+    const currentMonths = months.filter(month => months.indexOf(month) >= 10);
     const rowsCount = Math.ceil((currentMonths.length/3));
     let row = [];
     currentMonths.map(
