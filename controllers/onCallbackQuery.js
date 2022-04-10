@@ -53,6 +53,7 @@ module.exports = async ctx => {
                 if(occasion) {
                     ctx.reply(
                         occasion.description,
+                        {parse_mode: 'HTML'},
                         {reply_markup: {inline_keyboard: inlineKBRDS.toStart}}
                     );
                 } else {
