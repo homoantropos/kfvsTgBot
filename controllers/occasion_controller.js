@@ -14,7 +14,7 @@ class Occasion_controller {
                     posterSrc: req.body.posterSrc ? req.body.posterSrc : ''
                 }
             });
-            console.log('req.body.startSAVED: ', occasion.start);
+            console.log('req.body.startSAVED: ', occasion[0].start);
             res.status(200).json({
                 message: 'вітаємо! подію успішно додано до бази даних! перевірте внесені дані і продовжіть роботу:',
                 occasion: occasion[0]
