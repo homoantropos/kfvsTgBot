@@ -14,7 +14,7 @@ exports.provide = (option) => {
 exports.schedule = () => {
     let monthKeyboard = [];
     const currentMonths = months.filter(month => months.indexOf(month) >= (new Date()).getMonth());
-    const rowsCount = Math.floor((currentMonths/3));
+    const rowsCount = Math.floor((currentMonths.length/3));
     let row = [];
     currentMonths.map(
         month => {
