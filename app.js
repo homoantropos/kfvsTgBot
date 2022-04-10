@@ -13,8 +13,6 @@ const occasionRoutes = require('./routes/occasion_routes');
 
 bot.listen();
 
-bot.sendMessageToSubscriber('hey there', 1229007657);
-
 app.use(passport.initialize());
 require('./middleware/passport')(passport);
 app.use(require('morgan')('dev'));
