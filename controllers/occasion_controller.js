@@ -14,6 +14,7 @@ class Occasion_controller {
                     posterSrc: req.body.posterSrc ? req.body.posterSrc : ''
                 }
             });
+            console.log('req.body.startSAVED: ', occasion.start);
             res.status(200).json({
                 message: 'вітаємо! подію успішно додано до бази даних! перевірте внесені дані і продовжіть роботу:',
                 occasion: occasion[0]
@@ -39,12 +40,12 @@ class Occasion_controller {
                         id: req.params.id
                     }
                 });
-            console.log('req.body.start: ', req.body.start);
             const occasion = await Occasion.scope('occasion').findOne({
                 where: {
                     id: req.params.id
                 }
-            })
+            });
+            console.log('req.body.startSAVED: ', occasion.start);
             res.status(200).json({
                 message: 'зміни успішно збережено! перевірте внесені дані і продовжіть роботу:',
                 occasion: occasion
