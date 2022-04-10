@@ -47,7 +47,7 @@ module.exports = async ctx => {
             try{
                 const occasion = await Occasion.scope('occasion').findOne({
                     where: {
-                        name: text
+                        name: data
                     }
                 });
                 if(occasion) {
