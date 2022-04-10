@@ -14,11 +14,12 @@ exports.provide = (option) => {
 exports.schedule = () => {
     let monthKeyboard = [];
     const currentMonths = months.filter(month => months.indexOf(month) >= (new Date()).getMonth());
+    const rowsCount = Math.floor(currentMonths/3);
     let row = [];
     currentMonths.map(
         month => {
             row.push({text: `${month}`});
-            if(row.length%3 === 0) {
+            if(row.length%rowsCount === 0) {
                 monthKeyboard.push(row.slice());
                 row.splice(0);
             }
