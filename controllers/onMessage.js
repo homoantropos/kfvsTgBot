@@ -34,7 +34,7 @@ module.exports = async ctx => {
             break;
 
         case('собі') :
-            bot.sendMessageToSubscriber()
+            bot.sendMessageToSubscriber('hey friend', 1229007657);
             break;
 
         case('/help') :
