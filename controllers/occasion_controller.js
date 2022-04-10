@@ -4,7 +4,7 @@ class Occasion_controller {
 
     async createOccasion(req, res) {
         try {
-            console.log('req.body.start: ', new Date(req.body.start));
+            console.log('req.body.start: ', req.body.start.format);
             const occasion = await Occasion.findOrCreate({
                 where: {
                     name: req.body.name,
