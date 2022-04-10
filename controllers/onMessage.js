@@ -6,6 +6,7 @@ const occasionsController = require('./occasion_controller');
 const Subscriber = require('../models/Subscriber');
 const Occasion = require('../models/Occasion');
 const keyboardsFactory = require('../utils/keyboardsFactory');
+const telegram = require("telegraf/src/telegram");
 
 module.exports = async ctx => {
     const {message: {text}} = ctx.update;
@@ -482,6 +483,10 @@ module.exports = async ctx => {
                 `Дякуємо, що завітали!`,
                 {reply_markup: {remove_keyboard: true}}
             );
+            break;
+
+        case('сам собі') :
+            telegram.sendMessage(1229007657, 'hey');
             break;
 
         default :
