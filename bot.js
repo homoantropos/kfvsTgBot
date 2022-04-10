@@ -30,10 +30,9 @@ class Bot {
     }
 
     sendMessageToSubscriber(req, res) {
-        this.bot.telegram.sendMessage(req.params.id, req.body.message);
-        res.status(200).json({
-            message: 'повідомлення успішно надіслано!'
-        })
+        const promise = this.bot.telegram.sendMessage(req.params.id, req.body.message);
+        const resp = Promise.resolve(promise);
+        res.status(200).json(resp);
     }
 
     listen() {
