@@ -2,6 +2,7 @@ const keyboards = require("../keyboards/keyboard");
 const inlineKBRDS = require("../keyboards/inlineKeyboards");
 const subscriberController = require("./subscriber_controller");
 const challenge = require('../views/challenge');
+const Occasion = require("../models/Occasion");
 
 module.exports = async ctx => {
     const {callback_query: {data}} = ctx.update;
@@ -43,9 +44,25 @@ module.exports = async ctx => {
             break;
 
         default :
-            ctx.reply(
-                `Вибачте, такої команди не виявлено, спробуйте повернутися до початку роботи і перевірити вірність введених даних або скористатися кнопокю "Контакти" для звязку з нами`,
-                {reply_markup: {inline_keyboard: inlineKBRDS.toStart}}
-            )
+            try{
+                const occasion = await Occasion.scope('occasion').findOne({
+                    where: {
+                        name: text
+                    }
+                });
+                if(occasion) {
+                    ctx.reply(
+                        occasion.description,
+                        {reply_markup: {inline_keyboard: inlineKBRDS.toStart}}
+                    );
+                } else {
+                    ctx.reply(
+                        `Вибачте, такої команди не виявлено, спробуйте повернутися до початку роботи і перевірити вірність введених даних або скористатися кнопокю "Контакти" для звязку з нами`,
+                        {reply_markup: {inline_keyboard: inlineKBRDS.toStart}}
+                    );
+                }
+            } catch(error) {
+                console.log(error);
+            }
     }
 }

@@ -486,9 +486,6 @@ module.exports = async ctx => {
 
         default :
             try{
-                ctx.reply(
-                    text
-                );
                 const occasion = await Occasion.scope('occasion').findOne({
                     where: {
                         name: text
@@ -501,7 +498,7 @@ module.exports = async ctx => {
                     );
                 } else {
                     ctx.reply(
-                        `${text} Вибачте, такої команди не виявлено, спробуйте повернутися до початку роботи і перевірити вірність введених даних або скористатися кнопокю "Контакти" для звязку з нами`,
+                        `Вибачте, такої команди не виявлено, спробуйте повернутися до початку роботи і перевірити вірність введених даних або скористатися кнопокю "Контакти" для звязку з нами`,
                         {reply_markup: {inline_keyboard: inlineKBRDS.toStart}}
                     );
                 }
