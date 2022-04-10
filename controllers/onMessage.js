@@ -486,6 +486,9 @@ module.exports = async ctx => {
 
         default :
             try{
+                ctx.reply(
+                    text
+                );
                 const occasion = await Occasion.scope('occasion').findOne({
                     where: {
                         name: text
