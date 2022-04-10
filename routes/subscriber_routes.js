@@ -10,4 +10,6 @@ router.delete('/:id', passport.authenticate('jwt', {session: false}), controller
 router.get('/', passport.authenticate('jwt', {session: false}), controller.getSubscribers);
 router.get('/:id', passport.authenticate('jwt', {session: false}), controller.getSubscriberById);
 
+router.post('/sendMessage/:id', bot.sendMessageToSubscriber);
+
 module.exports = router

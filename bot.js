@@ -29,8 +29,8 @@ class Bot {
         )
     }
 
-    async sendMessageToSubscriber(req, res) {
-        await this.bot.telegram.sendMessage(req.params.id, req.body.message);
+    sendMessageToSubscriber(req, res) {
+        this.bot.telegram.sendMessage(req.params.id, req.body.message);
         res.status(200).json({
             message: 'повідомлення успішно надіслано!'
         })
