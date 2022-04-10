@@ -6,7 +6,6 @@ const occasionsController = require('./occasion_controller');
 const Subscriber = require('../models/Subscriber');
 const Occasion = require('../models/Occasion');
 const keyboardsFactory = require('../utils/keyboardsFactory');
-const bot = require('../bot');
 
 module.exports = async ctx => {
     const {message: {text}} = ctx.update;
@@ -31,10 +30,6 @@ module.exports = async ctx => {
                     `Привіт, ${first_name}! Для продовження обери, що тебе цікавить:`,
                     {reply_markup: {keyboard: keyboards.start}});
             }
-            break;
-
-        case('собі') :
-            bot.sendMessageToSubscriber('hey friend', 1229007657);
             break;
 
         case('/help') :
