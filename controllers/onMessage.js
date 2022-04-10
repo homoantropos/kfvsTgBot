@@ -4,6 +4,7 @@ const views = require("../views/views");
 const subscriberController = require('./subscriber_controller');
 const occasionsController = require('./occasion_controller');
 const Subscriber = require('../models/Subscriber');
+const Occasion = require('../models/Occasion');
 const keyboardsFactory = require('../utils/keyboardsFactory');
 
 module.exports = async ctx => {
@@ -484,9 +485,25 @@ module.exports = async ctx => {
             break;
 
         default :
-            ctx.reply(
-                `Вибачте, такої команди не виявлено, спробуйте повернутися до початку роботи і перевірити вірність введених даних або скористатися кнопокю "Контакти" для звязку з нами`,
-                {reply_markup: {inline_keyboard: inlineKBRDS.toStart}}
-            );
+            try{
+                const occasion = await Occasion.scope('occasion').findOne({
+                    where: {
+                        name: text
+                    }
+                });
+                if(occasion) {
+                    ctx.reply(
+                        occasion.description,
+                        {reply_markup: {inline_keyboard: inlineKBRDS.toStart}}
+                    );
+                } else {
+                    ctx.reply(
+                        `Вибачте, такої команди не виявлено, спробуйте повернутися до початку роботи і перевірити вірність введених даних або скористатися кнопокю "Контакти" для звязку з нами`,
+                        {reply_markup: {inline_keyboard: inlineKBRDS.toStart}}
+                    );
+                }
+            } catch(error) {
+                console.log(error);
+            }
     }
 }
