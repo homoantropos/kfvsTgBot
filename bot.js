@@ -36,7 +36,7 @@ class Bot {
                     const bot = new Telegraf(keys.token);
                     bot.launch();
                     bot.telegram.sendMessage(subscriber.tgId, req.body.text);
-                    bot.close();
+                    bot.leave();
                 }
             );
             res.status(200).json({
