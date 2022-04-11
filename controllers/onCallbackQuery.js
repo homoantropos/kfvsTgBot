@@ -52,21 +52,18 @@ module.exports = async ctx => {
                     }
                 });
                 if (occasion) {
-                    ctx.reply(
-                        occasion.description,
-                        {parse_mode: 'HTML'},
+                    ctx.reply(occasion.description, {parse_mode: 'HTML'});
+                    ctx.reply('слідкувати: ', {
+                        reply_markup:
                         {
-                            reply_markup:
+                            inline_keyboard: [
                                 {
-                                    inline_keyboard: [
-                                        {
-                                            text: 'підписатися',
-                                            url: `https://kfvstgbot.herokuapp.com/api/occasions/addSub?occasion=${occasion.id}&subscriberId=${id}`
-                                        }
-                                    ]
+                                    text: 'subscribe',
+                                    url: `https://kfvstgbot.herokuapp.com/api/occasions/addSub?occasion=${occasion.id}&subscriberId=${id}`
                                 }
+                            ]
                         }
-                    );
+                    })
                 } else {
                     ctx.reply(
                         `Вибачте, такої команди не виявлено, спробуйте повернутися до початку роботи і перевірити вірність введених даних або скористатися кнопокю "Контакти" для звязку з нами`,
