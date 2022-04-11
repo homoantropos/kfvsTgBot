@@ -10,7 +10,6 @@ const bot = require('./bot');
 const userRoutes = require('./routes/user_routes');
 const subscriberRoutes = require('./routes/subscriber_routes');
 const occasionRoutes = require('./routes/occasion_routes');
-const {Telegraf} = require("telegraf");
 const Subscriber = require("./models/Subscriber");
 
 bot.listen();
