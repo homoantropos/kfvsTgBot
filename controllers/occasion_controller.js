@@ -118,7 +118,6 @@ class Occasion_controller {
 
     async addSubscriber(req, res) {
         try {
-            console.log('req.query.subscriberId: ', req.query.subscriberId);
             const occasion = await Occasion.scope('occasion').findOne({
                 where: {
                     id: req.query.occasion
@@ -129,7 +128,7 @@ class Occasion_controller {
                     tgId: req.query.subscriberId
                 }
             })
-            await occasion.addSubscriber(subscriber);
+            await occasion.addSubscriber(subscriber, {through: 'OccasionSubscriber'});
             res.status(200).json({
                 message: 'success!'
             })

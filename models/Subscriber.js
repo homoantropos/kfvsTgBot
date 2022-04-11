@@ -40,7 +40,7 @@ const Subscriber = sequelize.define(
 Subscriber.addScope(
     'subs', {
         attributes: {
-            include: ['first_name', 'last_name', 'username', 'status', 'tgId', 'id']
+            include: ['first_name', 'last_name', 'username', 'status', 'tgId', 'id', 'occasionId']
         }
     }
 )
