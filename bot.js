@@ -30,7 +30,7 @@ class Bot {
             );
             subscribers.map(
                 subscriber => {
-                    this.bot.telegram.sendMessage(subscriber.tgId, text);
+                    this.bot.telegram.sendMessage(subscriber.tgId, req.body.text);
                 }
             );
             res.status(200).json({
