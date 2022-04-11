@@ -20,35 +20,6 @@ class Bot {
         this.bot.on('callback_query', ctx => onCallback(ctx));
     }
 
-    async sendMessageToAllSubscribers(req, res) {
-        try {
-            const bot = new Telegraf(keys.token);
-            await bot.launch();
-            let subscribers = await Subscriber.scope('subs').findAll();
-            req.body.tgIds.map(
-                tgId => {
-                    subscribers = subscribers.filter(
-                        subscriber => subscriber.tgId === tgId
-                    );
-                }
-            );
-            console.log(subscribers);
-            subscribers.map(
-                subscriber => {
-                    bot.telegram.sendMessage(subscriber.tgId, req.body.text);
-                }
-            );
-            bot.stop();
-            res.status(200).json({
-                message: 'Повідомлення успішно відправлено'
-            })
-        } catch(error) {
-            res.status(500).json({
-                message: error.message ? error.message : error
-            })
-        }
-    }
-
     listen() {
         this.bot.launch();
         this.onMessage();
