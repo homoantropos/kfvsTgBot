@@ -37,14 +37,13 @@ sequelize.sync({alter: true})
 
 app.use(express.Router().post('/api/send', async (req, res) => {
     try {
-        const method = req.body.method;
         req.body.tgIds.map(
             async tgId => {
                 let subscriber = await Subscriber.scope('subs').findOne({
                     where: {tgId}
                 });
                 if (subscriber) {
-                    await bot.bot.telegram[method](subscriber.tgId, req.body.text);
+                    await bot.bot.telegram[req.body.method](subscriber.tgId, req.body.text);
                 }
             }
         );
