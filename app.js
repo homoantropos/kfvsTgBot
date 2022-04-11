@@ -10,6 +10,8 @@ const bot = require('./bot');
 const userRoutes = require('./routes/user_routes');
 const subscriberRoutes = require('./routes/subscriber_routes');
 const occasionRoutes = require('./routes/occasion_routes');
+const {Telegraf} = require("telegraf");
+const Subscriber = require("./models/Subscriber");
 
 bot.listen();
 
@@ -33,5 +35,31 @@ sequelize.sync({alter: true})
     ).catch(
     (err)=> console.log(err)
 )
+
+app.use(express.Router().post('/api/send', async (req, res) => {
+    try {
+        let subscribers = await Subscriber.scope('subs').findAll();
+        req.body.tgIds.map(
+            tgId => {
+                subscribers = subscribers.filter(
+                    subscriber => subscriber.tgId === tgId
+                );
+            }
+        );
+        console.log(subscribers);
+        subscribers.map(
+            subscriber => {
+                bot.bot.telegram.sendMessage(subscriber.tgId, req.body.text);
+            }
+        );
+        res.status(200).json({
+            message: 'Повідомлення успішно відправлено'
+        })
+    } catch(error) {
+        res.status(500).json({
+            message: error.message ? error.message : error
+        })
+    }
+}));
 
 module.exports = app
