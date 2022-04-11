@@ -25,7 +25,7 @@ module.exports = async ctx => {
 
         case('/subscribe') :
             const {from: {is_bot}} = ctx.update.callback_query;
-            if(!is_bot) {
+            if (!is_bot) {
                 await subscriberController.createSubscriber(ctx, 'callback_query');
             } else {
                 ctx.reply('Боти не можуть підписуватись на бота.')
@@ -45,22 +45,35 @@ module.exports = async ctx => {
             break;
 
         default :
-            try{
+            try {
                 const occasion = await Occasion.scope('occasion').findOne({
                     where: {
                         name: data
                     }
                 });
-                if(occasion) {
+                if (occasion) {
                     ctx.reply(
-                        `${occasion.description} <a href="https://kfvstgbot.herokuapp.com/api/occasions/addSub?occasion=${occasion.id}&subscriberId=${id}">підписатися</a>`, {parse_mode: 'HTML'});
+                        occasion.description,
+                        {parse_mode: 'HTML'},
+                        {
+                            reply_markup:
+                                {
+                                    inline_keyboard: [
+                                        {
+                                            text: 'підписатися',
+                                            url: `https://kfvstgbot.herokuapp.com/api/occasions/addSub?occasion=${occasion.id}&subscriberId=${id}`
+                                        }
+                                    ]
+                                }
+                        }
+                    );
                 } else {
                     ctx.reply(
                         `Вибачте, такої команди не виявлено, спробуйте повернутися до початку роботи і перевірити вірність введених даних або скористатися кнопокю "Контакти" для звязку з нами`,
                         {reply_markup: {inline_keyboard: inlineKBRDS.toStart}}
                     );
                 }
-            } catch(error) {
+            } catch (error) {
                 console.log(error);
             }
     }
