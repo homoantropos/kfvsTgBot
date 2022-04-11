@@ -83,7 +83,7 @@ class Subscriber_controller {
 
     async getSubscribers(req, res) {
         try {
-            let subscribers = await Subscriber.findAll();
+            let subscribers = await Subscriber.scope('subs').findAll();
             if(req.query.occasionId) {
                 subscribers = subscribers.filter(
                     subscriber => subscriber.occasionId === req.query.occasionId
