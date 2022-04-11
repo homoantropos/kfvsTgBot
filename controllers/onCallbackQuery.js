@@ -52,7 +52,7 @@ module.exports = async ctx => {
                     }
                 });
                 if (occasion) {
-                    ctx.reply(occasion.description, {parse_mode: 'HTML'});
+                    await ctx.reply(occasion.description, {parse_mode: 'HTML'});
                     ctx.reply('слідкувати: ', {
                         reply_markup:
                         {
