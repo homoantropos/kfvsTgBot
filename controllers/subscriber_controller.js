@@ -83,7 +83,12 @@ class Subscriber_controller {
 
     async getSubscribers(req, res) {
         try {
-            const subscribers = await Subscriber.findAll();
+            let subscribers = await Subscriber.findAll();
+            if(req.query.occasionId) {
+                subscribers = subscribers.filter(
+                    subscriber => subscriber.occasionId === req.query.occasionId
+                )
+            }
             res.status(200).json(subscribers);
         } catch (error) {
             res.status(500).json({
