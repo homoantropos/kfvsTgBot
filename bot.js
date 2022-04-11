@@ -22,17 +22,19 @@ class Bot {
 
     async sendMessageToAllSubscribers(req, res) {
         try {
-            const bot = new Telegraf(keys.token);
+            await this.bot.launch();
             let subscribers = await Subscriber.scope('subs').findAll();
             req.body.tgIds.map(
-                tgId => subscribers = subscribers.filter(
-                    subscriber => subscriber.tgId !== tgId
-                )
+                tgId => {
+                    subscribers = subscribers.filter(
+                        subscriber => subscriber.tgId === tgId
+                    );
+                    console.log(subscribers);
+                }
             );
             subscribers.map(
                 subscriber => {
-                    bot.launch();
-                    bot.telegram.sendMessage(subscriber.tgId, req.body.text);
+                    this.bot.telegram.sendMessage(subscriber.tgId, req.body.text);
                 }
             );
             res.status(200).json({
