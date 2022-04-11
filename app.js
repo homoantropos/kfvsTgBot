@@ -37,23 +37,24 @@ sequelize.sync({alter: true})
 
 app.use(express.Router().post('/api/send', async (req, res) => {
     try {
-        let subscribers = await Subscriber.scope('subs').findAll();
+        const method = req.body.method;
         req.body.tgIds.map(
-            tgId => {
-                subscribers = subscribers.filter(
-                    subscriber => subscriber.tgId === tgId
-                );
+            async tgId => {
+                let subscriber = await Subscriber.scope('subs').findOne({
+                    where: {tgId}
+                });
+                if(subscriber) {
+                    await bot.bot.telegram[method](subscriber.tgId, req.body.text);
+                    res.status(200).json({
+                        message: 'Повідомлення успішно відправлено'
+                    })
+                } else {
+                    res.status(404).json({
+                        message: 'Таког окористувача не знайдено'
+                    })
+                }
             }
         );
-        console.log(subscribers);
-        subscribers.map(
-            subscriber => {
-                bot.bot.telegram.sendMessage(subscriber.tgId, req.body.text);
-            }
-        );
-        res.status(200).json({
-            message: 'Повідомлення успішно відправлено'
-        })
     } catch(error) {
         res.status(500).json({
             message: error.message ? error.message : error
