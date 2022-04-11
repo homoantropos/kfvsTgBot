@@ -22,6 +22,8 @@ class Bot {
 
     async sendMessageToAllSubscribers(req, res) {
         try {
+            const bot = new Telegraf(keys.token);
+            await bot.launch();
             let subscribers = await Subscriber.scope('subs').findAll();
             req.body.tgIds.map(
                 tgId => {
@@ -33,12 +35,10 @@ class Bot {
             console.log(subscribers);
             subscribers.map(
                 subscriber => {
-                    const bot = new Telegraf(keys.token);
-                    bot.launch();
                     bot.telegram.sendMessage(subscriber.tgId, req.body.text);
-                    bot.stop();
                 }
             );
+            bot.stop();
             res.status(200).json({
                 message: 'Повідомлення успішно відправлено'
             })
