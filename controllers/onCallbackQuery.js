@@ -57,10 +57,12 @@ module.exports = async ctx => {
                         reply_markup:
                         {
                             inline_keyboard: [
-                                {
-                                    text: 'subscribe',
-                                    url: `https://kfvstgbot.herokuapp.com/api/occasions/addSub?occasion=${occasion.id}&subscriberId=${id}`
-                                }
+                                [
+                                    {
+                                        text: 'subscribe',
+                                        url: `https://kfvstgbot.herokuapp.com/api/occasions/addSub?occasion=${occasion.id}&subscriberId=${id}`
+                                    }
+                                ]
                             ]
                         }
                     })
