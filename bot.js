@@ -28,9 +28,9 @@ class Bot {
                     subscribers = subscribers.filter(
                         subscriber => subscriber.tgId === tgId
                     );
-                    console.log(subscribers);
                 }
             );
+            console.log(subscribers);
             subscribers.map(
                 subscriber => {
                     const bot = new Telegraf(keys.token);
