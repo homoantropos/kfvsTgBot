@@ -30,6 +30,7 @@ class Bot {
             );
             subscribers.map(
                 subscriber => {
+                    this.bot.launch();
                     this.bot.telegram.sendMessage(subscriber.tgId, req.body.text);
                 }
             );
