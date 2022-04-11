@@ -6,7 +6,8 @@ const Occasion = require("../models/Occasion");
 
 module.exports = async ctx => {
     const {callback_query: {data}} = ctx.update;
-    const {from: {id}} = ctx.update.message;
+    const {from: {id}} = ctx.update.callback_query;
+    console.log(ctx);
     switch (data) {
 
         case ('Фізична культура') :
