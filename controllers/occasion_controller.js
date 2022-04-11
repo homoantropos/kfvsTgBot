@@ -1,4 +1,5 @@
 const Occasion = require('../models/Occasion');
+const Subscriber = require('../models/Subscriber');
 const moment = require("moment");
 
 class Occasion_controller {
@@ -117,7 +118,20 @@ class Occasion_controller {
 
     async addSubscriber(req, res) {
         try {
-
+            const occasion = await Occasion.scope('occasion').findOne({
+                where: {
+                    id: req.params.id
+                }
+            });
+            const subscriber = await Subscriber.findOne({
+                where: {
+                    tgId: req.query.subscriberId
+                }
+            })
+            await occasion.addSubscriber(subscriber);
+            res.status(200).json({
+                message: 'success!'
+            })
         } catch (error) {
             res.status(500).json({
                 message: error.message ? error.message : error

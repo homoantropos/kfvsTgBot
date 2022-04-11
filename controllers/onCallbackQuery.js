@@ -6,6 +6,7 @@ const Occasion = require("../models/Occasion");
 
 module.exports = async ctx => {
     const {callback_query: {data}} = ctx.update;
+    const {from: {id}} = ctx.update.message;
     switch (data) {
 
         case ('Фізична культура') :
@@ -51,7 +52,8 @@ module.exports = async ctx => {
                     }
                 });
                 if(occasion) {
-                    ctx.reply(occasion.description, {parse_mode: 'HTML'});
+                    ctx.reply(
+                        `${occasion.description} <a href="https://kfvstgbot.herokuapp.com/api/occasions/addSubs/${occasion.id}?subscriberId=${id}" methods="post">підписатися</a>`, {parse_mode: 'HTML'});
                 } else {
                     ctx.reply(
                         `Вибачте, такої команди не виявлено, спробуйте повернутися до початку роботи і перевірити вірність введених даних або скористатися кнопокю "Контакти" для звязку з нами`,
