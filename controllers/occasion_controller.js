@@ -121,7 +121,7 @@ class Occasion_controller {
             console.log('req.query.subscriberId: ', req.query.subscriberId);
             const occasion = await Occasion.scope('occasion').findOne({
                 where: {
-                    id: req.params.id
+                    id: req.query.occasion
                 }
             });
             const subscriber = await Subscriber.findOne({

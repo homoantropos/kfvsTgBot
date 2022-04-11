@@ -53,7 +53,7 @@ module.exports = async ctx => {
                 });
                 if(occasion) {
                     ctx.reply(
-                        `${occasion.description} <a href="https://kfvstgbot.herokuapp.com/api/occasions/${occasion.id}?subscriberId=${id}" methods="post">підписатися</a>`, {parse_mode: 'HTML'});
+                        `${occasion.description} <a href="https://kfvstgbot.herokuapp.com/api/occasions/addSub?occasion=${occasion.id}&subscriberId=${id}">підписатися</a>`, {parse_mode: 'HTML'});
                 } else {
                     ctx.reply(
                         `Вибачте, такої команди не виявлено, спробуйте повернутися до початку роботи і перевірити вірність введених даних або скористатися кнопокю "Контакти" для звязку з нами`,
