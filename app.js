@@ -32,7 +32,7 @@ sequelize.sync({alter: true})
     .then(
         () => console.log('DataBase connection established successfully.')
     ).catch(
-    (err)=> console.log(err)
+    (err) => console.log(err)
 )
 
 app.use(express.Router().post('/api/send', async (req, res) => {
@@ -43,19 +43,15 @@ app.use(express.Router().post('/api/send', async (req, res) => {
                 let subscriber = await Subscriber.scope('subs').findOne({
                     where: {tgId}
                 });
-                if(subscriber) {
+                if (subscriber) {
                     await bot.bot.telegram[method](subscriber.tgId, req.body.text);
-                    res.status(200).json({
-                        message: 'Повідомлення успішно відправлено'
-                    })
-                } else {
-                    res.status(404).json({
-                        message: 'Таког окористувача не знайдено'
-                    })
                 }
             }
         );
-    } catch(error) {
+        res.status(200).json({
+            message: 'Повідомлення успішно відправлено'
+        })
+    } catch (error) {
         res.status(500).json({
             message: error.message ? error.message : error
         })
