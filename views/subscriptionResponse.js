@@ -1,1 +1,11 @@
-exports.succes = `<h1>Вітаємо! Ви успішно підписались на подію!</h1>`
+exports.succes = `
+<style>
+hi {
+color: green;
+position: absolute;
+left: 50%;
+transform: translate(-50%);
+}
+</style>
+<h1>Вітаємо! Ви успішно підписались на подію!</h1>
+`
