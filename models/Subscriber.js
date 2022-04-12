@@ -38,6 +38,15 @@ const Subscriber = sequelize.define(
     }
 )
 
+Occasion.belongsToMany(
+    Subscriber,
+    {
+        as: 'occasions',
+        through: 'OccasionSubscriber',
+        onDelete: 'NO ACTION',
+        onUpdate: 'CASCADE'
+    });
+
 Subscriber.addScope(
     'subs', {
         attributes: {

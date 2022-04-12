@@ -43,15 +43,6 @@ Subscriber.belongsToMany(
         onUpdate: 'CASCADE'
     });
 
-Occasion.belongsToMany(
-    Subscriber,
-    {
-        as: 'occasions',
-        through: 'OccasionSubscriber',
-        onDelete: 'NO ACTION',
-        onUpdate: 'CASCADE'
-    });
-
 Occasion.addScope(
     'occasion',
     {
