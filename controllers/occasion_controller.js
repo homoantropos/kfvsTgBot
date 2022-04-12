@@ -132,7 +132,11 @@ class Occasion_controller {
                     tgId: req.query.subscriberId
                 }
             });
-            if (occasion.subscribers.includes(subscriber)) {
+            let subscribersIds = [];
+            occasion.subscribers.map (
+                subscriber => subscribersIds.push(subscriber.id)
+            )
+            if (subscribersIds.includes(subscriber.id)) {
                 res.status(401).send(subscriptionResponse.duplication);
             }
             else if (occasion.maxSubsNumber <= occasion.subscribers.length) {
