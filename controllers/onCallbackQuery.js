@@ -57,7 +57,7 @@ module.exports = async ctx => {
                                     inline_keyboard: [
                                         [
                                             {
-                                                text: 'підпищись!',
+                                                text: 'підпишись!',
                                                 url: `https://kfvstgbot.herokuapp.com/api/occasions/addSub?occasion=${occasion.id}&subscriberId=${id}`
                                             }
                                         ]
