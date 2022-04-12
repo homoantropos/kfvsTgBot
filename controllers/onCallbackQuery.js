@@ -3,6 +3,7 @@ const inlineKBRDS = require("../keyboards/inlineKeyboards");
 const subscriberController = require("./subscriber_controller");
 const challenge = require('../views/challenge');
 const Occasion = require("../models/Occasion");
+const Subscriber = require("../models/Subscriber");
 
 module.exports = async ctx => {
     const {callback_query: {data}} = ctx.update;
@@ -47,23 +48,24 @@ module.exports = async ctx => {
         default :
             try {
                 const occasion = await Occasion.scope('occasion').findOne({
-                    where: {name: data}
+                    include: {model: Subscriber, as: 'subscribers'},
+                    where: {id: req.query.occasion}
                 });
                 if (occasion) {
                     await ctx.reply(occasion.description, {parse_mode: 'HTML'});
-                        ctx.reply('бути в курсі події: ', {
-                            reply_markup:
-                                {
-                                    inline_keyboard: [
-                                        [
-                                            {
-                                                text: 'підпишись!',
-                                                url: `https://kfvstgbot.herokuapp.com/api/occasions/addSub?occasion=${occasion.id}&subscriberId=${id}`
-                                            }
-                                        ]
+                    ctx.reply('бути в курсі події: ', {
+                        reply_markup:
+                            {
+                                inline_keyboard: [
+                                    [
+                                        {
+                                            text: 'підпишись!',
+                                            url: `https://kfvstgbot.herokuapp.com/api/occasions/addSub?occasion=${occasion.id}&subscriberId=${id}`
+                                        }
                                     ]
-                                }
-                        })
+                                ]
+                            }
+                    })
                 } else {
                     ctx.reply(
                         `Вибачте, такої команди не виявлено, спробуйте повернутися до початку роботи і перевірити вірність введених даних або скористатися кнопокю "Контакти" для звязку з нами`,
