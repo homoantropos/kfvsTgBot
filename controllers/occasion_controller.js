@@ -127,20 +127,19 @@ class Occasion_controller {
                     id: req.query.occasion
                 }
             });
+            const subscriber = await Subscriber.findOne({
+                where: {
+                    tgId: req.query.subscriberId
+                }
+            });
+            if (occasion.subscribers.includes(subscriber)) {
+                res.status(401).send(subscriptionResponse.duplication);
+            }
             if (occasion.maxSubsNumber <= occasion.subscribers.length) {
                 res.status(401).send(subscriptionResponse.forbidden);
             } else {
-                const subscriber = await Subscriber.findOne({
-                    where: {
-                        tgId: req.query.subscriberId
-                    }
-                });
-                if (occasion.subscribers.includes(subscriber)) {
-                    res.status(401).send(subscriptionResponse.duplication);
-                } else {
-                    await occasion.addSubscriber(subscriber, {through: 'OccasionSubscriber'});
-                    res.status(200).send(subscriptionResponse.succes);
-                }
+                await occasion.addSubscriber(subscriber, {through: 'OccasionSubscriber'});
+                res.status(200).send(subscriptionResponse.succes);
             }
         } catch (error) {
             res.status(500).json({
