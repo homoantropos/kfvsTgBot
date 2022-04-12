@@ -3,6 +3,8 @@ const inlineKBRDS = require("../keyboards/inlineKeyboards");
 const subscriberController = require("./subscriber_controller");
 const challenge = require('../views/challenge');
 const Occasion = require("../models/Occasion");
+const Subscriber = require('../models/Subscriber');
+const checkSubscription = require('../utils/occasionHasSubscriber');
 
 module.exports = async ctx => {
     const {callback_query: {data}} = ctx.update;
@@ -47,26 +49,43 @@ module.exports = async ctx => {
         default :
             try {
                 const occasion = await Occasion.scope('occasion').findOne({
+                    include: {model: Subscriber, as: 'subscribers'},
                     where: {
                         name: data
                     }
                 });
                 if (occasion) {
-                    let inlineButtonText = 'підпишись!'
                     await ctx.reply(occasion.description, {parse_mode: 'HTML'});
-                    ctx.reply('бути в курсі події: ', {
-                        reply_markup:
-                        {
-                            inline_keyboard: [
-                                [
-                                    {
-                                        text: inlineButtonText,
-                                        url: `https://kfvstgbot.herokuapp.com/api/occasions/addSub?occasion=${occasion.id}&subscriberId=${id}`
-                                    }
-                                ]
-                            ]
-                        }
-                    })
+                    if (checkSubscription.occasionHasSubscriber(occasion, id)) {
+                        ctx.reply('відмовитися від підписки: ', {
+                            reply_markup:
+                                {
+                                    inline_keyboard: [
+                                        [
+                                            {
+                                                text: 'скасувати підписку',
+                                                url: `https://kfvstgbot.herokuapp.com/api/occasions/addSub?occasion=${occasion.id}&subscriberId=${id}`
+                                            }
+                                        ]
+                                    ]
+                                }
+                        })
+                    } else {
+                        ctx.reply('бути в курсі події: ', {
+                            reply_markup:
+                                {
+                                    inline_keyboard: [
+                                        [
+                                            {
+                                                text: 'підпищись!',
+                                                url: `https://kfvstgbot.herokuapp.com/api/occasions/addSub?occasion=${occasion.id}&subscriberId=${id}`
+                                            }
+                                        ]
+                                    ]
+                                }
+                        })
+                    }
+
                 } else {
                     ctx.reply(
                         `Вибачте, такої команди не виявлено, спробуйте повернутися до початку роботи і перевірити вірність введених даних або скористатися кнопокю "Контакти" для звязку з нами`,
