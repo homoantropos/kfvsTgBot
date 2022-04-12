@@ -1,6 +1,7 @@
 const Occasion = require('../models/Occasion');
 const Subscriber = require('../models/Subscriber');
 const moment = require("moment");
+const subscriptionResponse = require('../views/subscriptionResponse');
 
 class Occasion_controller {
 
@@ -129,9 +130,7 @@ class Occasion_controller {
                 }
             })
             await occasion.addSubscriber(subscriber, {through: 'OccasionSubscriber'});
-            res.status(200).json({
-                message: 'success!'
-            })
+            res.status(200).html(subscriptionResponse.succes);
         } catch (error) {
             res.status(500).json({
                 message: error.message ? error.message : error
