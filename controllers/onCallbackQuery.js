@@ -53,13 +53,13 @@ module.exports = async ctx => {
                 });
                 if (occasion) {
                     await ctx.reply(occasion.description, {parse_mode: 'HTML'});
-                    ctx.reply('слідкувати: ', {
+                    ctx.reply('бути в курсі події: ', {
                         reply_markup:
                         {
                             inline_keyboard: [
                                 [
                                     {
-                                        text: 'subscribe',
+                                        text: 'підпишись!',
                                         url: `https://kfvstgbot.herokuapp.com/api/occasions/addSub?occasion=${occasion.id}&subscriberId=${id}`
                                     }
                                 ]
