@@ -132,10 +132,10 @@ class Occasion_controller {
                     tgId: req.query.subscriberId
                 }
             });
-            if (occasion.subscribers.include(subscriber)) {
+            if (occasion.subscribers.includes(subscriber)) {
                 res.status(401).send(subscriptionResponse.duplication);
             }
-            if (occasion.maxSubsNumber <= occasion.subscribers.length) {
+            else if (occasion.maxSubsNumber <= occasion.subscribers.length) {
                 res.status(401).send(subscriptionResponse.forbidden);
             } else {
                 await occasion.addSubscriber(subscriber, {through: 'OccasionSubscriber'});
