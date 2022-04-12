@@ -90,7 +90,7 @@ class Occasion_controller {
         let occasions = await Occasion.scope('occasion').findAll(
             {
                 order: [
-                    ['start', 'DESC']
+                    ['start', 'ASC']
                 ]
             }
         );
