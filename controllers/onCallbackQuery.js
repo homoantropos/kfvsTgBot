@@ -3,7 +3,6 @@ const inlineKBRDS = require("../keyboards/inlineKeyboards");
 const subscriberController = require("./subscriber_controller");
 const challenge = require('../views/challenge');
 const Occasion = require("../models/Occasion");
-const Subscriber = require('../models/Subscriber');
 
 module.exports = async ctx => {
     const {callback_query: {data}} = ctx.update;
@@ -52,25 +51,6 @@ module.exports = async ctx => {
                 });
                 if (occasion) {
                     await ctx.reply(occasion.description, {parse_mode: 'HTML'});
-                    let subscribersIds = [];
-                    occasion.subscribers.map (
-                        subscriber => subscribersIds.push(subscriber.id)
-                    );
-                    if (subscribersIds.includes(id)) {
-                        ctx.reply('відмовитися від підписки: ', {
-                            reply_markup:
-                                {
-                                    inline_keyboard: [
-                                        [
-                                            {
-                                                text: 'скасувати підписку',
-                                                url: `https://kfvstgbot.herokuapp.com/api/occasions/addSub?occasion=${occasion.id}&subscriberId=${id}`
-                                            }
-                                        ]
-                                    ]
-                                }
-                        })
-                    } else {
                         ctx.reply('бути в курсі події: ', {
                             reply_markup:
                                 {
@@ -84,8 +64,6 @@ module.exports = async ctx => {
                                     ]
                                 }
                         })
-                    }
-
                 } else {
                     ctx.reply(
                         `Вибачте, такої команди не виявлено, спробуйте повернутися до початку роботи і перевірити вірність введених даних або скористатися кнопокю "Контакти" для звязку з нами`,
