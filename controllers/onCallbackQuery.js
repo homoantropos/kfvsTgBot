@@ -4,7 +4,6 @@ const subscriberController = require("./subscriber_controller");
 const challenge = require('../views/challenge');
 const Occasion = require("../models/Occasion");
 const Subscriber = require('../models/Subscriber');
-const checkSubscription = require('../utils/occasionHasSubscriber');
 
 module.exports = async ctx => {
     const {callback_query: {data}} = ctx.update;
@@ -56,7 +55,11 @@ module.exports = async ctx => {
                 });
                 if (occasion) {
                     await ctx.reply(occasion.description, {parse_mode: 'HTML'});
-                    if (checkSubscription.occasionHasSubscriber(occasion, id)) {
+                    let subscribersIds = [];
+                    occasion.subscribers.map (
+                        subscriber => subscribersIds.push(subscriber.id)
+                    );
+                    if (subscribersIds.includes(id)) {
                         ctx.reply('відмовитися від підписки: ', {
                             reply_markup:
                                 {
