@@ -56,12 +56,9 @@ Subscriber.belongsToMany(
 
 Subscriber.addScope(
     'subs', {
-        attributes: {
-            include: ['first_name', 'last_name', 'username', 'status', 'tgId', 'id']
-        },
         include: [
             {
-                model: Occasion, as: 'occasions'
+                model: Occasion
             }
         ]
     }

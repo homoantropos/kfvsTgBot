@@ -37,12 +37,9 @@ const Occasion = sequelize.define(
 Occasion.addScope(
     'occasion',
     {
-        attributes: {
-            include: ['id', 'name', 'start', 'description', 'maxSubsNumber', 'posterSrc']
-        },
         include: [
             {
-                model: Subscriber, as: 'subscribers'
+                model: Subscriber
             }
         ]
     }
