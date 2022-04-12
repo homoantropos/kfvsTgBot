@@ -130,7 +130,7 @@ class Occasion_controller {
                 }
             })
             await occasion.addSubscriber(subscriber, {through: 'OccasionSubscriber'});
-            res.status(200).html(subscriptionResponse.succes);
+            res.status(200).send(subscriptionResponse.succes);
         } catch (error) {
             res.status(500).json({
                 message: error.message ? error.message : error
