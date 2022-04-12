@@ -124,23 +124,24 @@ class Occasion_controller {
             });
             if(!subscriber) {
                 res.status(404).send(subscriptionResponse.needSubscription);
-            }
-            const occasion = await Occasion.scope('occasion').findOne({
-                include: {model: Subscriber, as: 'subscribers'},
-                where: {id: req.query.occasion}
-            });
-            let subscribersIds = [];
-            occasion.subscribers.map (
-                subscriber => subscribersIds.push(subscriber.id)
-            )
-            if (subscribersIds.includes(subscriber.id)) {
-                res.status(403).send(subscriptionResponse.duplication);
-            }
-            if (occasion.maxSubsNumber <= occasion.subscribers.length) {
-                res.status(403).send(subscriptionResponse.forbidden);
             } else {
-                await occasion.addSubscriber(subscriber, {through: 'OccasionSubscriber'});
-                res.status(201).send(subscriptionResponse.succes);
+                const occasion = await Occasion.scope('occasion').findOne({
+                    include: {model: Subscriber, as: 'subscribers'},
+                    where: {id: req.query.occasion}
+                });
+                let subscribersIds = [];
+                occasion.subscribers.map (
+                    subscriber => subscribersIds.push(subscriber.id)
+                )
+                if (subscribersIds.includes(subscriber.id)) {
+                    res.status(403).send(subscriptionResponse.duplication);
+                }
+                else if (occasion.maxSubsNumber <= occasion.subscribers.length) {
+                    res.status(403).send(subscriptionResponse.forbidden);
+                } else {
+                    await occasion.addSubscriber(subscriber, {through: 'OccasionSubscriber'});
+                    res.status(201).send(subscriptionResponse.succes);
+                }
             }
         } catch (error) {
             res.status(500).json({
