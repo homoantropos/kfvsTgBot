@@ -133,7 +133,8 @@ class Occasion_controller {
             )
             if (subscribersIds.includes(req.query.subscriberId)) {
                 res.status(401).send(subscriptionResponse.duplication);
-            } else if (occasion.maxSubsNumber <= occasion.subscribers.length) {
+            }
+            if (occasion.maxSubsNumber <= occasion.subscribers.length) {
                 res.status(401).send(subscriptionResponse.forbidden);
             } else {
                 const subscriber = await Subscriber.findOne({
