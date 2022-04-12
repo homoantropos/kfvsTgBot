@@ -1,6 +1,7 @@
 exports.succes = `
 <style>
 h1 {
+font-family: "Roboto Thin", sans-serif;
 color: green;
 position: absolute;
 left: 50%;
@@ -14,6 +15,7 @@ text-align: center;
 exports.duplication = `
 <style>
 h1 {
+font-family: "Roboto Thin", sans-serif;
 color: orange;
 position: absolute;
 left: 50%;
@@ -27,6 +29,7 @@ text-align: center;
 exports.forbidden = `
 <style>
 h1 {
+font-family: "Roboto Thin", sans-serif;
 color: red;
 position: absolute;
 left: 50%;
