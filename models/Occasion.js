@@ -34,15 +34,6 @@ const Occasion = sequelize.define(
     }
 );
 
-Subscriber.belongsToMany(
-    Occasion,
-    {
-        as: 'subscribers',
-        through: 'OccasionSubscriber',
-        onDelete: 'NO ACTION',
-        onUpdate: 'CASCADE'
-    });
-
 Occasion.addScope(
     'occasion',
     {
