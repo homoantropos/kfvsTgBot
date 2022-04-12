@@ -86,7 +86,10 @@ class Subscriber_controller {
         try {
             let subscribers = await Subscriber.scope('subs').findAll({include: {model: Occasion, as: 'occasions'}});
             if (req.query.occasionId) {
-                const occasion = await Occasion.findAll({include: {model: Subscriber, as: 'subscribers'}});
+                const occasion = await Occasion.findAll({
+                    include: {model: Subscriber, as: 'subscribers'},
+                    where: {id: req.query.occasionId}
+                });
                 subscribers = occasion.subscribers.slice();
             }
             res.status(200).json(subscribers);
