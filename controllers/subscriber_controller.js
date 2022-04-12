@@ -14,7 +14,7 @@ class Subscriber_controller {
                     tgId: id
                 }
             });
-            if(subscriber) {
+            if (subscriber) {
                 ctx.reply(`${first_name}, Ви вже підписані на цей бот`);
             } else {
                 await Subscriber.findOrCreate({
@@ -52,7 +52,7 @@ class Subscriber_controller {
                     tgId: id
                 }
             });
-            if(!subscriber) {
+            if (!subscriber) {
                 ctx.reply(`Ви не підписані на цей бот, скасувати підписку неможливо)`);
             } else {
                 if (subscriber.status !== 'banned') {
@@ -85,11 +85,9 @@ class Subscriber_controller {
     async getSubscribers(req, res) {
         try {
             let subscribers = await Subscriber.scope('subs').findAll({include: {model: Occasion, as: 'occasions'}});
-            if(req.query.occasionId) {
-                subscribers = await Subscriber.scope('subs').findAll({
-                    include: {model: Occasion, as: 'occasions'},
-                    where: {occasionId: req.query.occasionId}
-                });
+            if (req.query.occasionId) {
+                const occasion = await Occasion.findAll({include: {model: Subscriber, as: 'subscribers'}});
+                subscribers = occasion.subscribers.slice();
             }
             res.status(200).json(subscribers);
         } catch (error) {
