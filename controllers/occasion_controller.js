@@ -120,7 +120,7 @@ class Occasion_controller {
     async addSubscriber(req, res) {
         try {
             const occasion = await Occasion.scope('occasion').findOne({
-                includes: {
+                include: {
                     model: Subscriber, as: 'subscribers'
                 },
                 where: {
