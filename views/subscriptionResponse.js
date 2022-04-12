@@ -1,6 +1,6 @@
 exports.succes = `
 <style>
-hi {
+h1 {
 color: green;
 position: absolute;
 left: 50%;
