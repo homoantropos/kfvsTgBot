@@ -49,9 +49,7 @@ module.exports = async ctx => {
             try {
                 const occasion = await Occasion.scope('occasion').findOne({
                     include: {model: Subscriber, as: 'subscribers'},
-                    where: {
-                        name: data
-                    }
+                    where: {name: data}
                 });
                 if (occasion) {
                     await ctx.reply(occasion.description, {parse_mode: 'HTML'});
