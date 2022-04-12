@@ -42,7 +42,7 @@ Occasion.belongsToMany(
     Subscriber,
     {
         through: 'OccasionSubscriber',
-        onDelete: 'NO ACTION',
+        onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
     });
 
@@ -50,7 +50,7 @@ Subscriber.belongsToMany(
     Occasion,
     {
         through: 'OccasionSubscriber',
-        onDelete: 'NO ACTION',
+        onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
     });
 

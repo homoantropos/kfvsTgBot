@@ -1,7 +1,5 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../database/sequelize');
-const Subscriber = require('../models/Subscriber');
-
 
 const Occasion = sequelize.define(
     'occasion', {
