@@ -127,21 +127,21 @@ class Occasion_controller {
                     id: req.query.occasion
                 }
             });
+            const subscriber = await Subscriber.findOne({
+                where: {
+                    tgId: req.query.subscriberId
+                }
+            });
             let subscribersIds = [];
-            occasion.subscribers.map(
+            occasion.subscribers.map (
                 subscriber => subscribersIds.push(subscriber.id)
             )
-            if (subscribersIds.includes(req.query.subscriberId)) {
+            if (subscribersIds.includes(subscriber.id)) {
                 res.status(401).send(subscriptionResponse.duplication);
             }
-            if (occasion.maxSubsNumber <= occasion.subscribers.length) {
+            else if (occasion.maxSubsNumber <= occasion.subscribers.length) {
                 res.status(401).send(subscriptionResponse.forbidden);
             } else {
-                const subscriber = await Subscriber.findOne({
-                    where: {
-                        tgId: req.query.subscriberId
-                    }
-                });
                 await occasion.addSubscriber(subscriber, {through: 'OccasionSubscriber'});
                 res.status(200).send(subscriptionResponse.succes);
             }
