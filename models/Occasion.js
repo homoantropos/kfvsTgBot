@@ -34,13 +34,6 @@ const Occasion = sequelize.define(
     }
 );
 
-Occasion.hasMany(
-    Subscriber,
-    {
-        onDelete: 'NO ACTION',
-        onUpdate: 'CASCADE'
-    });
-
 Subscriber.belongsToMany(
     Occasion,
     {

@@ -40,8 +40,13 @@ const Subscriber = sequelize.define(
 Subscriber.addScope(
     'subs', {
         attributes: {
-            include: ['first_name', 'last_name', 'username', 'status', 'tgId', 'id', 'occasionId']
-        }
+            include: ['first_name', 'last_name', 'username', 'status', 'tgId', 'id']
+        },
+        include: [
+            {
+                model: Subscriber, as: 'subscribers'
+            }
+        ]
     }
 )
 module.exports = Subscriber
