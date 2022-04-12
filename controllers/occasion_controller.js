@@ -133,7 +133,7 @@ class Occasion_controller {
                 }
             });
             if(!subscriber) {
-                res.status(404).send(subscriptionResponse.duplication);
+                res.status(404).send(subscriptionResponse.needSubscription);
             }
             let subscribersIds = [];
             occasion.subscribers.map (
