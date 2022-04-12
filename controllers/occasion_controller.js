@@ -77,7 +77,7 @@ class Occasion_controller {
 
     async getAllOccasions(req, res) {
         try {
-            const occasions = await Occasion.findAll();
+            const occasions = await Occasion.findAll({include: {model: Subscriber, as: 'subscribers'}});
             res.status(200).json(occasions);
         } catch (error) {
             res.status(500).json({

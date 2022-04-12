@@ -1,4 +1,5 @@
 const Subscriber = require('../models/Subscriber');
+const Occasion = require('../models/Occasion');
 
 class Subscriber_controller {
 
@@ -83,7 +84,7 @@ class Subscriber_controller {
 
     async getSubscribers(req, res) {
         try {
-            let subscribers = await Subscriber.scope('subs').findAll();
+            let subscribers = await Subscriber.scope('subs').findAll({include: {model: Occasion, as: 'occasions'}});
             if(req.query.occasionId) {
                 subscribers = subscribers.filter(
                     subscriber => subscriber.occasionId === req.query.occasionId
