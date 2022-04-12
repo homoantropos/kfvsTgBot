@@ -155,7 +155,7 @@ class Occasion_controller {
             const subscriber = await Subscriber.findOne({
                 where: {tgId: req.query.subscriberId}
             });
-            await occasion.deleteSubscriber(subscriber, {through: 'OccasionSubscriber'});
+            await occasion.removeSubscriber(subscriber, {through: 'OccasionSubscriber'});
             res.status(200).send(subscriptionResponse.unsubscribed)
         } catch (error) {
             res.status(500).json({
