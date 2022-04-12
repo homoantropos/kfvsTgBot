@@ -39,3 +39,16 @@ text-align: center;
 </style>
 <h1>На жаль зараз доступні підписки на цю подію відсутні( Спробуйте пізніше!</h1>
 `
+exports.needSubscription = `
+<style>
+h1 {
+font-family: "Roboto Thin", sans-serif;
+color: orange;
+position: absolute;
+left: 50%;
+transform: translate(-50%);
+text-align: center;
+}
+</style>
+<h1>Спочатку підпишись на бот! Повернись в телеграм та надішли мені команду /subscribe</h1>
+`

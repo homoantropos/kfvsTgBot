@@ -132,6 +132,9 @@ class Occasion_controller {
                     tgId: req.query.subscriberId
                 }
             });
+            if(!subscriber) {
+                res.status(404).send(subscriptionResponse.duplication);
+            }
             let subscribersIds = [];
             occasion.subscribers.map (
                 subscriber => subscribersIds.push(subscriber.id)
