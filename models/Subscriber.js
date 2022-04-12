@@ -38,18 +38,9 @@ const Subscriber = sequelize.define(
     }
 )
 
-Occasion.hasMany(Subscriber,
-    {
-        as: 'occasions',
-        through: 'OccasionSubscriber',
-        onDelete: 'NO ACTION',
-        onUpdate: 'CASCADE'
-    });
-
 Occasion.belongsToMany(
     Subscriber,
     {
-        as: 'occasions',
         through: 'OccasionSubscriber',
         onDelete: 'NO ACTION',
         onUpdate: 'CASCADE'
@@ -58,7 +49,6 @@ Occasion.belongsToMany(
 Subscriber.belongsToMany(
     Occasion,
     {
-        as: 'subscribers',
         through: 'OccasionSubscriber',
         onDelete: 'NO ACTION',
         onUpdate: 'CASCADE'
