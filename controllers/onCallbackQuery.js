@@ -62,7 +62,7 @@ module.exports = async ctx => {
                                         [
                                             {
                                                 text: 'скасувати підписку!',
-                                                url: `https://kfvstgbot.herokuapp.com/api/occasions/addSub?occasion=${occasion.id}&subscriberId=${id}`
+                                                url: `https://kfvstgbot.herokuapp.com/api/occasions/removeSub?occasion=${occasion.id}&subscriberId=${id}`
                                             }
                                         ]
                                     ]

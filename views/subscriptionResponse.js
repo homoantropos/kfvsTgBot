@@ -52,3 +52,16 @@ text-align: center;
 </style>
 <h1>Спочатку підпишись на бот! Повернись в телеграм та надішли мені команду /subscribe</h1>
 `
+exports.unsubscribed = `
+<style>
+h1 {
+font-family: "Roboto Thin", sans-serif;
+color: dimgrey;
+position: absolute;
+left: 50%;
+transform: translate(-50%);
+text-align: center;
+}
+</style>
+<h1>Нам шкода, що ви відписалися від події(</h1>
+`

@@ -146,6 +146,23 @@ class Occasion_controller {
             })
         }
     }
+
+    async removeSubscription(req, res) {
+        try {
+            const occasion = await Occasion.scope('occasion').findOne({
+                where: {id: req.query.occasion}
+            });
+            const subscriber = await Subscriber.findOne({
+                where: {tgId: req.query.subscriberId}
+            });
+            await occasion.deleteSubscriber(subscriber, {through: 'OccasionSubscriber'});
+            res.status(200).send(subscriptionResponse.unsubscribed)
+        } catch (error) {
+            res.status(500).json({
+                message: error.message ? error.message : error
+            })
+        }
+    }
 }
 
 module.exports = new Occasion_controller()
