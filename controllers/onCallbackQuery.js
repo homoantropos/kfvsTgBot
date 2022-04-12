@@ -52,6 +52,7 @@ module.exports = async ctx => {
                     }
                 });
                 if (occasion) {
+                    let inlineButtonText = 'підпишись!'
                     await ctx.reply(occasion.description, {parse_mode: 'HTML'});
                     ctx.reply('бути в курсі події: ', {
                         reply_markup:
@@ -59,7 +60,7 @@ module.exports = async ctx => {
                             inline_keyboard: [
                                 [
                                     {
-                                        text: 'підпишись!',
+                                        text: inlineButtonText,
                                         url: `https://kfvstgbot.herokuapp.com/api/occasions/addSub?occasion=${occasion.id}&subscriberId=${id}`
                                     }
                                 ]
