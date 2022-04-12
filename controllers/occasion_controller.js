@@ -132,7 +132,7 @@ class Occasion_controller {
                     tgId: req.query.subscriberId
                 }
             });
-            if (occasion.subscribers.includes(subscriber)) {
+            if (occasion.subscribers.include(subscriber)) {
                 res.status(401).send(subscriptionResponse.duplication);
             }
             if (occasion.maxSubsNumber <= occasion.subscribers.length) {
