@@ -2,6 +2,7 @@ const Occasion = require('../models/Occasion');
 const Subscriber = require('../models/Subscriber');
 const moment = require("moment");
 const subscriptionResponse = require('../views/subscriptionResponse');
+const checkSubs = require('../utils/occasionHasSubscriber');
 
 class Occasion_controller {
 
@@ -129,11 +130,7 @@ class Occasion_controller {
                     include: {model: Subscriber, as: 'subscribers'},
                     where: {id: req.query.occasion}
                 });
-                let subscribersIds = [];
-                occasion.subscribers.map (
-                    subscriber => subscribersIds.push(subscriber.id)
-                )
-                if (subscribersIds.includes(subscriber.id)) {
+                if (checkSubs(occasion, 'id', subscriber.id)) {
                     res.status(403).send(subscriptionResponse.duplication);
                 }
                 else if (occasion.maxSubsNumber <= occasion.subscribers.length) {
