@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../database/sequelize');
+const Occasion = require('../models/Occasion');
 
 
 const Subscriber = sequelize.define(
@@ -44,7 +45,7 @@ Subscriber.addScope(
         },
         include: [
             {
-                model: Subscriber, as: 'subscribers'
+                model: Occasion, as: 'occasions'
             }
         ]
     }
