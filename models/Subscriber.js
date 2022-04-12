@@ -56,11 +56,9 @@ Subscriber.belongsToMany(
 
 Subscriber.addScope(
     'subs', {
-        include: [
-            {
-                model: Occasion
-            }
-        ]
+        attributes: {
+            include: ['first_name', 'last_name', 'username', 'status', 'tgId', 'id']
+        }
     }
 )
 module.exports = Subscriber
