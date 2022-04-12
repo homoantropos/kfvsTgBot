@@ -52,6 +52,7 @@ module.exports = async ctx => {
                     include: {model: Subscriber, as: 'subscribers'},
                     where: {name: data}
                 });
+                console.log('CHEK: ', checkSubs(occasion, id));
                 if (occasion) {
                     await ctx.reply(occasion.description, {parse_mode: 'HTML'});
                     if(checkSubs(occasion, id)) {
