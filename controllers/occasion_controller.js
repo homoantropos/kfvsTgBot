@@ -106,6 +106,7 @@ class Occasion_controller {
         try {
             const occasion = await Occasion.findOne(
                 {
+                    include: {model: Subscriber, as: 'subscribers'},
                     where: {
                         id: req.params.id
                     }
