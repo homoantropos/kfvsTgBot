@@ -104,12 +104,12 @@ module.exports = async ctx => {
             break;
 
         case('здорова україна') :
+            await ctx.reply(
+                'заходи за ініціативи програми Президента України Володимира Зеленського "Здорова Україна"',
+                {reply_markup: {inline_keyboard: inlineKBRDS.president}});
             ctx.reply(
                 'для повернення до меню натисніть "Назад"',
                 {reply_markup: {remove_keyboard: true}});
-            ctx.reply(
-                'Актуальні заходи для здобувачів освіти',
-                {reply_markup: {inline_keyboard: inlineKBRDS.events}});
             break;
 
         case('семінари') :
