@@ -94,6 +94,38 @@ exports.president = [
         url: 'https://www.kmu.gov.ua/npas/pro-zatverdzhennya-polozhennya-pro-socialnij-proekt-aktivni-parki-lokaciyi-zdorovoyi-ukrayini-i070421-326'
     }],
     [{
+        text: 'Здорова Україна. ч.1. Семінар "Фізична культура - здорове покоління."',
+        url: 'https://youtu.be/dT4tfgT_4d4'
+    }],
+    [{
+        text: 'Здорова Україна.  ч.2. Семінар "Фізична культура - здорове покоління."',
+        url: 'https://youtu.be/WoqVAvjDitA'
+    }],
+    [{
+        text: 'Здорова Україна. ч.3. Семінар "Фізична культура - здорове покоління."',
+        url: 'https://youtu.be/wzYyl6BjPAc'
+    }],
+    [{
+        text: 'Здорова Україна. ч.4.1. Семінар "Фізична культура - здорове покоління."',
+        url: 'https://youtu.be/eY0hF_g_wWo'
+    }],
+    [{
+        text: 'Здорова Україна. ч.4.2. Семінар "Фізична культура - здорове покоління."',
+        url: 'https://youtu.be/kIMl7fg2Efg'
+    }],
+    [{
+        text: 'Здорова Україна. ч.4.3. Семінар "Фізична культура - здорове покоління."',
+        url: 'https://youtu.be/lwxHheRzQF0'
+    }],
+    [{
+        text: 'Здорова Україна. ч.4.4. Семінар "Фізична культура - здорове покоління."',
+        url: 'https://youtu.be/LN0W1xkDHLE'
+    }],
+    [{
+        text: 'Здорова Україна. ч.5. Семінар "Фізична культура - здорове покоління."',
+        url: 'https://youtu.be/wYWt0WGv9fU'
+    }],
+    [{
         text: 'ЗАХИСНИКАМ УКРАЇНИ',
         callback_data: 'ЗАХИСНИКАМ УКРАЇНИ'
     }],
@@ -345,6 +377,10 @@ exports.internationalOccasions = [
         callback_data: 'ISF Gymnasiade'
     }],
     [{
+        text: 'YuoTube відео матеріали заходів',
+        url: 'https://www.youtube.com/channel/UCgiEPdo37-OAHbDftxbjQUw/featured'
+    }],
+    [{
         text: 'Назад',
         callback_data: '/start'
     }]
@@ -362,6 +398,10 @@ exports.allukrainianOccasions = [
     [{
         text: 'КОЗАЦЬКИЙ ГАРТ',
         callback_data: 'КОЗАЦЬКИЙ ГАРТ'
+    }],
+    [{
+        text: 'YuoTube відео матеріали заходів',
+        url: 'https://www.youtube.com/channel/UCgiEPdo37-OAHbDftxbjQUw/featured'
     }],
     [{
         text: 'Назад',

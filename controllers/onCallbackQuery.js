@@ -38,6 +38,11 @@ module.exports = async ctx => {
             await subscriberController.deleteSubscriber(ctx);
             break;
 
+        case('Універсіади України') :
+            await ctx.reply('відеорепортажі Універсіад України',
+                {reply_markup: {inline_keyboard: inlineKBRDS.universiades}});
+            break;
+
         case ('Функція в розробці') :
             ctx.answerCbQuery(data);
             break;
