@@ -292,6 +292,20 @@ exports.cool_games = [
     ]
 ]
 
+exports.cool_race = [
+    [
+        {
+            text: 'Правила Cool Race',
+            url: 'https://youtu.be/FrnTJN6b0pQ'
+        }
+    ],
+    [
+        {
+            text: 'Назад',
+            callback_data: 'Фізична культура'
+        }
+    ]
+]
 exports.stars = [
     [{
         text: 'Фізкультура/руханка з Лесею Нікітюк',

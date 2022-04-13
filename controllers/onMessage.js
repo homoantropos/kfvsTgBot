@@ -168,6 +168,10 @@ module.exports = async ctx => {
             break;
 
         case('cool race') :
+            ctx.reply(
+            `Все про Cool Race`,
+            {reply_markup: {inline_keyboard: inlineKBRDS.cool_race}}
+        );
             ctx.reply(`Функція в розробці`);
             break;
 
