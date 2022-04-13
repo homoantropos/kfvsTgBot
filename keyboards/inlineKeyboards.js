@@ -314,3 +314,22 @@ exports.stars = [
         callback_data: 'Фізична культура'
     }]
 ]
+
+exports.internationalOccasions = [
+    [{
+        text: 'ISF Gymnasiade - School Summer Games',
+        callback_data: 'ISF Gymnasiade - School Summer Games'
+    }],
+    [{
+        text: '31st FISU World University Games',
+        callback_data: '31st FISU World University Games'
+    }],
+    [{
+        text: 'European Universities Games Lodz 2022',
+        callback_data: 'European Universities Games Lodz 2022'
+    }]
+    [{
+        text: 'Назад',
+        callback_data: '/start'
+    }]
+]
