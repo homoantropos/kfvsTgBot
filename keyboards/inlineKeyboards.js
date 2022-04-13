@@ -327,7 +327,11 @@ exports.internationalOccasions = [
     [{
         text: 'European Universities Games Lodz 2022',
         callback_data: 'European Universities Games Lodz 2022'
-    }]
+    }],
+    [{
+        text: 'ISF Gymnasiade',
+        callback_data: 'ISF Gymnasiade'
+    }],
     [{
         text: 'Назад',
         callback_data: '/start'
