@@ -10,8 +10,8 @@ exports.toStart = [
 exports.toFKpage = [
     [
         {
-        text: 'Назад',
-        callback_data: 'Фізична культура'
+            text: 'Назад',
+            callback_data: 'Фізична культура'
         }
     ]
 ]
@@ -82,12 +82,16 @@ exports.subscriprion = [
 
 exports.president = [
     [{
+        text: 'Президентська програма «Здорова Україна» зробить спорт доступним для всіх, щоб жити довго, якісно й бути щасливими',
+        url: 'https://www.president.gov.ua/news/prezidentska-programa-zdorova-ukrayina-zrobit-sport-dostupni-69133'
+    }],
+    [{
         text: 'Активні парки – локації здорової України - Указ Президента України від 17 грудня 2020 року № 574/2020',
         url: 'https://www.president.gov.ua/documents/5742020-36049'
     }],
     [{
         text: 'Активні парки – локації здорової України - Постанова Кабінету Міністрів України від 07 квітня 2021 року № № 326',
-        url: 'https://www.president.gov.ua/documents/5742020-36049'
+        url: 'https://www.kmu.gov.ua/npas/pro-zatverdzhennya-polozhennya-pro-socialnij-proekt-aktivni-parki-lokaciyi-zdorovoyi-ukrayini-i070421-326'
     }],
     [{
         text: 'ЗАХИСНИКАМ УКРАЇНИ',
