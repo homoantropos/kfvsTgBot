@@ -337,3 +337,26 @@ exports.internationalOccasions = [
         callback_data: '/start'
     }]
 ]
+
+exports.allukrainianOccasions = [
+    [{
+        text: 'ЗАХИСНИКАМ УКРАЇНИ',
+        callback_data: 'ЗАХИСНИКАМ УКРАЇНИ'
+    }],
+    [{
+        text: 'КОЗАЦЬКА НАСНАГА',
+        callback_data: 'КОЗАЦЬКА НАСНАГА'
+    }],
+    [{
+        text: 'КОЗАЦЬКИЙ ГАРТ',
+        callback_data: 'КОЗАЦЬКИЙ ГАРТ'
+    }],
+    [{
+        text: 'Olympic Junior Games',
+        callback_data: 'Olympic Junior Games'
+    }],
+    [{
+        text: 'Назад',
+        callback_data: '/start'
+    }]
+]
