@@ -179,6 +179,7 @@ module.exports = async ctx => {
             ctx.reply(`заходи 2022 року:`, {
                 reply_markup: {inline_keyboard: inlineKBRDS.internationalOccasions}
             });
+            break;
 
         case('всеукраїнські заходи') :
             ctx.reply(`Функція в розробці`);
