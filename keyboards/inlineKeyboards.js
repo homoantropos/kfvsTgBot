@@ -352,6 +352,13 @@ exports.allukrainianOccasions = [
         callback_data: 'КОЗАЦЬКИЙ ГАРТ'
     }],
     [{
+        text: 'Назад',
+        callback_data: '/start'
+    }]
+]
+
+exports.olympicJuniorGames = [
+    [{
         text: 'Olympic Junior Games',
         callback_data: 'Olympic Junior Games'
     }],
