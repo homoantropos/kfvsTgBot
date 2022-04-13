@@ -172,7 +172,6 @@ module.exports = async ctx => {
             `Все про Cool Race`,
             {reply_markup: {inline_keyboard: inlineKBRDS.cool_race}}
         );
-            ctx.reply(`Функція в розробці`);
             break;
 
         case('olympic junior games') :
