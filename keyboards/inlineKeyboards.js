@@ -153,8 +153,8 @@ exports.lessons = [
         url: 'https://youtu.be/EXipA_RpQ5s'
     }],
     [{
-        text: 'Модельна навчальна програма «Фізична культура. 5-6 класи»',
-        url: 'https://drive.google.com/drive/u/2/folders/1KB2WRyGBgNwcETclvsBVbuRCpl-g2OKs'
+        text: 'Весела руханка з пакетами - "майками" від Тетяни Матвіїшиної',
+        url: 'https://youtu.be/He3NZVg4itQ'
     }],
     [{
         text: 'Назад',
