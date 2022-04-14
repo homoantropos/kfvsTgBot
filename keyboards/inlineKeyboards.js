@@ -189,7 +189,7 @@ exports.laws = [
     }],
     [{
         text: 'Назад',
-        callback_data: 'Фізична культура'
+        callback_data: '/start'
     }]
 ]
 
