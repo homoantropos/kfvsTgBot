@@ -26,6 +26,11 @@ const Subscriber = sequelize.define(
             allowNull: true,
             unique: false
         },
+        subscribedAt: {
+            type: Sequelize.DATE,
+            allowNull: true,
+            unique: false
+        },
         status: {
             type: Sequelize.STRING,
             allowNull: true,
