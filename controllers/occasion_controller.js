@@ -89,13 +89,8 @@ class Occasion_controller {
     }
 
     async getOccasions(month) {
-        let occasions = await Occasion.scope('occasion').findAll(
-            {
-                order: [
-                    ['start', 'ASC']
-                ]
-            }
-        );
+        let occasions = await Occasion.scope('occasion').findAll();
+        occasions.sort((a, b) => new Date(b.subscribedAt) - new Date(a.subscribedAt));
         if (typeof month !== 'undefined') {
             occasions = occasions.filter(occasion => (new Date(occasion.start)).getMonth() === month);
         }
