@@ -40,9 +40,9 @@ app.use(express.Router().post('/api/send', passport.authenticate('jwt', {session
     try {
         console.log('REQUEST: ', req);
         console.log('BODY: ', req.body);
-        console.log('tgIds: ', req.tgIds);
-        if(req.tgIds.length > 0) {
-            req.tgIds.map(
+        console.log('tgIds: ', req.body.tgIds);
+        if(req.body.tgIds.length > 0) {
+            req.body.tgIds.map(
                 async tgId => {
                     let subscriber = await Subscriber.scope('subs').findOne({
                         where: {tgId}
