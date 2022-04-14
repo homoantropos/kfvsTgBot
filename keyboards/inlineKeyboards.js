@@ -145,6 +145,10 @@ exports.lessons = [
         url: 'https://youtu.be/jvcXq52S2KM'
     }],
     [{
+        text: 'Весела руханка з надувними кульками від Тетяни Матвіїшиної',
+        url: 'https://youtu.be/EXipA_RpQ5s'
+    }],
+    [{
         text: 'Модельна навчальна програма «Фізична культура. 5-6 класи»',
         url: 'https://drive.google.com/drive/u/2/folders/1KB2WRyGBgNwcETclvsBVbuRCpl-g2OKs'
     }],
