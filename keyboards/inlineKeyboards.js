@@ -82,6 +82,10 @@ exports.subscriprion = [
 
 exports.president = [
     [{
+        text: 'Про Національну стратегію розбудови безпечного і здорового освітнього середовища у новій українській школі',
+        url: 'https://zakon.rada.gov.ua/laws/show/195/2020'
+    }],
+    [{
         text: 'Президентська програма «Здорова Україна» зробить спорт доступним для всіх, щоб жити довго, якісно й бути щасливими',
         url: 'https://www.president.gov.ua/news/prezidentska-programa-zdorova-ukrayina-zrobit-sport-dostupni-69133'
     }],
@@ -147,6 +151,33 @@ exports.lessons = [
     [{
         text: 'Весела руханка з надувними кульками від Тетяни Матвіїшиної',
         url: 'https://youtu.be/EXipA_RpQ5s'
+    }],
+    [{
+        text: 'Модельна навчальна програма «Фізична культура. 5-6 класи»',
+        url: 'https://drive.google.com/drive/u/2/folders/1KB2WRyGBgNwcETclvsBVbuRCpl-g2OKs'
+    }],
+    [{
+        text: 'Назад',
+        callback_data: 'Фізична культура'
+    }]
+]
+
+exports.lows = [
+    [{
+        text: 'Державна цільова соціальна програма розвитку фізичної культури і спорту на період до 2024 року',
+        url: 'https://zakon.rada.gov.ua/laws/show/115-2017-п'
+    }],
+    [{
+        text: 'Стратегії розвитку фізичної культури і спорту на період до 2028 року',
+        url: 'https://zakon.rada.gov.ua/laws/show/1089-2020-п'
+    }],
+    [{
+        text: 'Рекомендацій щодо стратегічного розвитку фізичного виховання та спортивної підготовки серед студентської молоді на період до 2025 року',
+        url: 'http://sportmon.org/wp-content/uploads/2021/02/rekomenlacziyi-shhodo-strategichnogo-rozvytku-fizychnogo-vyhovannya-ta-sportu-sered-studentskoyi-molodi-na-period-do-2025-roku_compressed.pdf'
+    }],
+    [{
+        text: 'Рекомендацій щодо стратегічного розвитку фізичного виховання та спортивної підготовки серед учнівської молоді на період до 2025 року',
+        url: 'https://zakon.rada.gov.ua/rada/show/v0194729-21'
     }],
     [{
         text: 'Модельна навчальна програма «Фізична культура. 5-6 класи»',

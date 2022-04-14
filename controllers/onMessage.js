@@ -9,7 +9,7 @@ const keyboardsFactory = require('../utils/keyboardsFactory');
 
 module.exports = async ctx => {
     const {message: {text}} = ctx.update;
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const options = {year: 'numeric', month: 'long', day: 'numeric'};
     let occasions;
     switch (text.toLowerCase()) {
 
@@ -169,9 +169,16 @@ module.exports = async ctx => {
 
         case('cool race') :
             ctx.reply(
-            `Все про Cool Race`,
-            {reply_markup: {inline_keyboard: inlineKBRDS.cool_race}}
-        );
+                `Все про Cool Race`,
+                {reply_markup: {inline_keyboard: inlineKBRDS.cool_race}}
+            );
+            break;
+
+        case('законодавство') :
+            ctx.reply(
+                `Все про Cool Race`,
+                {reply_markup: {inline_keyboard: inlineKBRDS.laws}}
+            );
             break;
 
         case('olympic junior games') :
@@ -201,11 +208,11 @@ module.exports = async ctx => {
             break;
 
         case('січень') :
-            if(occasions) {
+            if (occasions) {
                 occasions = occasions.splice(0);
             }
             occasions = await occasionsController.getOccasions(0);
-            if(occasions.length > 0) {
+            if (occasions.length > 0) {
                 occasions.map(
                     occasion => {
                         const occasionName = occasion.name;
@@ -223,11 +230,11 @@ module.exports = async ctx => {
             break;
 
         case('лютий') :
-            if(occasions) {
+            if (occasions) {
                 occasions = occasions.splice(0);
             }
             occasions = await occasionsController.getOccasions(1);
-            if(occasions.length > 0) {
+            if (occasions.length > 0) {
                 occasions.map(
                     occasion => {
                         const occasionName = occasion.name;
@@ -245,11 +252,11 @@ module.exports = async ctx => {
             break;
 
         case('березень') :
-            if(occasions) {
+            if (occasions) {
                 occasions = occasions.splice(0);
             }
             occasions = await occasionsController.getOccasions(2);
-            if(occasions.length > 0) {
+            if (occasions.length > 0) {
                 occasions.map(
                     occasion => {
                         const occasionName = occasion.name;
@@ -267,11 +274,11 @@ module.exports = async ctx => {
             break;
 
         case('квітень') :
-            if(occasions) {
+            if (occasions) {
                 occasions = occasions.splice(0);
             }
             occasions = await occasionsController.getOccasions(3);
-            if(occasions.length > 0) {
+            if (occasions.length > 0) {
                 occasions.map(
                     occasion => {
                         const occasionName = occasion.name;
@@ -289,11 +296,11 @@ module.exports = async ctx => {
             break;
 
         case('травень') :
-            if(occasions) {
+            if (occasions) {
                 occasions = occasions.splice(0);
             }
             occasions = await occasionsController.getOccasions(4);
-            if(occasions.length > 0) {
+            if (occasions.length > 0) {
                 occasions.map(
                     occasion => {
                         const occasionName = occasion.name;
@@ -311,11 +318,11 @@ module.exports = async ctx => {
             break;
 
         case('червень') :
-            if(occasions) {
+            if (occasions) {
                 occasions = occasions.splice(0);
             }
             occasions = await occasionsController.getOccasions(5);
-            if(occasions.length > 0) {
+            if (occasions.length > 0) {
                 occasions.map(
                     occasion => {
                         const occasionName = occasion.name;
@@ -333,11 +340,11 @@ module.exports = async ctx => {
             break;
 
         case('липень') :
-            if(occasions) {
+            if (occasions) {
                 occasions = occasions.splice(0);
             }
             occasions = await occasionsController.getOccasions(6);
-            if(occasions.length > 0) {
+            if (occasions.length > 0) {
                 occasions.map(
                     occasion => {
                         const occasionName = occasion.name;
@@ -355,11 +362,11 @@ module.exports = async ctx => {
             break;
 
         case('серпень') :
-            if(occasions) {
+            if (occasions) {
                 occasions = occasions.splice(0);
             }
             occasions = await occasionsController.getOccasions(7);
-            if(occasions.length > 0) {
+            if (occasions.length > 0) {
                 occasions.map(
                     occasion => {
                         const occasionName = occasion.name;
@@ -377,11 +384,11 @@ module.exports = async ctx => {
             break;
 
         case('вересень') :
-            if(occasions) {
+            if (occasions) {
                 occasions = occasions.splice(0);
             }
             occasions = await occasionsController.getOccasions(8);
-            if(occasions.length > 0) {
+            if (occasions.length > 0) {
                 occasions.map(
                     occasion => {
                         const occasionName = occasion.name;
@@ -399,11 +406,11 @@ module.exports = async ctx => {
             break;
 
         case('жовтень') :
-            if(occasions) {
+            if (occasions) {
                 occasions = occasions.splice(0);
             }
             occasions = await occasionsController.getOccasions(9);
-            if(occasions.length > 0) {
+            if (occasions.length > 0) {
                 occasions.map(
                     occasion => {
                         const occasionName = occasion.name;
@@ -421,11 +428,11 @@ module.exports = async ctx => {
             break;
 
         case('листопад') :
-            if(occasions) {
+            if (occasions) {
                 occasions = occasions.splice(0);
             }
             occasions = await occasionsController.getOccasions(10);
-            if(occasions.length > 0) {
+            if (occasions.length > 0) {
                 occasions.map(
                     occasion => {
                         const occasionName = occasion.name;
@@ -443,11 +450,11 @@ module.exports = async ctx => {
             break;
 
         case('грудень') :
-            if(occasions) {
+            if (occasions) {
                 occasions = occasions.splice(0);
             }
             occasions = await occasionsController.getOccasions(11);
-            if(occasions.length > 0) {
+            if (occasions.length > 0) {
                 occasions.map(
                     occasion => {
                         const occasionName = occasion.name;
@@ -465,11 +472,11 @@ module.exports = async ctx => {
             break;
 
         case('2022') :
-            if(occasions) {
+            if (occasions) {
                 occasions = occasions.splice(0);
             }
             occasions = await occasionsController.getOccasions();
-            if(occasions.length > 0) {
+            if (occasions.length > 0) {
                 occasions.map(
                     occasion => {
                         const occasionName = occasion.name;
@@ -494,13 +501,13 @@ module.exports = async ctx => {
             break;
 
         default :
-            try{
+            try {
                 const occasion = await Occasion.scope('occasion').findOne({
                     where: {
                         name: text
                     }
                 });
-                if(occasion) {
+                if (occasion) {
                     ctx.reply(
                         occasion.description,
                         {reply_markup: {inline_keyboard: inlineKBRDS.toStart}}
@@ -511,7 +518,7 @@ module.exports = async ctx => {
                         {reply_markup: {inline_keyboard: inlineKBRDS.toStart}}
                     );
                 }
-            } catch(error) {
+            } catch (error) {
                 console.log(error);
             }
     }
