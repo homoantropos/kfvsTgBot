@@ -10,14 +10,17 @@ exports.start = [
         },
         {
             text: 'Спорт'
-        }
-    ],
-    [
+        },
         {
             text: 'Заходи'
         },
+    ],
+    [
         {
-          text: 'Семінари'
+            text: 'Законодавство'
+        },
+        {
+            text: 'Семінари'
         },
         {
             text: 'Контакти'
@@ -49,9 +52,6 @@ exports.physical_culture = [
         {
             text: 'Cool Race',
             callback_data: 'Функція в розробці'
-        },
-        {
-            text: 'Законодавство'
         },
         // {
         //     text: 'Турніки'
