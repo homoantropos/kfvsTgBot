@@ -162,7 +162,7 @@ exports.lessons = [
     }]
 ]
 
-exports.lows = [
+exports.laws = [
     [{
         text: 'Державна цільова соціальна програма розвитку фізичної культури і спорту на період до 2024 року',
         url: 'https://zakon.rada.gov.ua/laws/show/115-2017-п'

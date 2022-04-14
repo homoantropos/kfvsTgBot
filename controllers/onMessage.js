@@ -169,7 +169,7 @@ module.exports = async ctx => {
 
         case('cool race') :
             ctx.reply(
-                `Все про Cool Race`,
+                `Акти законодавства України в галуі`,
                 {reply_markup: {inline_keyboard: inlineKBRDS.cool_race}}
             );
             break;
