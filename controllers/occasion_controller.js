@@ -80,7 +80,7 @@ class Occasion_controller {
     async getAllOccasions(req, res) {
         try {
             const occasions = await Occasion.findAll({include: {model: Subscriber, as: 'subscribers'}});
-            occasions.sort((a, b) => new Date(b.start) - new Date(a.start));
+            occasions.sort((a, b) => new Date(a.start) - new Date(b.start));
             res.status(200).json(occasions);
         } catch (error) {
             res.status(500).json({
@@ -94,7 +94,7 @@ class Occasion_controller {
         if (typeof month !== 'undefined') {
             occasions = occasions.filter(occasion => (new Date(occasion.start)).getMonth() === month);
         }
-        return occasions.sort((a, b) => new Date(b.start) - new Date(a.start));
+        return occasions.sort((a, b) => new Date(a.start) - new Date(b.start));
     }
 
     async getOccasionById(req, res) {
