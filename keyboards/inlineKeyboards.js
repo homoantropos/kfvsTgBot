@@ -172,6 +172,10 @@ exports.lows = [
         url: 'https://zakon.rada.gov.ua/laws/show/1089-2020-п'
     }],
     [{
+        text: 'Концепція розвитку щоденного спорту в закладах освіти',
+        url: 'https://imzo.gov.ua/2022/01/11/nakaz-mon-vid-27-10-2021-1141-4088-pro-zatverdzhennia-kontseptsii-rozvytku-shchodennoho-sportu-v-zakladakh-osvity/'
+    }],
+    [{
         text: 'Рекомендацій щодо стратегічного розвитку фізичного виховання та спортивної підготовки серед студентської молоді на період до 2025 року',
         url: 'http://sportmon.org/wp-content/uploads/2021/02/rekomenlacziyi-shhodo-strategichnogo-rozvytku-fizychnogo-vyhovannya-ta-sportu-sered-studentskoyi-molodi-na-period-do-2025-roku_compressed.pdf'
     }],
