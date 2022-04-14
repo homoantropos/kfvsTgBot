@@ -45,7 +45,7 @@ app.use(express.Router().post('/api/send', passport.authenticate('jwt', {session
                         where: {tgId}
                     });
                     if (subscriber) {
-                        await bot.bot.telegram[req.body.method](subscriber.tgId, req.body.text, {parse_mode: 'HTML'});
+                        await bot.bot.telegram[req.body.method](subscriber.tgId, req.body?.text, {parse_mode: 'HTML'}, req?.file);
                     }
                 }
             );
