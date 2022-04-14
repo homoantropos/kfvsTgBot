@@ -4,6 +4,7 @@ exports.contacts = `
 <a href = "https://www.facebook.com/sportcomitet.mon">fb</a>
 <a href = "https://www.instagram.com/physportmedia/">instagram</a>
 <a href = "http://sportmon.org/">web</a>
+<a href="https://www.youtube.com/channel/UCgiEPdo37-OAHbDftxbjQUw">YouTube</a>
 
 <b>Відділ діловодства та організаціної роботи КФВС МОН:</b>
 <i>email: kfvskontrol@gmail.com</i>
