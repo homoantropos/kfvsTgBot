@@ -38,8 +38,8 @@ sequelize.sync({alter: true})
 app.use(express.Router().post('/api/send', passport.authenticate('jwt', {session: false}),
     async (req, res) => {
     try {
-        if(req.body.tgIds.length > 0) {
-            req.body.tgIds.map(
+        if(req.tgIds.length > 0) {
+            req.tgIds.map(
                 async tgId => {
                     let subscriber = await Subscriber.scope('subs').findOne({
                         where: {tgId}
