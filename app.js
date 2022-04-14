@@ -38,9 +38,9 @@ sequelize.sync({alter: true})
 app.use(express.Router().post('/api/send', passport.authenticate('jwt', {session: false}),
     async (req, res) => {
     try {
-        console.log('REQUEST: ', req);
-        console.log('BODY: ', req.body);
-        console.log('tgIds: ', req.body.tgIds);
+        console.log('REQUEST: ', req.payload);
+        console.log('BODY: ', req.payload);
+        console.log('tgIds: ', req.payload.tgIds);
         if(req.body.tgIds.length > 0) {
             req.body.tgIds.map(
                 async tgId => {
