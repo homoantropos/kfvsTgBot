@@ -36,7 +36,7 @@ sequelize.sync({alter: true})
     (err) => console.log(err)
 )
 
-app.use(upld.single(), express.Router().post('/api/send', passport.authenticate('jwt', {session: false}),
+app.use(upld.single('image'), express.Router().post('/api/send', passport.authenticate('jwt', {session: false}),
     async (req, res) => {
         try {
             const tgIds = JSON.parse(req.body.tgIds);
