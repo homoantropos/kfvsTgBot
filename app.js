@@ -39,9 +39,9 @@ sequelize.sync({alter: true})
 app.use(upld.single('image'), express.Router().post('/api/send', passport.authenticate('jwt', {session: false}),
     async (req, res) => {
         try {
-            const tgIds = JSON.parse(req.body.tgIds);
-            if (tgIds.length > 0) {
-                tgIds.map(
+            console.log(req.body.tgIds);
+            if (req.body.tgIds.length > 0) {
+                req.body.tgIds.map(
                     async tgId => {
                         let subscriber = await Subscriber.scope('subs').findOne({
                             where: {tgId}
@@ -57,12 +57,13 @@ app.use(upld.single('image'), express.Router().post('/api/send', passport.authen
                         }
                     }
                 );
-            } else {
-                const subscribers = await Subscriber.scope('subs').findAll();
-                subscribers.map(
-                    subscriber => bot.bot.telegram[req.body.method](subscriber.tgId, req.body.text, {parse_mode: 'HTML'})
-                )
             }
+            // else {
+            //     const subscribers = await Subscriber.scope('subs').findAll();
+            //     subscribers.map(
+            //         subscriber => bot.bot.telegram[req.body.method](subscriber.tgId, req.body.text, {parse_mode: 'HTML'})
+            //     )
+            // }
             res.status(200).json({
                 message: 'Повідомлення успішно відправлено'
             })
