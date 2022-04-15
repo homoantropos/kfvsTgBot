@@ -39,7 +39,7 @@ sequelize.sync({alter: true})
 app.use(upld.single('image'), express.Router().post('/api/send', passport.authenticate('jwt', {session: false}),
     async (req, res) => {
         try {
-            console.log(req.body.tgIds);
+            console.log(req.image);
             if (req.body.tgIds.length > 0) {
                 req.body.tgIds.map(
                     async tgId => {
