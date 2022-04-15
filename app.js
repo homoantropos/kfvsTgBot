@@ -47,7 +47,13 @@ app.use(upld.single(), express.Router().post('/api/send', passport.authenticate(
                             where: {tgId}
                         });
                         if (subscriber) {
-                            await bot.bot.telegram[req.body.method](subscriber.tgId, req.body?.text, {parse_mode: 'HTML'}, req?.file);
+                            switch(req.body.method) {
+                                case('sendPhoto') :
+                                    await bot.bot.telegram.sendPhoto(subscriber.tgId, req.file);
+                                    break
+                                default :
+                                    await bot.bot.telegram.sendMessage(subscriber.tgId, req.body.text, {parse_mode: 'HTML'});
+                            }
                         }
                     }
                 );
