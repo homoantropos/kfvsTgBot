@@ -49,7 +49,7 @@ app.use(upld.single('image'), express.Router().post('/api/send', passport.authen
                         if (subscriber) {
                             switch(req.body.method) {
                                 case('sendPhoto') :
-                                    await bot.bot.telegram.sendPhoto(subscriber.tgId, req.file);
+                                    await bot.bot.telegram.sendPhoto(subscriber.tgId, req.image);
                                     break
                                 default :
                                     await bot.bot.telegram.sendMessage(subscriber.tgId, req.body.text, {parse_mode: 'HTML'});
@@ -58,12 +58,12 @@ app.use(upld.single('image'), express.Router().post('/api/send', passport.authen
                     }
                 );
             }
-            // else {
-            //     const subscribers = await Subscriber.scope('subs').findAll();
-            //     subscribers.map(
-            //         subscriber => bot.bot.telegram[req.body.method](subscriber.tgId, req.body.text, {parse_mode: 'HTML'})
-            //     )
-            // }
+            else {
+                const subscribers = await Subscriber.scope('subs').findAll();
+                subscribers.map(
+                    subscriber => bot.bot.telegram[req.body.method](subscriber.tgId, req.body.text, {parse_mode: 'HTML'})
+                )
+            }
             res.status(200).json({
                 message: 'Повідомлення успішно відправлено'
             })
