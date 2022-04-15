@@ -6,7 +6,7 @@ exports.contacts = `
 <a href = "http://sportmon.org/">web</a>
 <a href="https://www.youtube.com/channel/UCgiEPdo37-OAHbDftxbjQUw">YouTube</a>
 
-<b>Відділ діловодства та організаціної роботи КФВС МОН:</b>
+<b>Відділ діловодства та організаційної роботи КФВС МОН:</b>
 <i>email: kfvskontrol@gmail.com</i>
 `
 
