@@ -55,7 +55,7 @@ app.use(express.Router().post('/api/sendMedia', upload.none(), passport.authenti
                                     await bot.bot.telegram.sendPhoto(subscriber.tgId, req.body.mediaUrl, caption);
                                     break
                                 case('sendVideo') :
-                                    await bot.bot.telegram.sendPhoto(subscriber.tgId, req.body.mediaUrl, caption);
+                                    await bot.bot.telegram.sendVideo(subscriber.tgId, req.body.mediaUrl, caption);
                                     break
                                 default :
                                     await bot.bot.telegram.sendMessage(subscriber.tgId, caption, {parse_mode: 'HTML'});
