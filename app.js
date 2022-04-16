@@ -11,23 +11,26 @@ const bot = require('./bot');
 const userRoutes = require('./routes/user_routes');
 const subscriberRoutes = require('./routes/subscriber_routes');
 const occasionRoutes = require('./routes/occasion_routes');
+const messageRoutes = require('./routes/message_routes');
 const Subscriber = require("./models/Subscriber");
 
 bot.listen();
 
 upload = multer({dest: 'uploads/'});
 
+
+app.use(require('cors')());
 app.use(passport.initialize());
 require('./middleware/passport')(passport);
 app.use(require('morgan')('dev'));
 app.use('/uploads', express.static('uploads'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
-app.use(require('cors')());
 
 app.use('/api/user', userRoutes);
 app.use('/api/subscribers', subscriberRoutes);
 app.use('/api/occasions', occasionRoutes);
+app.use('/api/send', messageRoutes)
 
 sequelize.sync({alter: true})
     .then(
