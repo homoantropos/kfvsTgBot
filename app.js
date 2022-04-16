@@ -15,7 +15,7 @@ const Subscriber = require("./models/Subscriber");
 
 bot.listen();
 
-upld = multer({dest: 'uploads/'});
+upload = multer({dest: 'uploads/'});
 
 app.use(passport.initialize());
 require('./middleware/passport')(passport);
@@ -36,10 +36,9 @@ sequelize.sync({alter: true})
     (err) => console.log(err)
 )
 
-app.use(upld.single('image'), express.Router().post('/api/send', passport.authenticate('jwt', {session: false}),
+app.use(express.Router().post('/api/send', upload.none(), passport.authenticate('jwt', {session: false}),
     async (req, res) => {
         try {
-            console.log(req.image);
             if (req.body.tgIds.length > 0) {
                 req.body.tgIds.map(
                     async tgId => {
@@ -49,7 +48,7 @@ app.use(upld.single('image'), express.Router().post('/api/send', passport.authen
                         if (subscriber) {
                             switch(req.body.method) {
                                 case('sendPhoto') :
-                                    await bot.bot.telegram.sendPhoto(subscriber.tgId, req.image);
+                                    await bot.bot.telegram.sendPhoto(subscriber.tgId, req.body.mediaUrl, req.body.text);
                                     break
                                 default :
                                     await bot.bot.telegram.sendMessage(subscriber.tgId, req.body.text, {parse_mode: 'HTML'});
