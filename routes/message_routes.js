@@ -5,6 +5,6 @@ const multer = require('multer');
 const upload = multer({dest: 'uploads/'});
 const controller = require('../controllers/message_controller');
 
-router.post('/photo', upload.none(), passport.authenticate({session: false}), controller.sendPhoto);
+router.get('/photo', upload.none(), passport.authenticate({session: false}), controller.sendPhoto);
 
 module.exports = router

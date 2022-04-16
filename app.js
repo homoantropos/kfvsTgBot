@@ -39,7 +39,7 @@ sequelize.sync({alter: true})
     (err) => console.log(err)
 )
 
-app.use(express.Router().post('/api/send', upload.none(), passport.authenticate('jwt', {session: false}),
+app.use(express.Router().post('/api/sendMedia', upload.none(), passport.authenticate('jwt', {session: false}),
     async (req, res) => {
         try {
             if (req.body.tgIds.length > 0) {
