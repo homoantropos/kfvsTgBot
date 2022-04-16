@@ -49,15 +49,16 @@ app.use(express.Router().post('/api/sendMedia', upload.none(), passport.authenti
                             where: {tgId}
                         });
                         if (subscriber) {
+                            const caption = req.body.text;
                             switch(req.body.method) {
                                 case('sendPhoto') :
-                                    await bot.bot.telegram.sendPhoto(subscriber.tgId, req.body.mediaUrl, req.body.text);
+                                    await bot.bot.telegram.sendPhoto(subscriber.tgId, req.body.mediaUrl, caption);
                                     break
                                 case('sendVideo') :
-                                    await bot.bot.telegram.sendPhoto(subscriber.tgId, req.body.mediaUrl, req.body.text);
+                                    await bot.bot.telegram.sendPhoto(subscriber.tgId, req.body.mediaUrl, caption);
                                     break
                                 default :
-                                    await bot.bot.telegram.sendMessage(subscriber.tgId, req.body.text, {parse_mode: 'HTML'});
+                                    await bot.bot.telegram.sendMessage(subscriber.tgId, caption, {parse_mode: 'HTML'});
                             }
                         }
                     }
