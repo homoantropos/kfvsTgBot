@@ -28,7 +28,6 @@ app.use(bodyParser.json());
 app.use('/api/user', userRoutes);
 app.use('/api/subscribers', subscriberRoutes);
 app.use('/api/occasions', occasionRoutes);
-app.use('/api/send', messageRoutes)
 
 sequelize.sync({alter: true})
     .then(
