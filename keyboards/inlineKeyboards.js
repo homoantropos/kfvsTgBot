@@ -185,7 +185,11 @@ exports.laws = [
     }],
     [{
         text: 'Модельна навчальна програма «Фізична культура. 5-6 класи»',
-        url: 'https://drive.google.com/drive/u/2/folders/1KB2WRyGBgNwcETclvsBVbuRCpl-g2OKs'
+        url: 'https://imzo.gov.ua/model-ni-navchal-ni-prohramy/fizychna-kul-tura/'
+    }],
+    [{
+        text: 'Порядок організації інклюзивного навчання у закладах загальної середньої освіти',
+        url: 'https://zakon.rada.gov.ua/laws/show/957-2021-%D0%BF/print'
     }],
     [{
         text: 'Назад',
